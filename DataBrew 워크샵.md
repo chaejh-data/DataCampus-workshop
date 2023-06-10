@@ -81,18 +81,65 @@ AWS Glue DataBrew는 데이터 패턴을 이해하고 이상 징후를 감지하
 
 Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 집합을 의미합니다. DataBrew는 형식이 지정된 파일에서 가져온 모든 소스의 데이터로 작업할 수 있으며, 점점 늘어나는 데이터 저장소 목록에 직접 연결할 수 있습니다. DataBrew에서 데이터 집합은 데이터에 대한 읽기 전용 연결입니다. DataBrew는 데이터를 참조하기 위해 일련의 설명 메타데이터를 수집합니다. 실제 데이터는 DataBrew에서 변경하거나 저장할 수 없습니다. 간단히 설명하기 위해 Dataset은 실제 Dataset과 DataBrew가 사용하는 메타데이터를 모두 의미합니다.
 
-이 실습에서는 고객 dataset을 만듭니다. 아래는 샘플 고객 데이터입니다.
+이 실습에서는 Customers dataset을 만듭니다. 아래는 샘플 고객 데이터입니다.
  
-1. [AWS Glue DataBrew 서비스](https://console.aws.amazon.com/databrew/home?region=us-east-1#)로 이동합니다. 오른쪽 상단에 **미국 동부 (버지니아 북부) us-east-1** 리전을 사용하고 있는지 확인합니다.
+1. [AWS Glue DataBrew](https://console.aws.amazon.com/databrew/home?region=us-east-1#)서비로 이동합니다. 오른쪽 상단에 **미국 동부 (버지니아 북부) us-east-1** 리전을 사용하고 있는지 확인합니다.
    - ![](images/checkregion.png)
 
-2. 왼쪽 메뉴에서 Datasets를 선택합니다.
+1. 왼쪽 메뉴에서 **Datasets**를 선택합니다.
    - ![](images/checkregion.png)
 
-3. 새 데이터 세트 연결을 선택합니다.
+1. **Connect new dataset**을 선택합니다.
    - ![](images/create_a_dataset.png)
 
+1. dataset의 이름을 Customers로 지정합니다.
+
+1. 서비스로 Amazon S3를 선택합니다.
+
+1. Enter your source from S3 필드에 s3://glue-databrew-immersionday를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
+
+1. datafiles > customers folder 로 이동합니다.
+
+1. "customer.csv" 파일을 선택합니다.
+   - ![](images/dataset_details.png)
+
+1. file type으로 CSV를 선택합니다.
+
+1. 쉼표를 CSV 구분 기호로 선택합니다.
+
+1. 첫 번째 행을 헤더로 처리를 선택합니다.
+
+1. 오른쪽 아래에 있는 Create dataset 버튼을 선택합니다.
+   - ![](images/dataset_type_as_csv.png)
+
+1. Customers Dataset이 생성됩니다.
+   - ![](images/create_a_dataset.png)
+
+1. Customers Dataset을 선택하여 고객 데이터를 미리 확인해봅니다.
+   - ![](images/datasetpreview.png)
 
 
+다음으로 DataBrew 프로젝트를 생성합니다.
 
 
+### 2.2 Customer Profile Job (PII)
+
+프로파일링 작업은 dataset에 대해 다양한 평가를 실행합니다. 데이터 프로파일링이 수집하는 정보는 어떤 종류의 데이터 준비 단계가 필요한지 결정하는 데 도움이 됩니다.
+이 섹션에서는 프로필 작업에서 PII 탐지 기능을 활성화하여 데이터 집합에 있는 민감한 개인 식별 정보(PII) 데이터를 식별합니다.
+
+
+1. 왼쪽 탐색 창에서 **Datasets**을 선택합니다.
+1. 이전 단계에서 만든 **Customers** dataset을 선택합니다.
+
+1. 오른쪽 상단에서 **Run data profile**을 선택합니다.
+
+   - ![](images/create_a_customer_profile_1.png)
+
+1. **Create a profile job**를 선택합니다.
+   - ![](images/create_a_customer_profile_2.png)
+
+
+1. Job 이름으로 *Customers profile job* 입력
+
+2. **Full dataset** 선택
+   - ![](images/create_a_customer_profile_3.png)
