@@ -60,7 +60,7 @@ CloudFormation 스택을 완료하는 데 대략 3~5분 정도 소요됩니다.
     - ![](images/cf-complete.png)
 
 1. 상단 검색창에 **S3**로 검색하여, S3 서비스로 이동 후 버킷 메뉴를 클릭하면 glue-databrew-immersionday 버킷을 확인할 수 있습니다.
-    - ![](images/s3-bucket-name)
+    - ![](images/s3-bucket-name.png)
 
 1. glue-databrew-immersionday 버킷에는 다음과 같은 구조를 가지고 있습니다.
     - ![](images/s3-bucket.png)
