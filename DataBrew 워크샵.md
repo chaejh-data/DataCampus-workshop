@@ -1,7 +1,7 @@
 # DataLake & 데이터 분석 워크샵
 
-## 1. Introduction
-- 15분
+## 1. Introduction 
+<!-- 15분 -->
 
 ### 1-1. 시작하기 전
 
@@ -16,10 +16,10 @@ Action : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 두
 1. 판매 데이터 (Sales): 고객 데이터 및 제품 데이터와 Join하여 우편번호 및 제품 유형별로 판매량을 비교합니다.
 1. 제품 데이터 (Product) : 마지막으로 판매 가능한 제품 ID가 포함된 우편번호 목록을 생성합니다.
 
- Data Model
+ **Data Model**
     ![](images/datamodel.png)
 
- Logical data flow
+ **Logical data flow**
     ![](images/dataflow.png)
 
 
@@ -46,14 +46,15 @@ Action : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 두
 위의 단계를 모두 수행했다면 이제 실습을 시작할 수 있습니다.
 
 ### 1.3 S3버킷 생성하기(CloudFormation)
- 5분
+<!--  5분 -->
 
 1. 워크샵을 시작하기 전에 필요한 AWS 리소스를 생성해야 합니다. 이를 위해 리소스가 포함된 스택을 생성할 수 있는 AWS CloudFormation 템플릿을 제공합니다. 스택을 생성하면 AWS가 계정에 여러 리소스를 생성합니다. 이 워크샵에서는 사용할 데이터 파일 및 폴더와 함께 접두사가 glue-databrew-immersionday인 S3 버킷을 생성합니다. 
-아래의 [스택 시작](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday) 링크를 클릭하여 이 워크샵에 필요한 리소스를 생성합니다.
-    - ![](images/createstack.png)
+아래의 Launch Stack 버튼을 클릭하여 이 워크샵에 필요한 리소스를 생성합니다.
 
  [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday)
- 
+
+    - ![](images/createstack.png)
+
 CloudFormation 스택을 완료하는 데 대략 3~5분 정도 소요됩니다.
 
 1. 스택 생성이 성공하면 스택의 출력 탭에서 새로 생성된 버킷 이름을 확인할 수 있습니다.
@@ -64,6 +65,7 @@ CloudFormation 스택을 완료하는 데 대략 3~5분 정도 소요됩니다.
 
 
 ## 2. Profiling and Data Quality
+
 AWS Glue DataBrew는 데이터 패턴을 이해하고 이상 징후를 감지하기 위해 데이터를 프로파일링하여 데이터의 품질을 평가할 수 있도록 도와줍니다. 데이터 세트의 데이터 프로필 개요 섹션에서 데이터에 대한 통계 요약을 검토하고 수집할 수 있습니다.
     - ![](images/profiling.png)
 
