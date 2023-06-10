@@ -234,7 +234,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 - **Data quality check scope**(데이터 품질 검사 범위)에서 **"Individual check for each column"**(각 컬럼에 대해 개별 검사)를 선택합니다.
 - **Rule success criteria**에서 **"All data quality checks are met (AND)"** 을 선택합니다.
 <!-- 모든 데이터 품질 검사 충족-->
-- **Data quality checks**에서 Check 1의 아래 드롭다운하여 **Duplicate rows checks(중복 행)**을 선택합니다.
+- **Data quality checks**에서 Check 1의 아래 드롭다운하여 **Duplicate rows(중복 행)**을 선택합니다.
 - **Condition(조건)에서 Is equals(같음)을 선택합니다.
 - **Value에 0**을 입력하고, 드롭다운하여 **rows**을 선택합니다.
 - **Rule Summary**에서 설정한 규칙에 대한 설명을 확인할 수 있습니다.
@@ -244,7 +244,7 @@ Dataset에 중복 행 수가 == 0인 경우 규칙이 통과됩니다.
 1. **Add another rule**를 클릭하여 dataset에 다른 데이터 품질 검사를 추가하고, 이 규칙의 이름을 *Quantity and total Sales should be >0* 으로 지정해 보겠습니다.
 
 - **Data quality check scope**(데이터 품질 검사 범위)에서 **Common checks for selected columns**(선택한 컬럼에 대한 공통 검사)를 선택합니다.
-- **Rule success criteria**(규칙 성공 기준)에서** All data quality checks are met (AND)** 모든 데이터 품질 검사 충족을 선택합니다.
+- **Rule success criteria**(규칙 성공 기준)에서 **All data quality checks are met (AND)** 모든 데이터 품질 검사 충족을 선택합니다.
 - **Selected columns**에서 **Selected columns**을 선택합니다.
 - **Select Columns**을 클릭하여 **Quantity**와 **Total_Sales**을 두 개를 선택합니다.
 - Check 1의 **Data quality check**에서 **Column values** 드롭다운하여 **Numeric values**을 선택합니다.
@@ -300,6 +300,72 @@ Profile jobs 은dataset에 대해 평가를 실행합니다. dataset 수준과 �
 
 1. datasets 메뉴에서 Sales dataset을 선택합니다.
 
-1datasets 메뉴에서 Sales dataset을 선택합니다.
-Data lineage 탭을 선택하여 다음을 확인합니다.. Data lineage 탭을 선택하여 다음을 확인합니다.
+1. **Data lineage** 탭을 선택하여 다음을 확인합니다.
+     - ![](images/datalineage.png)
 
+1. 해당 dataset의 모든 작업을 보기위해 **CloudTrail logs**를 선택합니다.
+     - ![](images/cloudtrail.png)
+
+## 3. Standard Transform
+이 실습에서는 name 컬럼을 표준화 및 결합하고 address 컬럼을 분리하여 customer data를 정리하고 변환합니다.
+     - ![](images/basictransform.png)
+
+다음 방법을 실습하게 됩니다.
+- Project 만들기
+- Recipe 빌드
+- Job 생성
+
+### 3.1 Create Project
+
+DataBrew의 대화형 데이터 준비 작업 공간을 project라고 합니다. data project를 사용하여 데이터, 변환 및 예약된 프로세스와 같은 관련 항목 아이템을 관리합니다. 프로젝트 생성의 일부로 작업할 dataset을 선택하거나 만듭니다. 그런 다음, DataBrew가 실행할 일련의 지침 또는 단계인 recipe를 만듭니다. 이러한 작업을 통해 raw data를 분석이나 예측을 위한 데이터 파이프라인에서 사용할 수 있는 형태로 변환합니다.
+
+
+이제 dataset이 만들어졌으므로 데이터 변환을 시작할 수 있습니다.
+
+1. 왼쪽 메뉴에서 **PROJECTS**를 선택합니다.
+
+1. **Create project**를 선택합니다.
+
+1. 프로젝트 이름을 *CleanCustomer*로 지정합니다. 자동 입력된 Recipe name은 그대로 둡니다.
+
+1. **My datasets**을 선택합니다.
+
+     - ![](images/create_a_project.png)
+
+1. 이전 실습 모듈에서 만든 **Customers dataset**을 선택합니다.
+
+1. **Sampling** 섹션을 열고 Type을 **Random rows**으로 설정합니다.
+
+1. 샘플 크기로 **1,000**을 선택합니다.
+
+     - ![](images/select_dataset.png)
+
+1. Permission 섹션의 **Role name**를 드롭다운에서 *AWSGlueDataBrewServiceRole-ID*를 선택합니다.
+
+1. **Create Project**을 클릭합니다.
+     - ![](images/create_iam_role.png)
+
+
+새 프로젝트를 초기화하는 데 몇 분 정도 걸립니다.
+
+
+### 3.2 Build Recipe
+
+recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작동하도록 하려는 데이터입니다. recipe에는 여러 단계가 포함될 수 있으며, 각 단계에는 여러 작업이 포함될 수 있습니다. toolbar의 transformation 도구를 사용하여 데이터에 적용하려는 모든 변경 사항을 설정할 수 있습니다. DataBrew는 데이터 변환에 대한 지침을 저장하지만 실제 데이터는 저장하지 않습니다. 프로젝트는 기본적으로 데이터 집합의 첫 번째 샘플 n개를 로드합니다. DataBrew는 데이터 집합에 대한 통계를 자동으로 생성하고 데이터의 그리드(샘플 데이터 집합의 표 형식, Excel과 비슷한 시각화), 스키마 및 프로필(전체 dataset에 대한 통계) 보기를 제공합니다. 샘플링을 업데이트하여 변환 프로세스의 어느 시점에서든 작업할 데이터의 다른 부분을 검색할 수 있습니다.
+
+이 실습에서는 병합 및 포맷 변환을 사용하여 이름 컬럼을 표준화합니다. Format transform을 사용하여 생년월일(DoB) 열을 표준화합니다. 다음으로, Clean and SPLIT transform을 사용하여 Address 컬럼을 표준화합니다. 마지막으로 최종 출력에 있는 PII 데이터를 삭제합니다.
+
+1. 이전 단계에서 만든 CleanCustomer 프로젝트를 엽니다.
+
+1. 상단 메뉴에서 MERGE을 선택합니다.
+
+     - ![](images/build_recipe_1.png)
+
+1. Source 컬럼으로 Prefix, First_Name 및 Last_Name 컬럼을 선택합니다.
+
+1. 공백 문자를 separator(구분 기호)로 입력합니다.
+     - ![](images/build_recipe_2.png)
+
+1. **New column name** 텍스트 상자에 <mark>Name</mark>을 입력합니다.
+
+Preview changes를 클릭하고 미리 보기에서 예상한 결과가 표시되는지 확인합니다. Apply를 선택합니다.
