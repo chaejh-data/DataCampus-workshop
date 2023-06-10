@@ -97,7 +97,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 1. **Enter your source from S3** 텍스트 박스에 *s3://glue-databrew-immersionday*를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
 
-1. **datafiles > customer**s** 폴더로 이동합니다.
+1. **datafiles > customers** 폴더로 이동합니다.
 
 1. "customer.csv" 파일을 체크합니다.
    - ![](images/dataset_details.png)
@@ -169,3 +169,90 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 이후 과정에서는 변환을 통해 확인된 PII 열을 선택적으로 삭제합니다.
 
 다음으로, Sales Dataset 및 Data Quality Rules을 생성합니다.
+
+
+### 2.3 Sales Dataset
+
+이 실습에서는 Sales 데이터 집합을 만듭니다. 아래는 샘플 판매 데이터입니다.
+   - ![](images/salesdatasample.png)
+
+1. 왼쪽 메뉴에서 **Datasets**을 선택합니다.
+
+1. **Connect new dataset**을 선택합니다.
+   - ![](images/connectnewdataset.png)
+
+1. dataset의 이름을 *Sales*로 지정합니다.
+
+1. 서비스로 **Amazon S3**를 선택합니다.
+
+1. **Enter your source from S3** 텍스트 박스에 *s3://glue-databrew-immersionday*를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
+
+1. **datafiles > sales** 폴더를 선택합니다.
+
+   - ![](images/Create_a_sales_dataset_1.png)
+
+1. file type으로 **CSV**를 선택합니다.
+
+1. **Comma(쉼표)**를 CSV 구분 기호로 선택합니다.
+
+1. **Treat first row as header(첫 번째 행을 헤더로 처리)**를 선택합니다.
+
+1. 오른쪽 아래에 있는 **Create dataset 버튼**을 선택합니다.
+   - ![](images/Create_a_sales_dataset_2.png)
+
+1. Sales Dataset이 생성됩니다. Sales Dataset을 선택하여 고객 데이터를 미리 확인해봅니다.
+   - ![](images/salesdataset.png)
+
+다음으로 data quality rules과 data profiling job을 만들 것입니다.
+
+### 2.4 Sales Profile Job (DQ)
+
+이 실습에서는 Sales dataset의 data quality을 확인하고, data quality ruleset을 만든 다음 profile job을 실행하여 적용합니다.
+
+1. 왼쪽 메뉴에서 **DQ Rules**을 선택하고, **Create data quality ruleset**를 클릭합니다.
+    - ![](images/create_sales_dq_ruleset_1.png)
+
+1. **ruleset name** 텍스트 박스에 *Sales DQ Checks*로 지정합니다.
+
+1. **Associated datase** 섹션에서 **Sales dataset**을 선택합니다. **View associated dataset details**를 클릭하여 dataset을 미리 확인합니다.
+1. 이제 dataset을 미리 볼 수 있으며, **Sales dataset의 (Quality, Total_Sales)컬럼**에 data quality 문제가 있음을 확인할 수 있습니다.
+    - ![](images/create_sales_dq_ruleset_2.png)
+
+1. 또한 적용할 수 있는 data quality check에 대한 **Recommendations(권장 사항)**도 확인할 수 있습니다.
+    - ![](images/create_sales_dq_ruleset_3.png)
+
+- DATASET QUALITY CHECKS
+  중복 행이 있는 dataset 확인
+
+- COLUMN QUALITY CHECKS
+  모든 컬에 missing values 0%인지 확인
+
+여러 규칙을 추가할 수 있으며, 각 규칙 내에서 여러 데이터 품질 검사를 정의할 수 있습니다.
+
+1. 첫 번째 규칙을 Duplicate rows라는 이름으로 만들어 보겠습니다. Rule 1에 대해 아래 옵션을 선택합니다:
+
+- **Data quality check scope**(데이터 품질 검사 범위)에서 **"Individual check for each column"**(각 컬럼에 대해 개별 검사)를 선택합니다.
+- **Rule success criteria**에서 **"All data quality checks are met (AND)"** 을 선택합니다.
+<!-- 모든 데이터 품질 검사 충족-->
+- **Data quality checks**에서 Check 1의 아래 드롭다운하여 **Duplicate rows checks(중복 행)**을 선택합니다.
+- **Condition(조건)에서 Is equals(같음)을 선택합니다.
+- **Value에 0**을 입력하고, 드롭다운하여 **rows**을 선택합니다.
+- **Rule Summary**에서 검사에 대한 논리적 설명을 확인할 수 있습니다.
+Dataset에 중복  수가 == 0인 경우 규칙이 통과됩니다.
+    - ![](images/create_sales_dq_ruleset_4.png)
+
+**Add another rule**를 클릭하여 dataset에 다른 데이터 품질 검사를 추가하고, 이 규칙의 이름을 "Quantity and total Sales should be >0" 으로 지정해 보겠습니다.
+
+- Data quality check scope(데이터 품질 검사 범위)에서 Common checks for selected columns(선택한 컬럼에 대한 공통 검사)를 선택합니다.
+- Rule success criteria(규칙 성공 기준)에서 All data quality checks are met (AND) 모든 데이터 품질 검사 충족을 선택합니다.
+- Selected columns에서 Selected columns을 선택합니다.
+- Select Columns을 클릭하여 Quantity and Total_Sales을 선택합니다.
+- Check 1의 Data quality check에서 Column values 드롭다운에서 Numeric values을 선택합니다.
+- Condition에서 Greater than(다음보다 큼)을 선택합니다.
+- Value에 Custom value으로 0을 입력합니다.
+- Threshold(임계값)의 경우 드롭다운에서 %(percent) row에 대해 Threshold(임계값)을 100으로 설정하고, Greater than equals을 선택합니다.
+- Rule Summary에서 논리적 설명을 볼 수 있습니다.
+    - ![](images/create_sales_dq_ruleset_5.png)
+
+ 이제 데이터 품질 검사를 시작할 준비가 되었습니다.Create ruleset 버튼을 클릭하여 데이터 품질 검사를 저장합니다.
+     - ![](images/create_sales_dq_ruleset_6.png)
