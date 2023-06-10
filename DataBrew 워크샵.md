@@ -366,6 +366,6 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 1. 공백 문자를 separator(구분 기호)로 입력합니다.
      - ![](images/build_recipe_2.png)
 
-1. **New column name** 텍스트 상자에 <mark>Name</mark>을 입력합니다.
+1. **New column name** 텍스트 상자에 `#0969DA` Name 을 입력합니다.
 
-Preview changes를 클릭하고 미리 보기에서 예상한 결과가 표시되는지 확인합니다. Apply를 선택합니다.
+1. **Preview changes**를 클릭하고, 미리 보기에서 예상한 결과가 표시되는지 확인합니다. **Apply**를 선택합니다.
