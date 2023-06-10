@@ -66,7 +66,7 @@ CloudFormation 스택을 완료하는 데 대략 3~5분 정도 소요됩니다.
 ## 2. Profiling and Data Quality
 
 AWS Glue DataBrew는 데이터 패턴을 이해하고 이상 징후를 감지하기 위해 데이터를 프로파일링하여 데이터의 품질을 평가할 수 있도록 도와줍니다. 데이터 세트의 데이터 프로필 개요 섹션에서 데이터에 대한 통계 요약을 검토하고 수집할 수 있습니다.
-    - ![](images/profiling.png)
+   - ![](images/profiling.png)
 
 아래 내용들을 확인해보겠습니다.
 
@@ -80,7 +80,7 @@ AWS Glue DataBrew는 데이터 패턴을 이해하고 이상 징후를 감지하
 Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 집합을 의미합니다. DataBrew는 형식이 지정된 파일에서 가져온 모든 소스의 데이터로 작업할 수 있으며, 점점 늘어나는 데이터 저장소 목록에 직접 연결할 수 있습니다. DataBrew에서 데이터 집합은 데이터에 대한 읽기 전용 연결입니다. DataBrew는 데이터를 참조하기 위해 일련의 설명 메타데이터를 수집합니다. 실제 데이터는 DataBrew에서 변경하거나 저장할 수 없습니다. 간단히 설명하기 위해 Dataset은 실제 Dataset과 DataBrew가 사용하는 메타데이터를 모두 의미합니다.
 
 이 실습에서는 고객 dataset을 만듭니다. 아래는 샘플 고객 데이터입니다.
-    - ![](images/customersampledata.png)
+   - ![](images/customersampledata.png)
 
 1. AWS Glue DataBrew 서비스로 이동합니다. 오른쪽 상단에 **미국 동부 (버지니아 북부) us-east-1** 리전을 사용하고 있는지 확인합니다.
 
