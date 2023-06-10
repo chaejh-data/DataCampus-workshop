@@ -144,10 +144,10 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
    - ![](images/create_a_customer_profile_3.png)
 
 
-1. Browse 버튼을 클릭하여 **glue-databrew-immersionday-*** S3 버킷 > profile-output 폴더**를 선택 후 Select 버튼을 클릭합니다.
+1. Browse 버튼을 클릭하여 **glue-databrew-immersionday-xxxx S3 버킷 > profile-output 폴더**를 선택 후 Select 버튼을 클릭합니다.
    - ![](images/create_a_customer_profile_4.png)
 
-1. **Data profile configurations**을 확장하고, 데이터 프로필 작업을 실행할 때 PII 열을 식별하려면 **PII statistics**에서 **Enable PII statistics**을 선택합니다. 추가로 **PII categories**에서 All categories**를 선택합니다.
+1. **Data profile configurations**을 확장하고, 데이터 프로필 작업을 실행할 때 PII 열을 식별하려면 **PII statistics**에서 **Enable PII statistics**을 선택합니다. 추가로 **PII categories**에서 **All categories**를 선택합니다.
    - ![](images/create_a_customer_profile_5.png)
 
 
@@ -165,7 +165,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
    - ![](images/create_a_customer_profile_7.png)
 
 
-1. 이 보고서는 컬럼 통계와 함께 PII 대상으로 확인된 PII 컬럼의 목록을 제공합니다. 또한 검토할 수 있는 잠재적인 PII 열을 보여줍니다.
-Standard Transform module에서는 변환을 적용하여 확인된 PII 열을 선택적으로 삭제합니다.
+1. 이 보고서는 컬럼 통계와 함께 PII 대상으로 확인된 PII 컬럼의 카탈로그를 제공합니다. 또한 검토할 수 있는 잠재적인 PII 열을 보여줍니다.
+이후 과정에서는 변환을 통해 확인된 PII 열을 선택적으로 삭제합니다.
 
 다음으로, Sales Dataset 및 Data Quality Rules을 생성합니다.
