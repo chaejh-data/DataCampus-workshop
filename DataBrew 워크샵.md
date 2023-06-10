@@ -56,12 +56,14 @@ Action : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 두
 
 CloudFormation 스택을 완료하는 데 대략 3~5분 정도 소요됩니다.
 <!-- 15:52:46 15:54:06 금방이네 -->
-1. 스택 생성이 성공하면 스택의 출력 탭에서 새로 생성된 버킷 이름을 확인할 수 있습니다.
+1. 스택 생성이 성공하면 **Outputs** 탭에서 새로 생성된 버킷 이름을 확인할 수 있습니다.
     - ![](images/cf-complete.png)
 
-1. 새로 생성된 버킷에는 다음과 같은 구조를 확인할 수 있습니다.
-    - ![](images/s3-bucket.png)
+1. 상단 검색창에 **S3**로 검색하여, S3 서비스로 이동 후 버킷 메뉴를 클릭하면 glue-databrew-immersionday 버킷을 확인할 수 있습니다.
+    - ![](images/s3-bucket-name)
 
+1. glue-databrew-immersionday 버킷에는 다음과 같은 구조를 가지고 있습니다.
+    - ![](images/s3-bucket.png)
 
 ## 2. Profiling and Data Quality
 
@@ -80,11 +82,12 @@ AWS Glue DataBrew는 데이터 패턴을 이해하고 이상 징후를 감지하
 Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 집합을 의미합니다. DataBrew는 형식이 지정된 파일에서 가져온 모든 소스의 데이터로 작업할 수 있으며, 점점 늘어나는 데이터 저장소 목록에 직접 연결할 수 있습니다. DataBrew에서 데이터 집합은 데이터에 대한 읽기 전용 연결입니다. DataBrew는 데이터를 참조하기 위해 일련의 설명 메타데이터를 수집합니다. 실제 데이터는 DataBrew에서 변경하거나 저장할 수 없습니다. 간단히 설명하기 위해 Dataset은 실제 Dataset과 DataBrew가 사용하는 메타데이터를 모두 의미합니다.
 
 이 실습에서는 고객 dataset을 만듭니다. 아래는 샘플 고객 데이터입니다.
-   - ![](images/customersampledata.png)
-
-1. AWS Glue DataBrew 서비스로 이동합니다. 오른쪽 상단에 **미국 동부 (버지니아 북부) us-east-1** 리전을 사용하고 있는지 확인합니다.
+ 
+1. **AWS Glue DataBrew 서비스**로 이동합니다. 오른쪽 상단에 **미국 동부 (버지니아 북부) us-east-1** 리전을 사용하고 있는지 확인합니다.
+   - ![](images/checkregion.png)
 
 2. 왼쪽 메뉴에서 Datasets를 선택합니다.
+   - ![](images/checkregion.png)
 
 3. 새 데이터 세트 연결을 선택합니다.
 
