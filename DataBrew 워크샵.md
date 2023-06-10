@@ -191,19 +191,19 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
    - ![](images/Create_a_sales_dataset_1.png)
 
-1. file type으로 **CSV**를 선택합니다.
+1. file type으로 *CSV*를 선택합니다.
 
-1. **Comma(쉼표)**를 CSV 구분 기호로 선택합니다.
+1. **Comma(쉼표)**를 *CSV* 구분 기호로 선택합니다.
 
-1. **Treat first row as header(첫 번째 행을 헤더로 처리)**를 선택합니다.
+1. **Treat first row as header**(첫 번째 행을 헤더로 처리)를 선택합니다.
 
-1. 오른쪽 아래에 있는 **Create dataset 버튼**을 선택합니다.
+1. 오른쪽 아래에 있는 **Create dataset** 버튼을 선택합니다.
    - ![](images/Create_a_sales_dataset_2.png)
 
-1. Sales Dataset이 생성됩니다. Sales Dataset을 선택하여 고객 데이터를 미리 확인해봅니다.
+1. Sales Dataset이 생성됩니다. **Sales Dataset**을 선택하여, 고객 데이터를 미리 확인해봅니다.
    - ![](images/salesdataset.png)
 
-다음으로 data quality rules과 data profiling job을 만들 것입니다.
+다음으로 data quality rules과 data profiling job을 만들어보겠습니다.
 
 ### 2.4 Sales Profile Job (DQ)
 
@@ -215,10 +215,10 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 1. **ruleset name** 텍스트 박스에 `Sales DQ Checks`로 지정합니다.
 
 1. **Associated datase** 섹션에서 **Sales dataset**을 선택합니다. **View associated dataset details**를 클릭하여 dataset을 미리 확인합니다.
-1. 이제 dataset을 미리 볼 수 있으며, **Sales dataset의 (Quality, Total_Sales)컬럼**에 data quality 문제가 있음을 확인할 수 있습니다.
+1. 이제 dataset을 미리 볼 수 있으며, **Sales dataset의 Quality, Total_Sales 컬럼**에 data quality 문제가 있음을 확인할 수 있습니다.
     - ![](images/create_sales_dq_ruleset_2.png)
 
-1. 또한 적용할 수 있는 data quality check에 대한 **Recommendations(권장 사항)**도 확인할 수 있습니다.
+1. 또한 적용할 수 있는 data quality check에 대한 **Recommendations**(권장 사항)도 확인할 수 있습니다.
     - ![](images/create_sales_dq_ruleset_3.png)
 
 - DATASET QUALITY CHECKS
@@ -361,9 +361,9 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 
      - ![](images/build_recipe_1.png)
 
-1. Source 컬럼으로 Prefix, First_Name 및 Last_Name 컬럼을 선택합니다.
+1. 오른쪽 메뉴에 Source Column으로 Prefix, First_Name 및 Last_Name 컬럼을 선택합니다.
 
-1. 공백 문자를 separator(구분 기호)로 입력합니다.
+1. 공백 문자(스페이스)를 separator(구분 기호)로 입력합니다.
      - ![](images/build_recipe_2.png)
 
 1. **New column name** 텍스트 박에 `Name`을 입력합니다.
@@ -421,10 +421,10 @@ Address 컬럼에서 특수 문자 <>&을 제거합니다. Address 컬럼 헤더
 
 1. 각 컬럼 상단의 (...)을 선택한 다음 표시되는 메뉴에서 Rename를 선택합니다.
 
-1. New column name 텍스트 상자에 대상 이름을 입력하고 Apply 선택하여 컬럼의 이름을 바꿉니다.
+1. New column name 텍스트 상자에 대상 이름을 입력하고 Apply 선택하여, 컬럼의 이름을 바꿉니다.
      - ![](images/build_recipe_13.png)
 
-1. **Customers dataset**에서 PII 데이터를 수정하려면 *SENSITIVE --> Data masking --> Redact* 선택합니다.
+1. **Customers dataset**에서 PII 데이터를 수정하려면 *SENSITIVE --> Data masking --> Redact values* 선택합니다.
 
 1. 오른쪽 Source 컬럼에서 **DoB, Address_1 및 Address_2**를 선택하고 **Apply**를 선택합니다. 이제 *DoB, Address_1 및 Address_2* 컬럼이 *#* 값으로 수정된 것을 확인할 수 있습니다.
 
@@ -433,7 +433,7 @@ Address 컬럼에서 특수 문자 <>&을 제거합니다. Address 컬럼 헤더
 
 다음으로, 위의 recipe를 사용하여 raw Customers data를 clean된 고객으로 변환하는 DataBrew 작업을 만들 것입니다.     
 
-### Create Job
+### 3.3 Create Job
 
 DataBrew는 recipe를 만들 때 설정한 지침을 실행하여 데이터를 변환하는 작업을 수행합니다. 이러한 지침을 실행하는 프로세스를 Job이라고 합니다. Job은 미리 설정된 일정에 따라 데이터 레시피를 실행할 수 있습니다. 하지만 일정에 국한되어 있지 않습니다. 필요에 따라 Job을 실행할 수도 있습니다. 일부 데이터를 프로파일링하려는 경우,recipe가 필요하지 않습니다. 이 경우, profile job을 설정하여 data profile을 만들면 됩니다.
 
@@ -445,12 +445,470 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여 데이터를 �
 1. Job의 출력 위치를 지정해야 합니다. DataBrew는 단일 작업에서 여러 가지 형식의 출력을 생성할 수 있는 유연성을 제공합니다. 
 **Job output settings**의 **File type** 드롭다운하여 *CSV*를 선택합니다.
 
-1. **Browse 버튼**을 선택하여 S3 위치를 선택하고, 텍스트 박스에 `glue-databrew-immersionday`를 입력합니다.
-     - ![](images/createjob.png)
+1. **Browse 버튼**을 클릭하 `glue-databrew-immersionday` S3 위치를 선택합니다.
+     - ![](images/create_a_job_1.png)
 
 1. 이전에 생성한 **glue-databrew-immersionday-xxxx** S3 버킷 위치를 선택합니다.
 
-1. shared 폴더를 선택합니다.
+1. **shared 폴더**를 선택합니다.
 
-1. Select 버튼을을 선택합니다.
+1.  **Select 버튼**을 선택합니다.
+     - ![](images/create_a_job_2.png)
+
+1. **Advanced job settings** 섹션을 열고 *Maximum number of units*에 *5*를 입력합니다.
+
+1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
+
+1. **Create and run job**을 선택합니다.
+     - ![](images/create_a_job_3.png)
+
+1. Job이 실행되고 왼쪽 탐색을 통해 **Job output** 항목에 **output**에 대한 링크가 나타납니다.
+     - ![](images/create_a_job_4.png)
+
+1. 링크를 클릭하면 출력 파일의 위치가 표시됩니다.
+     - ![](images/create_a_job_5.png)
+1. S3 URL을 클릭하면 첫 번째 실행의 출력 파일이 들어 있는 폴더가 표시됩니다.
+     - ![](images/create_a_job_6.png)
+
+## 4. Advanced Transform
+
+### 4.1 Join and Group By
+
+이 실습에서는 Join(조인) 및 Group By(그룹화 기준) 변환을 사용하여 제품 ID, 우편 번호 및 제품 유형별로 총 매출을 계산합니다
+
+1. 왼쪽 탐색 메뉴에서 **PROJECT**를 선택합니다.
+
+1. **Project Name** 텍스트 박스에 `Sales`를 입력합니다.
+
+1. **Select a dataset** 섹션에서 **My datasets**을 선택한 다음 **Sales**를 선택합니다.
+     - ![](images/total_sales_1.png)
+
+1. **Role name**를 드롭다운해서 *AWSGlueDataBrewServiceRole-ID* 역할을 선택하고 **Create project**을 선택합니다.
+     - ![](images/total_sales_2.png)
+
+새 프로젝트를 초기화하는 데 몇 분 정도 걸립니다.
+
+
+1. 먼저 **Sales** dataset에서 데이터 품질 문제가 있는 rows을 필터링해 보겠습니다.
+
+1. 상단 메뉴에서 **FILTER**를 선택하고 **By condition > Greater than**을 선택합니다.
+     - ![](images/total_sales_01.png)
+
+1. **Source column** 드롭다운에서 **Quantity**을 선택하고 **Filter condition**(필터 조건)을 *Greater than 0* (값 0보다 큼)으로 적용합니다.
+미리 보기에서 필터링될 행이 조건을 충족하지 않으면, 취소선으로 강조 표시된 것을 확인할 수 있습니다.
+     - ![](images/total_sales_02.png)
+
+1. **Apply**를 클릭합니다. 왼쪽 상단 모서리에 행 수가 (500행)에서 (496행)으로 줄어든 것을 볼 수 있습니다.
+
+1. **Total_Sales** 행도 동일한 단계를 반복해 보겠습니다. **FILTER**를 선택하고 **By condition > Greater than**을 선택하여, Total_Sales 컬럼이 Greater than 0 (0 값보다 큼)을 유지합니다.
+     - ![](images/total_sales_03.png)
+
+
+1. **Apply**를 클릭합니다. 왼쪽 상단 모서리에 행 수가 (496행)에서 (491행)으로 줄어든 것을 확인할 수 있습니다.
+
+1. **duplicate rows**(중복 행)을 제거하려면, 상단 메뉴에서 **DUPLICATES**를 선택하고 **Delete duplicate rows**를 선택합니다.
+     - ![](images/total_sales_04.png)
+
+
+1. **Apply을 클릭하여**, sample dataset에 있는 중복 행 10개를 제거합니다. 이제 행 수가 (481행)이 되어야 합니다. 
+모든 데이터 품질 이슈를 처리했습니다.
+     - ![](images/total_sales_05.png)
+
+1. 이 Standard Transform 단계에서 만든 Clean Customer 데이터와 이 Sales dataset과 조인합니다. 상단 메뉴에서 JOIN을 선택합니다.
+
+     - ![](images/total_sales_3.png)
+
+상단 메뉴 표시줄에 JOIN이 보이지 않는다면 MORE 섹션에서 찾을 수 있습니다.
+
+
+
+1. Standard Transform 단계에서 생성한 CleanCustomer output을 사용하여 새로운 Dataset을 만들려고 합니다. Connect new dataset을 선택합니다.
+     - ![](images/total_sales_4.png)
+
+1. **Dataset name**을 `CleanCustomer`로 입력한 후 **'Amazon S3'**를 선택합니다. **Enter your source from S3** 텍스트 상자에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다. 
+**shared > CleanCustomer_Date_Timestamp** 폴더로 이동합니다.
+     - ![](images/total_sales_5_A.png)
+1. 폴더에서 csv 파일을 선택합니다. (참고: 날짜와 타임스탬프는 CleanCustomer 작업이 실행된 날짜와 시간과 일치합니다.)
+Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 **Create dataset**를 선택합니다.
+     - ![](images/total_sales_5_B.png)
+1. 새 dataset 집합 미리 보기가 표시됩니다. **Next**을 선택합니다.
+     - ![](images/total_sales_6_A.png)
+
+1. **Inner join** 옵션을 선택합니다. Table A 드롭다운에서 *Customer_id*를 선택하고 Table B 드롭다운에서 *Customer_ID*를 선택합니다. 그리고 아래 두 스크린샷에 따라 컬럼을 선택하고 **Finish**을 선택합니다.
+     - ![](images/total_sales_7.png)
+     - ![](images/total_sales_8.png)
+
+
+1. 다음으로 Product data를 join합니다. 위와 유사하게 상단 메뉴 모음에서 Join 옵션을 선택하고 Connect new dataset을 선택합니다.
+1. **Dataset name**을 `Product`로 입력한 후 **''Amazon S3'**'를 선택합니다. **'Enter your source from S3** 텍스트 상자에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다. 
+폴더에서 csv 파일을 선택합니다. **datafiles > products** 폴더로 이동합니다. Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 **Create dataset**를 선택합니다.
+     - ![](images/total_sales_9.png)
+
+
+1. Product dataset 미리 보기가 표시됩니다. **Next**을 선택합니다.
+
+1. **Inner join** 옵을 선택합니다. Table A 드롭다운에서 *Product_id*를 선택하고 Table B 드롭다운에서 *Product Key*를 선택합니다. 그리고 아래 두 스크린샷에 따라 컬럼을 선택하고 **Finish**을 선택합니다.
+     - ![](images/total_sales_10.png)
+     - ![](images/total_sales_10_B.png)
+
+
+1. **Zip 컬럼 헤더**에서 *#*을 클릭하여 **Zip data type**을 *integer(정수)*로 변경합니다.
+
+     - ![](images/total_sales_12_B.png)
+
+1. 스크린샷에 따라 COLUMN > Delete를 선택하여 *불필요한 Source Columns(Txn_Date, Customer_Id 및 Quantity)*을 삭제합니다.
+
+1. 상단 메뉴에서 Group 선택합니다.
+     - ![](images/group.png)
+
+1. 아래 스크린샷과 같이 Product_Id, Zip, Product_Type를 대상으로 **Column names과 Aggregate(집계 함수)**를 선택하고 **Finish**을 선택합니다.
+해당 결과로 Product_Id, Zip, Product_Type별로 총 매출을 Sum하는 recipe가 생성됩니다.
+     - ![](images/total_sales_15.png)
+
+1. recipe를 Publish하여 새 버전의 recipe를 만듭니다. 이렇게 하면 게시된 recipe 버전을 recipe Job의 옵션으로 선택할 수 있습니다. 
+ recipe를 확인한 후 **Publish**를 선택합니다.
+     - ![](images/total_sales_16.png)
+1. **Version description**으로 `Total-Sales`을 입력하고 게시를 선택합니다.
+     - ![](images/total_sales_17.png)
+
+1. 마지막으로 이 recipe를 사용하여 전체 sales dataset에 대해 총 판매량을 생성하는 작업을 만듭니다. **Create job**을 선택합니다.
+     - ![](images/total_sales_18.png)
+
+
+1. **Job name**을 `Total-Sales`로 지정합니다.
+
+1. 작업의 출력 위치를 지정해야 합니다. **Job output settings**에서 **File Type**으로 *"CSV"*를 선택합니다.
+
+1. **Browse**를 선택하여 S3 위치를 선택하고 텍스트 상자에 `glue-databrew-immersionday`를 이전에 생성한 S3 버킷 위치를 선택합니다.. **shared 폴더**를 **Select**를 클릭합니다.
+     - ![](images/total_sales_19.png)
+
+1.  Permissions 세션에서 **Role name** 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* role을 선택합니다. **"Create and run job"**을 선택합니다.
+     - ![](images/total_sales_20.png)
+
+1. 작업이 성공적으로 실행되면. Output은 s3에 기록됩니다.
+     - ![](images/total_sales_21.png)
+
+### 4.2 Pivot and Custom Recipe
+
+
+이 실습에서는 Pivot 변환을 총 판매액으로 사용하여 **product Type - Toys - Campaign**에 대한 우편 번호를 식별합니다. 이 실습에서는 custom recipe를 사용하는 방법을 배웁니다.
+
+
+1. cloudformation 템플릿으로 생성한 g**lue-databrew-immersionday** s3 버킷의 **recipes/** 폴더에서 *ID-recipe-import.json*을 다운로드합니다.
+
+     - ![](images/s3_custom_recipe.png)
+
+1. **project name**으로 `SalesByProductType-Toys` 를 입력합니다. **Recipe detail** 섹션에서 **Import steps from recipe**를 활성화합니다.
+**Browse Recipes**를 사용하여 S3에서 다운 받았던 *Sales-recipe*를 선택합니다.
+     - ![](images/create_new_project_1.png)
+
+1. **dataset section** 섹션에서 **Sales dataset**을 선택합니다.
+     - ![](images/create_new_project_2.png)
+
+1.  Permissions 세션에서 **Role name** 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* role을 선택합니다. **"Create Project"**을 선택합니다.
+
+     - ![](images/create_new_project_3.png)
+
+
+1. 프로젝트의 데이터 sample을 아래 두 스크린샷과 같이 변경합니다. 
+오른쪽 상단 **First in sample** 클릭합니다.
+     - ![](images/create_new_project_4.png)
+**Last n rows > Custom siza > 4000** 설정 후 **Load this sample** 클릭합니다.
+     - ![](images/create_new_project_5.png)
+
+1. 캠페인이 Toys product type에 대한 캠페인이므로 상단 메뉴의 Filter transform을 사용하여 Toys product type 만 필터링합니다.
+상단에 **FILTER > By condition > Is exactly**
+     - ![](images/create_new_project_6.png)
+**Toys** 컬럼만 선택 후 Apply
+     - ![](images/create_new_project_7.png)
+
+1. 아래 지침에 따라 Product_Id로 Pivot하여 지정된 우편 번호에 있는 서로 다른 두 제품 라인의 product_Id 매출을 비교합니다.
+상단에 PIVOT 클릭
+     - ![](images/create_new_project_8.png)
+**PIVOT - Rows to clomns 선택 > Pivot column (Product_id) > Pivot values (Sum, Total_Sales_sum) > Finish** 버튼을 클릭합니다..
+
+     - ![](images/create_new_project_9.png)
+
+1. 왼쪽 메뉴에서 **Recipes**를 선택한 다음 **Upload Recipe**를 선택합니다.
+
+     - ![](images/uploadrecipe.png)
+
+
+1. s3 버킷의 레시피 폴더에서 다운로드한 *ID-recipe-import.json*을 업로드후 **Create and publish recipe** 버튼을 클릭합니다. 이 레시피에는 데이터를 정리하는 추가 단계가 포함되어 있습니다.
+
+     - ![](images/create_new_project_11.png)
+
+1. 왼쪽 메뉴에서 **Project**를 선택 후, **SalesByProductType-Toys** 프로젝트로 돌아가서 아래 스크린샷과 같이 **Import recipe**를 선택합니다.
+     - ![](images/create_new_project_12.png)
+
+1. 업로드한 레시피 *ID-recipe-import.json*을 선택하고 **Next**을 선택합니다.
+     - ![](images/create_new_project_13.png)
+
+1. **Recipe import** 옵션에서 *Append*를 선택하고 **Next** 그리고 **Import**를 선택합니다.
+     - ![](images/create_new_project_14.png)
+
+     - ![](images/create_new_project_15.png)
+
+레시피를 성공적으로 가져오면 장난감 캠페인의 목록 우편 번호가 생성됩니다.
+1. 이제 이 레시피를 전체 **Sales dataset**에 적용하기 위해 job을 만듭니다. **Creat job**를 선택합니다.
+     - ![](images/create_new_project_16.png)
+
+1. **Job name**을 `SalesByProductType-Toys`로 지정합니다.
+
+1. 작업의 출력 위치를 지정해야 합니다. **Job output settings**에서 **File Type**으로 *"CSV"*를 선택합니다.
+
+1. **Browse**를 선택하여 S3 위치를 선택하고 텍스트 상자에 `glue-databrew-immersionday`를 이전에 생성한 S3 버킷 위치를 선택합니다. **shared 폴더**를 **Select**를 클릭합니다.
+     - ![](images/create_new_project_17.png)
+
+1.  Permissions 세션에서 **Role name** 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* role을 선택합니다. **"Create and run job"**을 선택합니다.
+
+     - ![](images/create_new_project_18.png)
+
+1. 작업이 성공적으로 실행되면. **Output**은 s3에 기록됩니다
+     - ![](images/create_new_project_19.png)
+
+### 4.3 Schedules
+
+언제든지 DataBrew 작업을 다시 실행할 수 있으며, 일정에 따라 DataBrew 작업 실행을 자동화할 수도 있습니다.
+
+
+1. 왼쪽 메뉴에서 Job을 선택하고 Schedules 탭으로 이동하여 Create schedule를 선택합니다.
+     - ![](images/schedule_1.png)
+
+1. 아래 스크린샷과 같이 **Schedule name**을 `Hourly`로 입력하고 frequency를 Recurring>1>Weekdays>00:00 선택한 후 Add를 선택합니다.
+     - ![](images/schedule_2.png)
+
+1. 왼쪽 메뉴에서 **job**을 선택하고 오른쪽 상단 메뉴에서 **Action > Edit** 을 선택하여 **Total-Sales job**을 선택합니다.
+
+     - ![](images/schedule_3.png)
+
+
+1. **Associated schedule** 으로 이동하여 **Hourly**을 선택하고 **Sav**을 선택합니다.
+
+     - ![](images/schedule_4.png)
+     - ![](images/schedule_5.png)
+1. **Job Details**탭에서 관련 일정을 확인할 수 있으며 일정에 따라 작업이 진행됩니다.
+
+
+### 4.4 Visualize In QuickSight
+
+이 섹션에서는 데이터를 탐색하여 어떤 제품이 어느 지역에서 가장 많이 판매되는지 알아보겠습니다. 데이터를 탐색하기 위해 Amazon QuickSight를 사용할 것입니다. Amazon QuickSight는 클라우드용으로 구축된 확장 가능한 서버리스 임베디드형 머신 러닝 기반 비즈니스 인텔리전스(BI) 서비스입니다. QuickSight를 사용하면 머신 러닝 기반 인사이트가 포함된 대화형 BI 대시보드를 쉽게 만들고 게시할 수 있습니다. QuickSight 대시보드는 모든 기기에서 액세스할 수 있으며, 애플리케이션, 포털 및 웹사이트에 원활하게 임베드할 수 있습니다.
+
+#### QuickSight 시작하기.
+1. AWS 관리 콘솔에서 아래와 같이 검색 창에 QuickSight를 입력합니다:
+   - ![](images/visualize_open_quicksight.png)
+
+1. QuickSight를 선택하면 QuickSight 시작 페이지가 표시됩니다. QuickSight에 가입하지 않은 경우 가입을 완료해야 할 수 있습니다. QuickSight에 가입하는 방법에 대한 자세한 안내는 여기에서 확인할 수 있습니다. 이 워크샵에서는 QuickSight Enterprise Addition에서만 사용할 수 있는 인사이트 및 머신 러닝을 사용합니다. 
+
+가입을 완료하면 QuickSight에서 시작 마법사가 표시되며, 제시된 슬라이드를 자유롭게 살펴보세요. 슬라이드는 다음과 같은 형태로 나타납니다:
+   - ![](images/visualize_quicksight_start.png)
+
+
+#### S3 액세스 권한 부여하기.
+Amazon QuickSight 내에서 프로필 이름(오른쪽 상단)을 선택합니다. QuickSight 관리를 선택한 다음 보안 및 권한을 선택합니다.
+
+추가 또는 제거를 선택합니다.
+
+목록에서 Amazon S3를 찾습니다. 다음 중 하나를 선택합니다. 이러한 작업을 수행하면 S3 버킷을 선택할 수 있는 화면이 열립니다.
+
+확인란이 선택 취소되어 있으면 Amazon S3 옆의 확인란을 사용 설정합니다.
+
+확인란이 이미 사용 설정되어 있으면 세부 정보를 선택한 다음 S3 버킷 선택을 선택합니다.
+
+Amazon QuickSight에서 액세스하려는 버킷을 선택합니다. 그런 다음 선택을 선택합니다.
+
+업데이트를 선택합니다.
+
+이 프로세스의 첫 번째 단계에서 AWS 리전을 변경한 경우 사용하려는 AWS 리전으로 다시 변경합니다.
+
+
+#### 데이터 세트 만들기.
+1. 이제 Amazon QuickSight 오리엔테이션을 완료하고 QuickSight를 실행했으므로 왼쪽의 메뉴를 보고 데이터 세트를 선택합니다. 섹션 6.1에서 처리한 Total-Sales data를 가져올 것입니다.
+
+
+   - ![](images/visualize_newdataset.png)
+
+1. 화면 오른쪽 상단에서 New Dataset button을 누르면 다음과 같이 표시됩니다:
+
+
+1. 보시다시피 QuickSight는 여러 데이터 소스를 지원합니다. Twitter, Github, Snowflake, Redshift 등에서 데이터를 가져올 수 있습니다. 사용 가능한 데이터 소스의 전체 목록은 여기에서 설명서를 참조하세요. 데이터 소스 페이지에서 S3를 선택합니다.
+
+   - ![](images/visualize_dataset_options.png)
+
+
+1. S3 import에는 Data Source Name과 Manifest File이 필요합니다. 컴퓨터에서 텍스트 편집기를 사용하여 Manifest File 을 만듭니다. 파일의 구조는 다음과 같습니다:
+
+{
+    "fileLocations": [
+        {
+            "URIPrefixes": [
+            "https://s3.amazonaws.com/glue-databrew-immersionday-xxxxxxxx/shared/Total-Sales_xxxxx/"
+            ]
+        }
+    ],
+    "globalUploadSettings": {
+        "format": "CSV",
+        "delimiter": ","
+    }
+}
+
+
+1. manifest file은 섹션 6.1에서 생성한 폴더를 가리킵니다. manifest file에 대한 자세한 내용은 다음 문서를 참조하세요.
+https://docs.aws.amazon.com/quicksight/latest/user/supported-manifest-file-format.html
+
+
+
+1. 파일을 생성했으면 data.manifest 파일로 저장합니다. 파일에 올바른 버킷 이름이 포함되어 있는지, 폴더가 Total-Sales Data를 참조하는지 확인하세요.
+
+1. 이제 manifest 파일을 만들었으므로 라디오 버튼을 URL에서 Upload로 변경하여 업로드합니다.  목록 파일 업로드 입력 상자 오른쪽에 있는 작은 파일 버튼을 사용하여 파일을 업로드합니다:
+   - ![](images/visualize_new_s3_data_source.png)
+
+
+1. 그런 다음 Connect 버튼을 누릅니다. 그러면 데이터가 SPICE 데이터베이스에 업로드됩니다. 다음과 같은 확인 메시지가 표시됩니다:
+
+
+
+   - ![](images/visualize_import_successfull.png)
+
+
+
+
+#### DataSet을 검토합니다.
+1. Edit and Preview 버튼을 눌러 데이터를 확인합니다. 데이터를 로드하는 데 몇 초 정도 걸립니다. 자유롭게 탐색해 보세요.
+
+1. 오른쪽에는 필드 목록이 표시되고 왼쪽에는 아래 데이터 샘플과 함께 dataset이 표시됩니다. QuickSight가 이미 Zip column이 우편 번호임을 확인한 것을 알 수 있습니다.
+
+   - ![](images/visualize_data_set.png)
+
+
+
+
+분석에 사용할 새 계산된 필드를 추가해 보겠습니다. 계산된 필드를 ProductStatus라고 부르며, 제품이 새 제품인지 오래된 제품인지를 나타냅니다.
+화면 왼쪽에 있는 계산된 필드 Add를 누릅니다. 이름을 ProductStatus로 설정합니다.
+오른쪽에 함수 목록이 표시되며, 함수를 선택하면 설명과 명령 구문이 표시됩니다. 기존 제품의 ID가 11 이하인 반면 모든 새 제품의 ID는 10보다 크다는 것을 알 수 있습니다. 제품이 신상품인지 구상품인지 확인하려면 IF 문이 필요합니다. 따라서 계산은 다음과 같습니다:
+
+```
+ifelse({Product_Id}<=11,'Old Product','New Product')
+```
+다음과 같이 계산에 입력합니다:
+
+   - ![](images/visualize_calculated_field.png)
+
+
+오른쪽 상단의 SAVE을 누르고 화면이 새로 고쳐질 때까지 기다립니다. 새로 생성된 계산된 필드를 탐색합니다.
+
+
+
+#### 분석 만들기
+1. 데이터 집합 화면에서 오른쪽 상단의 Save & Visualize버튼을 누릅니다.
+
+1. 화면이 변경되고 빈 분석 화면이 표시됩니다. 오른쪽 상단에서 데이터를 성공적으로 가져온 것을 볼 수 있습니다.
+
+1. 왼쪽에는 데이터 집합 내에 있는 필드 목록이 표시됩니다. 여기에는 새로 생성된 계산된 필드 제품 상태도 포함됩니다.
+
+1. 오른쪽 상단의 작은 X를 눌러 가져오기 완료 알림을 닫을 수 있습니다.
+
+   - ![](images/visualize_empty_analysis.png)
+
+
+1. 어떤 제품이 가장 많은 매출을 올렸나요?
+
+1. 이 질문에 답하려면 왼쪽에서 제품 유형 및 총 매출을 선택합니다. 그래프가 변경되는 것을 확인할 수 있습니다.
+   - ![](images/graph_product_by_sales.png)
+
+
+1. 오른쪽 하단에서 원하는 유형을 선택하여 그래프 유형을 변경할 수 있습니다. 예를 들어 세로 막대 그래프로 변경해 보겠습니다:
+   - ![](images/vertical_bar_chart.png)
+
+
+#### 신제품과 기존 제품 판매 비교.
+1. 세로 막대 그래프를 보면 Exercise Pen이 가장 많이 판매된 품목임을 명확하게 알 수 있습니다. 하지만 신제품의 판매량은 이전 제품의 판매량과 어떻게 비교했을까요?
+1. 그래프 위로 마우스를 이동하여 타원을 확인하고 클릭한 다음 시각적 복제 버튼을 누릅니다.
+   - ![](images/duplicate_graph.png)
+
+
+오른쪽 상단의 화살표를 눌러 메뉴를 확장하고 새롭게 복제 그래프가 선택되어 있는지 확인합니다
+
+   - ![](images/extend_graph.png)
+
+화면 상단에 Field Wells을 볼 수 있어야 합니다. 필드 열에서 Field Wells로 필드를 끌어 color field well에 계산된 필드 Product Status를 추가합니다. 그래픽의 크기도 자유롭게 조정할 수 있습니다. 다음은 표시되는 내용의 예입니다:
+   - ![](images/salesbyproduct.png)
+
+
+
+
+#### 위치별 매출.
+지도를 추가하여 위치별 매출을 좀 더 자세히 분석해 보겠습니다. 화면 오른쪽 상단에서 다음과 같이 Add Visual 를 선택합니다:
+   - ![](images/addvisual.png)
+
+
+새 visual이 강조 표시되어 있는지 확인하고 필드를 선택합니다: Total Sales Sum  및 Zip를 선택합니다. 그런 다음 오른쪽 아래 Visual Types 셀에서 맵 버튼을 선택하여 Visual Types을 map으로 변경합니다.
+   - ![](images/map1.png)
+
+
+1. 지도에는 신상품과 구상품을 포함한 모든 제품의 매출이 표시됩니다. 이를 변경하여 Zip Code(우편 번호)별 New Product sales(새 제품 판매량)을 표시하는 그래프와 Old Product sales(기존 제품 판매량)을 표시하는 그래프 두 개를 만들겠습니다.
+
+1. 텍스트가 Sum of Total_sales_sum by Zip인 것을 확인하고 텍스트를 클릭하여 Total Sales by Zip for the Old Product으로 변경합니다. visual을 선택한 상태에서 맨 오른쪽의 Filters 버튼을 누릅니다. 이제 맵에 Filters를 적용하여 Old Product sales (기존 제품 판매량)만 표시하겠습니다.
+   - ![](images/createfilter.png)
+
+1. 필터에서 파란색 Create one option을 누릅니다. 필드 목록이 포함된 메뉴가 나타납니다.
+
+1. Product Status를 선택합니다. 필터가 이 visual에만 적용된다는 점에 유의하세요. Ellipse(...) 버튼을 누른 다음 edit을 누릅니다.
+
+1. Select All을 취소하고 다음과 같이 Old Product을 선택합니다:
+
+   - ![](images/createfilter2.png)
+
+
+ 1. Apply 버튼을 눌러 변경 사항을 적용합니다. 이제 이전 제품의 판매량을 표시하는 맵이 생겼습니다. 이전에 수행한 복제 기능을 사용하여 맵을 duplicate(복제)한 다음 새로 만든 맵을 업데이트하여 새 제품에 대해 필터링합니다. 결과는 다음과 같아야 합니다:
+
+    - ![](images/map2.png)
+
+
+#### 우편 번호별 제품.
+1. 그래프를 하나 더 추가한 다음 서로 연결해 보겠습니다. 이 visual에서는 Zip Code(우편 번호)별 제품 판매량을 비교하고 New Product (새 제품)과 Old Product(기존 제품)을 비교합니다.
+
+1. 오른쪽 상단의 Add 버튼을 사용하여 new visualization를 추가하고, 텍스트를 업데이트하고, 시각화를 확장합니다. 다음과 같은 내용이 표시됩니다:
+    - ![](images/visualize_totalsales.png)
+
+
+
+
+#### 분석.
+1. 새 그래프를 보완하기 위해 테이블을 추가해 보겠습니다. 오른쪽 상단의 추가 버튼을 사용하여 new visualization를 추가하고, visualization를 pivot table로 변경하고, 행으로 Zip을 추가하고, 열로 Product Status를 추가하고, 값으로 Total Sales Sum을 사용합니다.
+1. New Product의 Total Sales을 클릭하고 sort ascending(오름차순 정렬)을 선택합니다. 다음과 같은 시각화가 표시됩니다:
+    - ![](images/table.png)
+
+
+
+
+1. 지역별 제품 판매를 이해하기 위해 visualizations 동작을 추가할 수 있습니다.
+1. 처음 만든 그래프를 선택하고 ellipses(...)에서 작업을 선택합니다:
+    - ![](images/actions.png)
+
+1. 오른쪽에서 Define new action를 누르고 아래 내용을 확인하여 Apply를 클릭합니다.
+activation : Select
+action type : filter action
+field scope : all fields
+target visuals : all visuals
+   - ![](images/actions_apply.png)
+이제 모든 시각화가 서로 연결되었으므로 첫 번째 시각화에서 제품을 선택하고 나머지 그래프가 어떻게 업데이트되는지 확인할 수 있습니다.
+
+예를 들어 첫 번째 그래프에서 collar를 선택하면 모든 시각화가 업데이트되는 것을 알 수 있습니다.
+
+   - ![](images/collar.png)
+   - ![](images/sales_by_zip.png)
+   - ![](images/target_zip.png)
+
+그래프에서 Collar를 선택하면 대부분의 지역에서 기존 제품이 신제품보다 더 많이 팔린다는 것을 명확하게 알 수 있습니다. 신제품이 전혀 판매되지 않는 지역도 있습니다.
+
+
+
+## 5. Feature Engineering
+
+
+
+
+
+
 
