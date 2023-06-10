@@ -95,7 +95,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 1. 서비스로 **Amazon S3**를 선택합니다.
 
-1. **Enter your source from S3** 텍스트 박스에 *s3://glue-databrew-immersionday*를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
+1. **Enter your source from S3** 텍스트 박스에 `*s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
 
 1. **datafiles > customers** 폴더로 이동합니다.
 
@@ -138,7 +138,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
    - ![](images/create_a_customer_profile_2.png)
 
 
-1. Job name 텍스트 박스에 *Customers profile job* 입력합니다.
+1. Job name 텍스트 박스에 `Customers profile job` 입력합니다.
 
 1. **Full dataset** 선택합니다.
    - ![](images/create_a_customer_profile_3.png)
@@ -153,7 +153,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 1. **Permissions** 섹션으로 건너뛰고, **Role name** 드롭다운하여 **Create new IAM role**를 선택합니다.
 
-1. **New IAM Role suffix** 텍스트 박스에 *ID*를 입력합니다. 그러면 AWSGlueDataBrewServiceRole-ID라는 새 IAM role이 생성됩니다.
+1. **New IAM Role suffix** 텍스트 박스에 `ID`를 입력합니다. 그러면 AWSGlueDataBrewServiceRole-ID라는 새 IAM role이 생성됩니다.
 
 1. **Create and run job**을 선택합니다.
 
@@ -166,7 +166,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 
 1. 이 보고서는 컬럼 통계와 함께 PII 대상으로 확인된 PII 컬럼의 카탈로그를 제공합니다. 또한 검토할 수 있는 잠재적인 PII 열을 보여줍니다.
-이후 과정에서는 변환을 통해 확인된 PII 열을 선택적으로 삭제합니다.
+이후 과정에서는 변환을 통해 확인된 PII 컬럼+을 선택적으로 수정합니다.
 
 다음으로, Sales Dataset 및 Data Quality Rules을 생성합니다.
 
@@ -185,7 +185,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 1. 서비스로 **Amazon S3**를 선택합니다.
 
-1. **Enter your source from S3** 텍스트 박스에 *s3://glue-databrew-immersionday*를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
+1. **Enter your source from S3** 텍스트 박스에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
 
 1. **datafiles > sales** 폴더를 선택합니다.
 
@@ -212,7 +212,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 1. 왼쪽 메뉴에서 **DQ Rules**을 선택하고, **Create data quality ruleset**를 클릭합니다.
     - ![](images/create_sales_dq_ruleset_1.png)
 
-1. **ruleset name** 텍스트 박스에 *Sales DQ Checks*로 지정합니다.
+1. **ruleset name** 텍스트 박스에 `Sales DQ Checks`로 지정합니다.
 
 1. **Associated datase** 섹션에서 **Sales dataset**을 선택합니다. **View associated dataset details**를 클릭하여 dataset을 미리 확인합니다.
 1. 이제 dataset을 미리 볼 수 있으며, **Sales dataset의 (Quality, Total_Sales)컬럼**에 data quality 문제가 있음을 확인할 수 있습니다.
@@ -265,7 +265,7 @@ Quantity, Total_Sales의 값이 행의 100% 이상에 대해 0 >= 0인 경우 �
      - ![](images/create_sales_dq_ruleset_7.png)
 
 
-1. job name 텍스트 박스에 *Sales profile*으로 입력하고, **Full dataset**을 선택합니다.
+1. job name 텍스트 박스에 `Sales profile`으로 입력하고, **Full dataset**을 선택합니다.
      - ![](images/create_a_profile_3.png)
 
 1.  **Job output settings **의 경우, Browse 버튼을 클릭하여 **glue-databrew-immersionday-xxxx S3 버킷 > profile-output 폴더**를 선택 후 Select 버튼을 클릭합니다.
@@ -353,7 +353,7 @@ DataBrew의 대화형 데이터 준비 작업 공간을 project라고 합니다.
 
 recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작동하도록 하려는 데이터입니다. recipe에는 여러 단계가 포함될 수 있으며, 각 단계에는 여러 작업이 포함될 수 있습니다. toolbar의 transformation 도구를 사용하여 데이터에 적용하려는 모든 변경 사항을 설정할 수 있습니다. DataBrew는 데이터 변환에 대한 지침을 저장하지만 실제 데이터는 저장하지 않습니다. 프로젝트는 기본적으로 데이터 집합의 첫 번째 샘플 n개를 로드합니다. DataBrew는 데이터 집합에 대한 통계를 자동으로 생성하고 데이터의 그리드(샘플 데이터 집합의 표 형식, Excel과 비슷한 시각화), 스키마 및 프로필(전체 dataset에 대한 통계) 보기를 제공합니다. 샘플링을 업데이트하여 변환 프로세스의 어느 시점에서든 작업할 데이터의 다른 부분을 검색할 수 있습니다.
 
-이 실습에서는 병합 및 포맷 변환을 사용하여 이름 컬럼을 표준화합니다. Format transform을 사용하여 생년월일(DoB) 열을 표준화합니다. 다음으로, Clean and SPLIT transform을 사용하여 Address 컬럼을 표준화합니다. 마지막으로 최종 출력에 있는 PII 데이터를 삭제합니다.
+이 실습에서는 병합 및 포맷 변환을 사용하여 이름 컬럼을 표준화합니다. Format transform을 사용하여 생년월일(DoB) 열을 표준화합니다. 다음으로, Clean and SPLIT transform을 사용하여 Address 컬럼을 표준화합니다. 마지막으로 최종 출력에 있는 PII 데이터를 수합니다.
 
 1. 이전 단계에서 만든 CleanCustomer 프로젝트를 엽니다.
 
@@ -366,7 +366,91 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 1. 공백 문자를 separator(구분 기호)로 입력합니다.
      - ![](images/build_recipe_2.png)
 
-1. **New column name** 텍스트 상자에 
-        - name : `Name` 을 입력합니다.
+1. **New column name** 텍스트 박에 `Name`을 입력합니다.
 
-1. **Preview changes**를 클릭하고, 미리 보기에서 예상한 결과가 표시되는지 확인합니다. **Apply**를 선택합니다.
+1. **Preview changes**를 클릭하고, 미리 보기에서 예상한 결과가 표시되는지 확인합니다. **Apply**를 클릭합니다.
+     - ![](images/build_recipe_3.png)
+
+
+1. 생성한 새 컬럼 위에 표시되는 **줄임표(...)**를 선택합니다.
+
+1. 표시되는 메뉴에서 **Format**을 선택합니다.
+
+1. ***Change to capital case(대문자로 변경)*** 선택합니다.
+     - ![](images/build_recipe_4.png)
+1. 오른쪽 하단에 **Apply** 버튼을 클합니다.
+     - ![](images/build_recipe_5.png)
+1. 상단 메뉴에서 **COLUMN > Delete**를 선택하고, *Middle_Name*과 *Suffix*를 source columns으로 선택한 다음 **Apply** 버튼을 클릭합니다.
+     - ![](images/delete.png)
+1. **DoB 컬럼 위의 줄임표(...)**를 선택하고 표시되는 메뉴에서 *Format > Date-time formats > mm-dd-yyyy*를 선택합니다.
+
+     - ![](images/build_recipe_7.png)
+1. 오른쪽 하단에 **Apply** 버튼을 클릭
+     - ![](images/build_recipe_8.png)
+
+Address 컬럼에서 특수 문자 <>&을 제거합니다. Address 컬럼 헤더에서 줄임표(...)를 선택한 다음 **Clean -> Special Character**를 선택합니다. 
+     - ![](images/specialchar.png)
+**Custom special characters** 를 선택하고 입력란에 `<>&`을 입력합니다.
+     - ![](images/build_recipe_9.png)
+
+1. **Apply transform to** 섹션에서 **All rows(모든 행)**을 선택한 상태로 둡니다.
+
+1. **Preview changes**를 선택하고 결과가 예상대로 표시되는지 확인합니다.
+1. 오른쪽 하단에 **Apply** 버튼을 클릭합니다.
+
+     - ![](images/build_recipe_10.png)
+1. 다음으로 Address 컬럼을 우편번호와 분리합니다. 상단 메뉴에서 **SPLIT**을 선택하고, **On a single delimiter**을 선택합니다.
+     - ![](images/build_recipe_11.png)
+
+1. **Address**를 *source column*으로 선택하고 **split column options**은 *기본값*으로 둡니다.
+     - ![](images/split.png)
+
+1. **Enter custom value** 텍스트 상자에 **delimiter(구분 기호)**로 `;` 를 입력합니다.
+
+1. **number of times to split(분할할 횟수)**를 *4*로 설정합니다.
+
+1. **Apply transform** 섹션에서 *All rows(모든 행)*을 선택한 상태로 둡니다.
+
+1. **Preview changes**를 선택하여 결과를 확인합니다.
+
+1. **Apply**을 선택합니다.
+
+     - ![](images/build_recipe_12.png)
+
+#### 다음 단계에 따라 Address_3의 이름을 City로, Address_4의 이름을 Zip으로, Addrees_5의 이름을 Country로 변경합니다.
+
+1. 각 컬럼 상단의 (...)을 선택한 다음 표시되는 메뉴에서 Rename를 선택합니다.
+
+1. New column name 텍스트 상자에 대상 이름을 입력하고 Apply 선택하여 컬럼의 이름을 바꿉니다.
+     - ![](images/build_recipe_13.png)
+
+1. **Customers dataset**에서 PII 데이터를 수정하려면 *SENSITIVE --> Data masking --> Redact* 선택합니다.
+
+1. 오른쪽 Source 컬럼에서 **DoB, Address_1 및 Address_2**를 선택하고 **Apply**를 선택합니다. 이제 *DoB, Address_1 및 Address_2* 컬럼이 *#* 값으로 수정된 것을 확인할 수 있습니다.
+
+1. 상단 메뉴의 가장 오른쪽에 있는 **RECIPE**를 선택하여, RECIPE를 열고 아래와 같은 10단계가 포함되어 있는지 확인합니다.
+     - ![](images/build_recipe_14.png)
+
+다음으로, 위의 recipe를 사용하여 raw Customers data를 clean된 고객으로 변환하는 DataBrew 작업을 만들 것입니다.     
+
+### Create Job
+
+DataBrew는 recipe를 만들 때 설정한 지침을 실행하여 데이터를 변환하는 작업을 수행합니다. 이러한 지침을 실행하는 프로세스를 Job이라고 합니다. Job은 미리 설정된 일정에 따라 데이터 레시피를 실행할 수 있습니다. 하지만 일정에 국한되어 있지 않습니다. 필요에 따라 Job을 실행할 수도 있습니다. 일부 데이터를 프로파일링하려는 경우,recipe가 필요하지 않습니다. 이 경우, profile job을 설정하여 data profile을 만들면 됩니다.
+
+1. 오른쪽 상단 메뉴에서 Create Job 를 선택합니다.
+     - ![](images/createjob.png)
+
+1. Job Name 텍스트 박스에 `CleanCustomer`를 입력합니다.
+
+1. Job의 출력 위치를 지정해야 합니다. DataBrew는 단일 작업에서 여러 가지 형식의 출력을 생성할 수 있는 유연성을 제공합니다. 
+**Job output settings**의 **File type** 드롭다운하여 *CSV*를 선택합니다.
+
+1. **Browse 버튼**을 선택하여 S3 위치를 선택하고, 텍스트 박스에 `glue-databrew-immersionday`를 입력합니다.
+     - ![](images/createjob.png)
+
+1. 이전에 생성한 **glue-databrew-immersionday-xxxx** S3 버킷 위치를 선택합니다.
+
+1. shared 폴더를 선택합니다.
+
+1. Select 버튼을을 선택합니다.
+
