@@ -82,7 +82,8 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 이 실습에서는 Customers dataset을 만듭니다. 아래는 샘플 고객 데이터입니다.
  
-1. [AWS Glue DataBrew](https://console.aws.amazon.com/databrew/home?region=us-east-1#)서비로 이동합니다. 오른쪽 상단에 **미국 동부 (버지니아 북부) us-east-1** 리전을 사용하고 있는지 확인합니다.
+1. [AWS Glue DataBrew](https://console.aws.amazon.com/databrew/home?region=us-east-1#)서비로 이동합니다.
+오른쪽 상단에 **US East (N. Virginia) us-east-1** 리전을 사용하고 있는지 확인합니다.
    - ![](images/checkregion.png)
 
 1. 왼쪽 메뉴에서 **Datasets**를 선택합니다.
@@ -94,7 +95,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 1. 서비스로 **Amazon S3**를 선택합니다.
 
-1. **Enter your source from S3** 필드에 *s3://glue-databrew-immersionday*를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
+1. **Enter your source from S3** 텍스트 박스에 *s3://glue-databrew-immersionday*를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
 
 1. **datafiles > customer**s** 폴더로 이동합니다.
 
@@ -137,7 +138,34 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
    - ![](images/create_a_customer_profile_2.png)
 
 
-1. Job 이름으로 *Customers profile job* 입력합니다.
+1. Job name 텍스트 박스에 *Customers profile job* 입력합니다.
 
 1. **Full dataset** 선택합니다.
    - ![](images/create_a_customer_profile_3.png)
+
+
+1. Browse 버튼을 클릭하여 **glue-databrew-immersionday-*** S3 버킷 > profile-output 폴더**를 선택 후 Select 버튼을 클릭합니다.
+   - ![](images/create_a_customer_profile_4.png)
+
+1. **Data profile configurations**을 확장하고, 데이터 프로필 작업을 실행할 때 PII 열을 식별하려면 **PII statistics**에서 **Enable PII statistics**을 선택합니다. 추가로 **PII categories**에서 All categories**를 선택합니다.
+   - ![](images/create_a_customer_profile_5.png)
+
+
+1. **Permissions** 섹션으로 건너뛰고, **Role name** 드롭다운하여 **Create new IAM role**를 선택합니다.
+
+1. **New IAM Role suffix** 텍스트 박스에 *ID*를 입력합니다. 그러면 AWSGlueDataBrewServiceRole-ID라는 새 IAM role이 생성됩니다.
+
+1. **Create and run job**을 선택합니다.
+
+   - ![](images/create_a_customer_profile_6.png)
+
+
+1. 그러면 **Customers dataset**의 **Data profile overview** 탭으로 이동합니다.
+작업이 완료되는 데 약 5분이 소요됩니다.
+   - ![](images/create_a_customer_profile_7.png)
+
+
+1. 이 보고서는 컬럼 통계와 함께 PII 대상으로 확인된 PII 컬럼의 목록을 제공합니다. 또한 검토할 수 있는 잠재적인 PII 열을 보여줍니다.
+Standard Transform module에서는 변환을 적용하여 확인된 PII 열을 선택적으로 삭제합니다.
+
+다음으로, Sales Dataset 및 Data Quality Rules을 생성합니다.
