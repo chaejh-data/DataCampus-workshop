@@ -17,10 +17,10 @@ Action : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 두
 1. 제품 데이터 (Product) : 마지막으로 판매 가능한 제품 ID가 포함된 우편번호 목록을 생성합니다.
 
  **Data Model**
-    ![](images/datamodel.png)
+   - ![](images/datamodel.png)
 
  **Logical data flow**
-    ![](images/dataflow.png)
+   - ![](images/dataflow.png)
 
 
 ### 1.2 이벤트 계정으로 AWS 콘솔 접속 하기
@@ -51,7 +51,7 @@ Action : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 두
 1. 워크샵을 시작하기 전에 필요한 AWS 리소스를 생성해야 합니다. 이를 위해 리소스가 포함된 스택을 생성할 수 있는 AWS CloudFormation 템플릿을 제공합니다. 스택을 생성하면 AWS가 계정에 여러 리소스를 생성합니다. 이 워크샵에서는 사용할 데이터 파일 및 폴더와 함께 접두사가 glue-databrew-immersionday인 S3 버킷을 생성합니다. 
 아래의 Launch Stack 버튼을 클릭하여 이 워크샵에 필요한 리소스를 생성합니다.
 
- [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday)
+    - [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday)
     - ![](images/createstack.png)
 
 CloudFormation 스택을 완료하는 데 대략 3~5분 정도 소요됩니다.
