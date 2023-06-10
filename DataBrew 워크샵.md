@@ -87,33 +87,32 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
    - ![](images/checkregion.png)
 
 1. 왼쪽 메뉴에서 **Datasets**를 선택합니다.
-   - ![](images/checkregion.png)
 
 1. **Connect new dataset**을 선택합니다.
    - ![](images/create_a_dataset.png)
 
-1. dataset의 이름을 Customers로 지정합니다.
+1. dataset의 이름을 *Customers*로 지정합니다.
 
-1. 서비스로 Amazon S3를 선택합니다.
+1. 서비스로 **Amazon S3**를 선택합니다.
 
-1. Enter your source from S3 필드에 s3://glue-databrew-immersionday를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
+1. **Enter your source from S3** 필드에 *s3://glue-databrew-immersionday*를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
 
-1. datafiles > customers folder 로 이동합니다.
+1. **datafiles > customer**s** 폴더로 이동합니다.
 
-1. "customer.csv" 파일을 선택합니다.
+1. "customer.csv" 파일을 체크합니다.
    - ![](images/dataset_details.png)
 
-1. file type으로 CSV를 선택합니다.
+1. file type으로 **CSV**를 선택합니다.
 
-1. 쉼표를 CSV 구분 기호로 선택합니다.
+1. **Comma(쉼표)**를 CSV 구분 기호로 선택합니다.
 
-1. 첫 번째 행을 헤더로 처리를 선택합니다.
+1. **Treat first row as header(첫 번째 행을 헤더로 처리)**를 선택합니다.
 
-1. 오른쪽 아래에 있는 Create dataset 버튼을 선택합니다.
+1. 오른쪽 아래에 있는 **Create dataset 버튼**을 선택합니다.
    - ![](images/dataset_type_as_csv.png)
 
 1. Customers Dataset이 생성됩니다.
-   - ![](images/create_a_dataset.png)
+   - ![](images/datasetcreated.png)
 
 1. Customers Dataset을 선택하여 고객 데이터를 미리 확인해봅니다.
    - ![](images/datasetpreview.png)
@@ -139,7 +138,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
    - ![](images/create_a_customer_profile_2.png)
 
 
-1. Job 이름으로 *Customers profile job* 입력
+1. Job 이름으로 *Customers profile job* 입력합니다.
 
-2. **Full dataset** 선택
+1. **Full dataset** 선택합니다.
    - ![](images/create_a_customer_profile_3.png)
