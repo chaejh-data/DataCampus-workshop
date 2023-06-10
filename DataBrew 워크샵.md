@@ -17,11 +17,9 @@ Action : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 두
 1. 제품 데이터 (Product) : 마지막으로 판매 가능한 제품 ID가 포함된 우편번호 목록을 생성합니다.
 
  **Data Model**
-
     ![](images/datamodel.png)
 
  **Logical data flow**
- 
     ![](images/dataflow.png)
 
 
