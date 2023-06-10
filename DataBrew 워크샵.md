@@ -83,14 +83,14 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 이 실습에서는 고객 dataset을 만듭니다. 아래는 샘플 고객 데이터입니다.
  
-1. **AWS Glue DataBrew 서비스**로 이동합니다. 오른쪽 상단에 **미국 동부 (버지니아 북부) us-east-1** 리전을 사용하고 있는지 확인합니다.
+1. ![AWS Glue DataBrew 서비스](https://console.aws.amazon.com/databrew/home?region=us-east-1#)로 이동합니다. 오른쪽 상단에 **미국 동부 (버지니아 북부) us-east-1** 리전을 사용하고 있는지 확인합니다.
    - ![](images/checkregion.png)
 
 2. 왼쪽 메뉴에서 Datasets를 선택합니다.
    - ![](images/checkregion.png)
 
 3. 새 데이터 세트 연결을 선택합니다.
-
+   - ![](images/create_a_dataset.png)
 
 
 
