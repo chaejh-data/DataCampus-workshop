@@ -16,11 +16,11 @@ Action : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 두
 1. 판매 데이터 (Sales): 고객 데이터 및 제품 데이터와 Join하여 우편번호 및 제품 유형별로 판매량을 비교합니다.
 1. 제품 데이터 (Product) : 마지막으로 판매 가능한 제품 ID가 포함된 우편번호 목록을 생성합니다.
 
- **Data Model**
-    - ![](images/datamodel.png)
+**Data Model**
+   - ![](images/datamodel.png)
 
  **Logical data flow**
-    - ![](images/dataflow.png)
+   - ![](images/dataflow.png)
 
 
 ### 1.2 이벤트 계정으로 AWS 콘솔 접속 하기
