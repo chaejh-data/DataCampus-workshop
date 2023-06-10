@@ -1,27 +1,36 @@
 # DataLake & 데이터 분석 워크샵
 
 ## 1. Introduction
+--- 15분
 
 ### 1-1. 시작하기 전
 
-이 핸즈온을 통해 여러분은 별도의 데이터 분석을 위해 데이터를 정리하고 정규화 및 시각화하는 방법을 살펴봅니다. 
+이 핸즈온랩을 통해 여러분들은 1) 데이터 분석을 위한 데이터 클랜징과 정규화 2) 쿼리를 통한 데이터 분석과 시각화 작업 3) 데이터 예측 과정을 살펴볼 예정입니다. 
 
-Scenario : ABC 회사는 온라인 반려동물 제품 소매업체입니다. 최근 반려동물을 위한 새로운 제품 라인을 출시했습니다. 큰 성공을 거둘 것으로 예상했지만 일부 지역의 매출이 기대에 미치지 못했습니다. 마케팅 조사에 따르면 해당 지역에서 제품에 대한 인지도가 낮은 것이 판매 부진의 주요 원인인 것으로 나타났습니다. 이 문제를 해결하기 위해 해당 지역에서 타겟팅된 메일 캠페인을 시작하여 인지도를 높이고 제품 판매를 늘리려고 합니다. 팀은 코드를 작성하고 인프라를 관리할 시간이 많지 않기 때문에 빠른 처리가 필요합니다.
+Scenario : ABC 회사는 온라인 반려동물 제품 소매업체입니다. 최근 반려동물을 위한 새로운 제품 라인을 출시했습니다. 큰 성공을 거둘 것으로 예상했지만 일부 지역의 매출이 기대에 미치지 못했습니다. 마케팅 조사에 따르면 해당 지역에서 제품에 대한 인지도가 낮은 것이 판매 부진의 주요 원인인 것으로 나타났습니다. 이 문제를 해결하기 위해 해당 지역에서 타겟팅된 메일 캠페인을 시작하여 인지도를 높이면서 제품 판매를 늘리려고 합니다. 팀은 코딩을 하거나 인프라를 관리할 시간이 많지 않기 때문에 손쉽게 해결할 수 있는 방법이 필요합니다.
 
-Action : 팀은 고객, 제품 및 판매 데이터를 분석하고 변환하여 두 제품 라인의 판매를 비교 및 대조하고 특정 제품 유형을 마케팅해야 하는 우편 번호를 식별해야 합니다.
-
+Action : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 두 제품 라인의 판매를 비교하고, 2) 특정 제품을 마케팅할 고객의 우편 번호를 파악해야 합니다.
 
 데이터 변환 단계:
-1. 고객 데이터(Customer) :  정리하고 주소 열에서 우편 번호를 구문 분석합니다.
-1. 판매 데이터(Sales): 고객 데이터 및 제품 데이터와 조인하여 우편번호 및 제품 유형별로 판매량을 비교합니다.
+1. 고객 데이터 (Customer) : 고객 데이터를 클랜징하고 주소 열에서 우편 번호를 분석합니다.
+1. 판매 데이터 (Sales): 고객 데이터 및 제품 데이터와 Join하여 우편번호 및 제품 유형별로 판매량을 비교합니다.
 1. 제품 데이터 (Product) : 마지막으로 판매 가능한 제품 ID가 포함된 우편번호 목록을 생성합니다.
+
+Data Model
+    - ![](images/datamodel.png)
+
+Logical data flow
+    - ![](images/dataflow.png)
+
 
 ## 1.2 이벤트 계정으로 AWS 콘솔 접속 하기
 
 1. AWS Wokshop Portal에 로그인하여 실습을 진행하실 경우 Team Hash 값이 필요합니다. 여기를 클릭 한 후, 이벤트 주최자로부터 받은 12자리 Participant Hash 값을 입력하면 오른쪽 하단 버튼이 Accept Terms & Login으로 변경됩니다. 다음 단계로 넘어가기 위해 해당 버튼을 클릭합니다.
     - ![](images/setting_up-img1.png)
+
 1. Email One-Time Password (OTP) 버튼을 클릭합니다.
     - ![](images/1EventEngineSignInOptions.png)
+
 1. 본인의 이메일 계정을 입력하고 Send Code 버튼을 클릭합니다.
     - ![](images/2EventEngineSpecifyEmail.png)
 
@@ -30,9 +39,35 @@ Action : 팀은 고객, 제품 및 판매 데이터를 분석하고 변환하여
 
 1. 다음 화면에서 AWS Console 버튼을 누르면 AWS 관리콘솔에 로그인할 수 있는 로그인 링크를 받을 수 있습니다.
     - ![](images/4EventEngineTeamDashboard.png)
-Open AWS Console 버튼을 누르면 AWS 관리콘솔로 접속할 수 있습니다. 또한, CLI 환경을 위한 "Access Key" 와 "Secret Access Key" 도 확인할 수 있습니다.
+
+1. Open AWS Console 버튼을 누르면 AWS 관리콘솔로 접속할 수 있습니다. 또한, CLI 환경을 위한 "Access Key" 와 "Secret Access Key" 도 확인할 수 있습니다.
     - ![](images/5EventEngineConsoleLogin.png)
+
 위의 단계를 모두 수행했다면 이제 실습을 시작할 수 있습니다.
 
+## 1.3 S3버킷 생성하기(CloudFormation)
+--- 5분
 
-## 3. 
+1. 워크샵을 시작하기 전에 필요한 AWS 리소스를 생성해야 합니다. 이를 위해 리소스가 포함된 스택을 생성할 수 있는 AWS CloudFormation 템플릿을 제공합니다. 스택을 생성하면 AWS가 계정에 여러 리소스를 생성합니다. 이 워크샵에서는 사용할 데이터 파일 및 폴더와 함께 접두사가 glue-databrew-immersionday인 S3 버킷을 생성합니다. 
+아래의 [스택 시작](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday) 링크를 클릭하여 이 워크샵에 필요한 리소스를 생성합니다.
+    - ![](images/createstack.png)
+
+CloudFormation 스택을 완료하는 데 대략 3~5분 정도 소요됩니다.
+
+1. 스택 생성이 성공하면 스택의 출력 탭에서 새로 생성된 버킷 이름을 확인할 수 있습니다.
+    - ![](images/cf-complete.png)
+
+1. 새로 생성된 버킷에는 다음과 같은 구조를 확인할 수 있습니다.
+    - ![](images/s3-bucket.png)
+
+
+## 2. Profiling and Data Quality
+### AWS Glue DataBrew는 데이터 패턴을 이해하고 이상 징후를 감지하기 위해 데이터를 프로파일링하여 데이터의 품질을 평가할 수 있도록 도와줍니다. 데이터 세트의 데이터 프로필 개요 섹션에서 데이터에 대한 통계 요약을 검토하고 수집할 수 있습니다.
+    - ![](images/profiling.png)
+
+아래 내용들을 확인해보겠습니다.
+
+1. Data Profile Job 만들기
+1. 개인 식별 정보(PII) 데이터 탐지
+1. Data Quality(DQ) 검사
+1. Map Data Lineage
