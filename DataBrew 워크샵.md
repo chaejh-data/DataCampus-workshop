@@ -17,9 +17,11 @@ Action : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 두
 1. 제품 데이터 (Product) : 마지막으로 판매 가능한 제품 ID가 포함된 우편번호 목록을 생성합니다.
 
  **Data Model**
+
     ![](images/datamodel.png)
 
  **Logical data flow**
+ 
     ![](images/dataflow.png)
 
 
@@ -52,7 +54,6 @@ Action : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 두
 아래의 Launch Stack 버튼을 클릭하여 이 워크샵에 필요한 리소스를 생성합니다.
 
  [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday)
-
     - ![](images/createstack.png)
 
 CloudFormation 스택을 완료하는 데 대략 3~5분 정도 소요됩니다.
