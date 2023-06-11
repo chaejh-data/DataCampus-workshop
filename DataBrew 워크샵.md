@@ -16,9 +16,9 @@
 1. 판매 데이터 (Sales): 고객 데이터 및 제품 데이터와 Join하여, 우편번호 및 제품 유형별로 판매량을 비교합니다.
 1. 제품 데이터 (Product) : 시장성있는 제품 ID가 포함된 우편번호 목록을 생성합니다.
 
-**Data Model**
+Data Model
    - ![](images/datamodel.png)
-**Logical data flow**
+Logical data flow
    - ![](images/dataflow.png)
 
 
@@ -235,6 +235,7 @@ Profile jobs 은dataset에 대해 평가를 실행합니다. dataset 수준과 �
      - ![](images/cloudtrail.png)
 
 ## 3. Standard Transform
+<!-- 20분 -->
 이 실습에서는 name 컬럼을 표준화 및 결합하고 address 컬럼을 분리하여 customer data를 정리하고 변환합니다.
      - ![](images/basictransform.png)
 
@@ -246,7 +247,6 @@ Profile jobs 은dataset에 대해 평가를 실행합니다. dataset 수준과 �
 ### 3.1 Create Project
 
 DataBrew의 대화형 데이터 준비 작업 공간을 project라고 합니다. data project를 사용하여 데이터, 변환 및 예약된 프로세스와 같은 관련 항목 아이템을 관리합니다. 프로젝트 생성의 일부로 작업할 dataset을 선택하거나 만듭니다. 그런 다음, DataBrew가 실행할 일련의 지침 또는 단계인 recipe를 만듭니다. 이러한 작업을 통해 raw data를 분석이나 예측을 위한 데이터 파이프라인에서 사용할 수 있는 형태로 변환합니다.
-
 
 이제 dataset이 만들어졌으므로 데이터 변환을 시작할 수 있습니다.
 
@@ -306,28 +306,17 @@ Address 컬럼에서 특수 문자 <>&을 제거합니다. Address 컬럼 헤더
      - ![](images/build_recipe_11.png)
 1. **Address**를 *source column*으로 선택하고 **split column options**은 *기본값*으로 둡니다.
      - ![](images/split.png)
-
 1. **Enter custom value** 텍스트 상자에 **delimiter(구분 기호)**로 `;` 를 입력합니다.
-
 1. **number of times to split(분할할 횟수)**를 *4*로 설정합니다.
-
 1. **Apply transform** 섹션에서 *All rows(모든 행)*을 선택한 상태로 둡니다.
-
 1. **Preview changes**를 선택하여 결과를 확인합니다.
-
 1. **Apply**을 선택합니다.
-
      - ![](images/build_recipe_12.png)
-
 **다음 단계에 따라 Address_3의 이름을 City로, Address_4의 이름을 Zip으로, Addrees_5의 이름을 Country로 변경합니다.**
-
-1. 각 컬럼 상단의 ** (...)을 선택한 다음 표시되는 메뉴에서 Rename를 선택합니다.
-
-1. New column name 텍스트 상자에 대상 이름을 입력하고 Apply 선택하여, 컬럼의 이름을 바꿉니다.
+1. 각 컬럼 상단의 **줄임표(...)**을 선택한 다음, 메뉴에서 **Rename**를 선택합니다.
+1. New column name 텍스트 상자에 대상 이름(Address_3 > `City`, Address_4 > `Zip`, Addrees_5 > `Country`)을 입력하고 **Apply** 선택하여, 컬럼의 이름을 바꿉니다.
      - ![](images/build_recipe_13.png)
-
 1. **Customers dataset**에서 PII 데이터를 수정하려면 *SENSITIVE --> Data masking --> Redact values* 선택합니다.
-
 1. 오른쪽 Source 컬럼에서 **DoB, Address_1 및 Address_2**를 선택하고 **Apply**를 선택합니다. 이제 *DoB, Address_1 및 Address_2* 컬럼이 *#* 값으로 수정된 것을 확인할 수 있습니다.
 
 1. 상단 메뉴의 가장 오른쪽에 있는 **RECIPE**를 선택하여, RECIPE를 열고 아래와 같은 10단계가 포함되어 있는지 확인합니다.
@@ -341,35 +330,24 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여 데이터를 �
 
 1. 오른쪽 상단 메뉴에서 Create Job 를 선택합니다.
      - ![](images/createjob.png)
-
 1. Job Name 텍스트 박스에 `CleanCustomer`를 입력합니다.
-
 1. Job의 출력 위치를 지정해야 합니다. DataBrew는 단일 작업에서 여러 가지 형식의 출력을 생성할 수 있는 유연성을 제공합니다. 
 **Job output settings**의 **File type** 드롭다운하여 *CSV*를 선택합니다.
-
-1. **Browse 버튼**을 클릭하 `glue-databrew-immersionday` S3 위치를 선택합니다.
+1. **Browse 버튼**을 클릭하여 `glue-databrew-immersionday` S3 위치를 선택합니다.
      - ![](images/create_a_job_1.png)
-
 1. 이전에 생성한 **glue-databrew-immersionday-xxxx** S3 버킷 위치를 선택합니다.
-
 1. **shared 폴더**를 선택합니다.
-
 1.  **Select 버튼**을 선택합니다.
      - ![](images/create_a_job_2.png)
-
 1. **Advanced job settings** 섹션을 열고 *Maximum number of units*에 *5*를 입력합니다.
-
 1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
-
 1. **Create and run job**을 선택합니다.
      - ![](images/create_a_job_3.png)
-
-1. Job이 실행되고 왼쪽 탐색을 통해 **Job output** 항목에 **output**에 대한 링크가 나타납니다.
+1. CleanCustomer JOB이 실행되고 **Job output** 항목에 **output**에 대한 링크가 나타납니다.
      - ![](images/create_a_job_4.png)
-
-1. 링크를 클릭하면 출력 파일의 위치가 표시됩니다.
+1. **output 링크**를 클릭하면 출력 파일의 위치가 표시됩니다.
      - ![](images/create_a_job_5.png)
-1. S3 URL을 클릭하면 첫 번째 실행의 출력 파일이 들어 있는 폴더가 표시됩니다.
+1. **S3 URL**을 클릭하면 첫 번째 실행의 출력 파일이 들어 있는 폴더가 표시됩니다.
      - ![](images/create_a_job_6.png)
 
 ## 4. Advanced Transform
