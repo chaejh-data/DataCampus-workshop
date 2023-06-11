@@ -797,26 +797,17 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
 
 오른쪽 상단의 SAVE을 누르고 화면이 새로 고쳐질 때까지 기다립니다. 새로 생성된 계산된 필드를 탐색합니다.
 
-
-
 #### 분석 만들기
 1. 데이터 집합 화면에서 오른쪽 상단의 Save & Visualize버튼을 누릅니다.
-
 1. 화면이 변경되고 빈 분석 화면이 표시됩니다. 오른쪽 상단에서 데이터를 성공적으로 가져온 것을 볼 수 있습니다.
-
 1. 왼쪽에는 데이터 집합 내에 있는 필드 목록이 표시됩니다. 여기에는 새로 생성된 계산된 필드 제품 상태도 포함됩니다.
-
 1. 오른쪽 상단의 작은 X를 눌러 가져오기 완료 알림을 닫을 수 있습니다.
-
    - ![](images/visualize_empty_analysis.png)
 
 
 1. 어떤 제품이 가장 많은 매출을 올렸나요?
-
 1. 이 질문에 답하려면 왼쪽에서 제품 유형 및 총 매출을 선택합니다. 그래프가 변경되는 것을 확인할 수 있습니다.
    - ![](images/graph_product_by_sales.png)
-
-
 1. 오른쪽 하단에서 원하는 유형을 선택하여 그래프 유형을 변경할 수 있습니다. 예를 들어 세로 막대 그래프로 변경해 보겠습니다:
    - ![](images/vertical_bar_chart.png)
 
@@ -826,39 +817,29 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
 1. 그래프 위로 마우스를 이동하여 타원을 확인하고 클릭한 다음 시각적 복제 버튼을 누릅니다.
    - ![](images/duplicate_graph.png)
 
-
 오른쪽 상단의 화살표를 눌러 메뉴를 확장하고 새롭게 복제 그래프가 선택되어 있는지 확인합니다
-
    - ![](images/extend_graph.png)
 
 화면 상단에 Field Wells을 볼 수 있어야 합니다. 필드 열에서 Field Wells로 필드를 끌어 color field well에 계산된 필드 Product Status를 추가합니다. 그래픽의 크기도 자유롭게 조정할 수 있습니다. 다음은 표시되는 내용의 예입니다:
    - ![](images/salesbyproduct.png)
 
 
-
-
 #### 위치별 매출.
 지도를 추가하여 위치별 매출을 좀 더 자세히 분석해 보겠습니다. 화면 오른쪽 상단에서 다음과 같이 Add Visual 를 선택합니다:
    - ![](images/addvisual.png)
-
-
 새 visual이 강조 표시되어 있는지 확인하고 필드를 선택합니다: Total Sales Sum  및 Zip를 선택합니다. 그런 다음 오른쪽 아래 Visual Types 셀에서 맵 버튼을 선택하여 Visual Types을 map으로 변경합니다.
    - ![](images/map1.png)
 
 
 1. 지도에는 신상품과 구상품을 포함한 모든 제품의 매출이 표시됩니다. 이를 변경하여 Zip Code(우편 번호)별 New Product sales(새 제품 판매량)을 표시하는 그래프와 Old Product sales(기존 제품 판매량)을 표시하는 그래프 두 개를 만들겠습니다.
-
 1. 텍스트가 Sum of Total_sales_sum by Zip인 것을 확인하고 텍스트를 클릭하여 Total Sales by Zip for the Old Product으로 변경합니다. visual을 선택한 상태에서 맨 오른쪽의 Filters 버튼을 누릅니다. 이제 맵에 Filters를 적용하여 Old Product sales (기존 제품 판매량)만 표시하겠습니다.
    - ![](images/createfilter.png)
 
 1. 필터에서 파란색 Create one option을 누릅니다. 필드 목록이 포함된 메뉴가 나타납니다.
-
 1. Product Status를 선택합니다. 필터가 이 visual에만 적용된다는 점에 유의하세요. Ellipse(...) 버튼을 누른 다음 edit을 누릅니다.
-
 1. Select All을 취소하고 다음과 같이 Old Product을 선택합니다:
 
    - ![](images/createfilter2.png)
-
 
  1. Apply 버튼을 눌러 변경 사항을 적용합니다. 이제 이전 제품의 판매량을 표시하는 맵이 생겼습니다. 이전에 수행한 복제 기능을 사용하여 맵을 duplicate(복제)한 다음 새로 만든 맵을 업데이트하여 새 제품에 대해 필터링합니다. 결과는 다음과 같아야 합니다:
 
@@ -872,15 +853,10 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
     - ![](images/visualize_totalsales.png)
 
 
-
-
 #### 분석.
 1. 새 그래프를 보완하기 위해 테이블을 추가해 보겠습니다. 오른쪽 상단의 추가 버튼을 사용하여 new visualization를 추가하고, visualization를 pivot table로 변경하고, 행으로 Zip을 추가하고, 열로 Product Status를 추가하고, 값으로 Total Sales Sum을 사용합니다.
 1. New Product의 Total Sales을 클릭하고 sort ascending(오름차순 정렬)을 선택합니다. 다음과 같은 시각화가 표시됩니다:
     - ![](images/table.png)
-
-
-
 
 1. 지역별 제품 판매를 이해하기 위해 visualizations 동작을 추가할 수 있습니다.
 1. 처음 만든 그래프를 선택하고 ellipses(...)에서 작업을 선택합니다:
@@ -905,10 +881,124 @@ target visuals : all visuals
 
 
 ## 5. Feature Engineering
+### 5.1 Connect a new dataset
+
+새 데이터 세트 연결
+
+해당 세션에서 사용할 dataset은 접두사가 glue-databrew-immersionday인 S3 버킷의 feature-engineering 폴더에 있습니다.
+해당 데이터 세트에 연결하려면 다음과 같이 하세요:
+
+1. 화면 왼쪽에 있는 Datasets를 클릭한 다음
+2. 화면 오른쪽에 있는 Connect new dataset 을 클릭합니다.
+
+   - ![](images/connecting-to-dataset-1.png)
+
+1. DataSet name은 databrew-immersion-day-feature-engineering-census-adult로 입력하고, S3 소스를 입력하고, 파일 유형으로 CSV를 선택하고, 구분 기호로 Comma(쉼표)를 선택하고, Treat first row as a header(첫 번째 행을 헤더로 처리)를 선택합니다.
+
+1. Create dataset 버튼을 클릭합니다.
+
+   - ![](images/connecting-to-dataset-2.png)
+
+   - ![](images/connecting-to-dataset-3.png)
 
 
+dataset가 연결되면 메인 화면의 Dataset dashboard에 dataset 이름이 표시됩니다.
+
+   - ![](images/connecting-to-dataset-4.png)
+1. 최근에 만든 데이터 세트에서 data profile job 을 실행합니다. 지침은 모듈 5.2 데이터 프로파일 작업을 참조하세요. data profile 결과를 사용하여 Feature Engineering에 도움을 받을 수 있습니다
 
 
+### 5.2 Create a project
+
+1. 새 프로젝트를 만들기 위해 왼쪽의 메뉴에 Project를 클릭하고
+1. 오른쪽의 Create projec 버튼을 클릭합니다.
+   - ![](images/cdatabrew-create-project-1.png)
+
+1. Project name를 immserionday-feature-engineering으로 입력합니다.
+   - ![](images/db-imm-project-1.png)
 
 
+1. My dataset을 클릭한 다음 dataset name을 선택하여 이전에 생성한 데이터 집합을 선택합니다.
+   - ![](images/db-imm-project-2.png)
 
+1.  Permissions 세션에서 **Role name** 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* role을 선택합니다. **"Create project"**을 선택합니다.
+
+DataBrew가 새 세션을 시작합니다.
+   - ![](images/databrew-project-initiation.png)
+
+세션이 시작되면 각 데이터 컬럼에 대한 메트릭이 포함된 데이터 샘플이 표시되며, DataBrew recipe를 만들 준비가 완료됩니다.
+databrew-project-initiation
+
+   - ![](images/databrew-project-2.png)
+
+   ### 5.3 Handling data quality
+
+#### Handling data quality
+1. 먼저 앞서 수행한 Data Profile의 결과를 살펴봅니다. valid(유효성)이 100% 미만인 열이 세 개 있습니다.( workclass, occupation, and capital.loss.)Workclas과 occupation 컬럼은 데이터의 6%가 누락되었습니다.
+
+   - ![](images/DataProfile-List.png)
+
+
+1. 데이터 품질을 보려면 해당 컬럼을 선택합니다. 이 경우 workclass를 살펴보겠습니다.:
+
+   - ![](images/databrew-profile-workclass-1.png)
+
+1. 5%의 값이 누락된 것을 볼 수 있습니다. dataset의 5%가 무시할 수 있는 수준이라고 판단되면 이 행을 제거하도록 선택하여, dataset에서 제거할 수 있습니다.
+
+
+#### Removing Rows with Empty Values
+
+missing values(누락된 값을 처리하는 방법에는 여러 가지가 있습니다. 한 가지 방법은 DataBrew를 사용하여 빈 값이 있는 행을 제거하는 것입니다. 
+
+1. source 컬럼(workclass)을 선택하고 상단에 Missing 아이콘을 클릭한 다음
+1. Remove missing rows를 클릭합니다.
+   - ![](images/databrew-missing-rows-1.png)
+
+1. 오른쪽에서 source column으로 workclass를 확인, 하고, Miss value action으로 Delete rows with missing values(누락된 값 삭제)를 클릭합니다.
+
+   - ![](images/databrew-missing-rows-2.png)
+
+1. 오른쪽에서 아래로 스크롤하여 All rows 을 선택하고 Apply를 클릭합니다.
+   - ![](images/databrew-missing-rows-4.png)
+
+#### Fill in Missing Values (누락된 값 채우기)
+
+행을 삭제할 상황이 안 되거나 누락된 기능에 값을 제공하려는 경우 DataBrew를 사용하여 다양한 옵션으로 채울 수 있습니다. 여기서는 median value(중앙값)으로 채우겠습니다.
+
+1. source 컬럼(capital.loss)을 선택하고 상단에서 Missing 아이콘을 선택한 후 Fill with numeric aggregate(숫자 집계로 채우기)를 선택합니다.
+  - ![](images/databrew-missing-median-1.png)
+
+1. 오른쪽에서 source column으로 capital.loss을 확인하고, Fill with numeric aggregate(숫자 집계로 채우기)를 선택한 다음 Median(중앙값) numeric aggregate 숫자 집계를 선택합니다.
+  - ![](images/databrew-missing-median-2.5.png)
+
+1. 오른쪽에서 아래로 스크롤하여 All rows 을 선택하고 Apply를 클릭합니다.
+   - ![](images/databrew-missing-median-4.png)
+
+Excluding Outliers(이상값 제외)
+매우 정확하지 않은 값을 포함하는 데이터의 경우 이상값을 찾아 dataset에서 제거할 수 있습니다. 이상값이 있는 열을 선택합니다.
+
+1. Data Profile 을 살펴보고 Column statistics(컬럼 통계)를 클릭한 다음 capital.loss 컬럼을 클릭합니다.
+
+1. 오른쪽에서  Data insights까지 아래로 스크롤합니다.
+   - ![](images/databrew-outlier-profile.png)
+
+
+그러면 두 개의 이상값이 있으며 그 수가 충분히 적으므로 이 행을 안심하고 제거할 수 있음을 알 수 있습니다.
+
+1. source 컬럼(capital.loss)을 선택하고, Outliers 아이콘을 클릭하고 Remove outliers를 클릭합니다.
+
+   - ![](images/databrew-outliers-1.png)
+
+1. 오른쪽에서 source column으로 capital.loss을 확인하고, Z-score outliers을 선택하고, Standard deviation threshold에 3을 입력합니다.   
+
+1. 아래로 스크롤하여 Remove outliers를 클릭합니다. Remove outliers에서 모All outliers을 선택합니다.
+   - ![](images/databrew-outliers-3.png)
+
+1. 그런 다음 Delete rows를 클릭하고 Apply을 클릭합니다.
+
+   - ![](images/databrew-outliers-4.png)
+
+
+### 5.4 Scaling data
+
+### 5.5 Normalization
