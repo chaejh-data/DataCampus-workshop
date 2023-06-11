@@ -18,7 +18,7 @@
 
 Data Model
    - ![](images/datamodel.png)
-   
+
 Logical data flow
    - ![](images/dataflow.png)
 
@@ -66,7 +66,7 @@ AWS Glue DataBrew는 데이터 패턴을 이해하고 이상 징후를 감지하
 
 아래 내용들을 확인해보겠습니다.
 - Data Profile Job 만들기
-	- 개인 식별 정보(PII) 데이터 탐지
+	- 개인 식별 정보(Personal identifiable information, PII) 데이터 탐지
 	- Data Quality(DQ) 검사
 - Map Data Lineage
 
@@ -189,7 +189,7 @@ Dataset에 중복 행 수가 == 0인 경우 규칙이 통과됩니다.
 - **Data quality check scope**(데이터 품질 검사 범위)에서 **Common checks for selected columns**(선택한 컬럼에 대한 공통 검사)를 선택합니다.
 - **Rule success criteria**(규칙 성공 기준)에서 **All data quality checks are met (AND)** 모든 데이터 품질 검사 충족을 선택합니다.
 - **Selected columns**에서 **Selected columns**을 선택합니다.
-- **Column values**에서 **Quantity**와 **Total_Sales**을 두 개를 선택하여 select columns를 클릭합니다.
+- **Column values**에서 *Quantity*와 *Total_Sales*을 두 개를 선택하여 **select columns**를 클릭합니다.
 - Check 1의 **Data quality check**에서 **Column values** 드롭다운하여 **Numeric values**을 선택합니다.
 - **Condition**에서 **Greater than(다음보다 큼)**을 선택합니다.
 - **Value**에 **Custom value**으로 *0*을 입력합니다.
