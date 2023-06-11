@@ -17,9 +17,9 @@
 1. 제품 데이터 (Product) : 시장성있는 제품 ID가 포함된 우편번호 목록을 생성합니다.
 
 **Data Model**
-   ![](images/datamodel.png)
+   - ![](images/datamodel.png)
 **Logical data flow**
-   ![](images/dataflow.png)
+   - ![](images/dataflow.png)
 
 
 ### 1.2 이벤트 계정으로 AWS 콘솔 접속 하기
@@ -59,7 +59,7 @@ CloudFormation 스택을 완료하는 데 대략 3~5분 정도 소요됩니다.
     - ![](images/s3-bucket.png)
 
 ## 2. Profiling and Data Quality
-
+<!-- 30분 -->
 AWS Glue DataBrew는 데이터 패턴을 이해하고 이상 징후를 감지하기 위해 데이터를 프로파일링하여 데이터의 품질을 평가할 수 있도록 도와줍니다. 데이터 세트의 데이터 프로필 개요 섹션에서 데이터에 대한 통계 요약을 검토하고 수집할 수 있습니다.
    - ![](images/profiling.png)
 
@@ -74,93 +74,58 @@ AWS Glue DataBrew는 데이터 패턴을 이해하고 이상 징후를 감지하
 Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 집합을 의미합니다. DataBrew는 형식이 지정된 파일에서 가져온 모든 소스의 데이터로 작업할 수 있으며, 점점 늘어나는 데이터 저장소 목록에 직접 연결할 수 있습니다. DataBrew에서 데이터 집합은 데이터에 대한 읽기 전용 연결입니다. DataBrew는 데이터를 참조하기 위해 일련의 설명 메타데이터를 수집합니다. 실제 데이터는 DataBrew에서 변경하거나 저장할 수 없습니다. 간단히 설명하기 위해 Dataset은 실제 Dataset과 DataBrew가 사용하는 메타데이터를 모두 의미합니다.
 
 이 실습에서는 Customers dataset을 만듭니다. 아래는 샘플 고객 데이터입니다.
- 
-1. [AWS Glue DataBrew](https://console.aws.amazon.com/databrew/home?region=us-east-1#)서비로 이동합니다.
+1. [AWS Glue DataBrew](https://console.aws.amazon.com/databrew/home?region=us-east-1#)서비스로 이동합니다.
 오른쪽 상단에 **US East (N. Virginia) us-east-1** 리전을 사용하고 있는지 확인합니다.
    - ![](images/checkregion.png)
-
 1. 왼쪽 메뉴에서 **Datasets**를 선택합니다.
-
 1. **Connect new dataset**을 선택합니다.
    - ![](images/create_a_dataset.png)
-
-1. dataset의 이름을 *Customers*로 지정합니다.
-
+1. dataset의 이름을 `Customers`로 지정합니다.
 1. 서비스로 **Amazon S3**를 선택합니다.
-
 1. **Enter your source from S3** 텍스트 박스에 `*s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
-
 1. **datafiles > customers** 폴더로 이동합니다.
-
 1. "customer.csv" 파일을 체크합니다.
    - ![](images/dataset_details.png)
-
 1. file type으로 **CSV**를 선택합니다.
-
 1. **Comma(쉼표)**를 CSV 구분 기호로 선택합니다.
-
 1. **Treat first row as header(첫 번째 행을 헤더로 처리)**를 선택합니다.
-
 1. 오른쪽 아래에 있는 **Create dataset 버튼**을 선택합니다.
    - ![](images/dataset_type_as_csv.png)
-
 1. Customers Dataset이 생성됩니다.
    - ![](images/datasetcreated.png)
-
 1. Customers Dataset을 선택하여 고객 데이터를 미리 확인해봅니다.
    - ![](images/datasetpreview.png)
-
 
 다음으로 DataBrew 프로젝트를 생성합니다.
 
 
-### 2.2 Customer Profile Job (PII)
+### 2.2 Customer Profile Job (Personal identifiable information, PII)
 
 프로파일링 작업은 dataset에 대해 다양한 평가를 실행합니다. 데이터 프로파일링이 수집하는 정보는 어떤 종류의 데이터 준비 단계가 필요한지 결정하는 데 도움이 됩니다.
 이 섹션에서는 프로필 작업에서 PII 탐지 기능을 활성화하여 데이터 집합에 있는 민감한 개인 식별 정보(PII) 데이터를 식별합니다.
 
-
 1. 왼쪽 탐색 창에서 **Datasets**을 선택합니다.
 1. 이전 단계에서 만든 **Customers** dataset을 선택합니다.
-
 1. 오른쪽 상단에서 **Run data profile**을 선택합니다.
-
    - ![](images/create_a_customer_profile_1.png)
-
 1. **Create a profile job**를 선택합니다.
    - ![](images/create_a_customer_profile_2.png)
-
-
 1. Job name 텍스트 박스에 `Customers profile job` 입력합니다.
-
 1. **Full dataset** 선택합니다.
    - ![](images/create_a_customer_profile_3.png)
-
-
 1. Browse 버튼을 클릭하여 **glue-databrew-immersionday-xxxx S3 버킷 > profile-output 폴더**를 선택 후 Select 버튼을 클릭합니다.
    - ![](images/create_a_customer_profile_4.png)
-
 1. **Data profile configurations**을 확장하고, 데이터 프로필 작업을 실행할 때 PII 열을 식별하려면 **PII statistics**에서 **Enable PII statistics**을 선택합니다. 추가로 **PII categories**에서 **All categories**를 선택합니다.
    - ![](images/create_a_customer_profile_5.png)
-
-
 1. **Permissions** 섹션으로 건너뛰고, **Role name** 드롭다운하여 **Create new IAM role**를 선택합니다.
-
 1. **New IAM Role suffix** 텍스트 박스에 `ID`를 입력합니다. 그러면 AWSGlueDataBrewServiceRole-ID라는 새 IAM role이 생성됩니다.
-
 1. **Create and run job**을 선택합니다.
-
    - ![](images/create_a_customer_profile_6.png)
-
-
 1. 그러면 **Customers dataset**의 **Data profile overview** 탭으로 이동합니다.
 작업이 완료되는 데 약 5분이 소요됩니다.
    - ![](images/create_a_customer_profile_7.png)
-
-
 1. 이 보고서는 컬럼 통계와 함께 PII 대상으로 확인된 PII 컬럼의 카탈로그를 제공합니다. 또한 검토할 수 있는 잠재적인 PII 열을 보여줍니다.
-이후 과정에서는 변환을 통해 확인된 PII 컬럼+을 선택적으로 수정합니다.
-
+이후 과정에서는 변환을 통해 확인된 PII 컬럼을 선택적으로 수정합니다.
 다음으로, Sales Dataset 및 Data Quality Rules을 생성합니다.
 
 
@@ -168,31 +133,19 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 이 실습에서는 Sales 데이터 집합을 만듭니다. 아래는 샘플 판매 데이터입니다.
    - ![](images/salesdatasample.png)
-
 1. 왼쪽 메뉴에서 **Datasets**을 선택합니다.
-
 1. **Connect new dataset**을 선택합니다.
    - ![](images/connectnewdataset.png)
-
-1. dataset의 이름을 *Sales*로 지정합니다.
-
+1. dataset의 이름을 `Sales`로 지정합니다.
 1. 서비스로 **Amazon S3**를 선택합니다.
-
 1. **Enter your source from S3** 텍스트 박스에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
-
 1. **datafiles > sales** 폴더를 선택합니다.
-
    - ![](images/Create_a_sales_dataset_1.png)
-
 1. file type으로 *CSV*를 선택합니다.
-
 1. **Comma(쉼표)**를 *CSV* 구분 기호로 선택합니다.
-
 1. **Treat first row as header**(첫 번째 행을 헤더로 처리)를 선택합니다.
-
 1. 오른쪽 아래에 있는 **Create dataset** 버튼을 선택합니다.
    - ![](images/Create_a_sales_dataset_2.png)
-
 1. Sales Dataset이 생성됩니다. **Sales Dataset**을 선택하여, 고객 데이터를 미리 확인해봅니다.
    - ![](images/salesdataset.png)
 
@@ -201,16 +154,12 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 ### 2.4 Sales Profile Job (DQ)
 
 이 실습에서는 Sales dataset의 data quality을 확인하고, data quality ruleset을 만든 다음 profile job을 실행하여 적용합니다.
-
 1. 왼쪽 메뉴에서 **DQ Rules**을 선택하고, **Create data quality ruleset**를 클릭합니다.
     - ![](images/create_sales_dq_ruleset_1.png)
-
 1. **ruleset name** 텍스트 박스에 `Sales DQ Checks`로 지정합니다.
-
 1. **Associated datase** 섹션에서 **Sales dataset**을 선택합니다. **View associated dataset details**를 클릭하여 dataset을 미리 확인합니다.
 1. 이제 dataset을 미리 볼 수 있으며, **Sales dataset의 Quality, Total_Sales 컬럼**에 data quality 문제가 있음을 확인할 수 있습니다.
     - ![](images/create_sales_dq_ruleset_2.png)
-
 1. 또한 적용할 수 있는 data quality check에 대한 **Recommendations**(권장 사항)도 확인할 수 있습니다.
     - ![](images/create_sales_dq_ruleset_3.png)
 
@@ -222,7 +171,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 여러 규칙을 추가할 수 있으며, 각 규칙 내에서 여러 데이터 품질 검사를 정의할 수 있습니다.
 
-1. 첫 번째 규칙을 Duplicate rows라는 이름으로 만들어 보겠습니다. Rule 1에 대해 아래 옵션을 선택합니다:
+1. 첫 번째 Rule 이름으로 `Duplicate rows` 입력합니다. Rule 1 에 대해 아래 옵션을 선택합니다:
 
 - **Data quality check scope**(데이터 품질 검사 범위)에서 **"Individual check for each column"**(각 컬럼에 대해 개별 검사)를 선택합니다.
 - **Rule success criteria**에서 **"All data quality checks are met (AND)"** 을 선택합니다.
@@ -234,53 +183,41 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 Dataset에 중복 행 수가 == 0인 경우 규칙이 통과됩니다.
     - ![](images/create_sales_dq_ruleset_4.png)
 
-1. **Add another rule**를 클릭하여 dataset에 다른 데이터 품질 검사를 추가하고, 이 규칙의 이름을 *Quantity and total Sales should be >0* 으로 지정해 보겠습니다.
+1. **Add another rule**를 클릭하여 dataset에 다른 데이터 품질 검사를 추가하고, 이 규칙의 이름을 `Quantity and total Sales should be >0` 으로 지정해 보겠습니다.
 
 - **Data quality check scope**(데이터 품질 검사 범위)에서 **Common checks for selected columns**(선택한 컬럼에 대한 공통 검사)를 선택합니다.
 - **Rule success criteria**(규칙 성공 기준)에서 **All data quality checks are met (AND)** 모든 데이터 품질 검사 충족을 선택합니다.
 - **Selected columns**에서 **Selected columns**을 선택합니다.
-- **Select Columns**을 클릭하여 **Quantity**와 **Total_Sales**을 두 개를 선택합니다.
+- **Column values**에서 **Quantity**와 **Total_Sales**을 두 개를 선택하여 select columns를 클릭합니다.
 - Check 1의 **Data quality check**에서 **Column values** 드롭다운하여 **Numeric values**을 선택합니다.
 - **Condition**에서 **Greater than(다음보다 큼)**을 선택합니다.
 - **Value**에 **Custom value**으로 *0*을 입력합니다.
 - **Threshold(임계값)**의 경우 Condition를 드롭다운하여 **Greater than equals**을 선택, **Threshold(임계값)**을 100, **%(percent) rows** 으로 설정합니다.
 - **Rule Summary**에서 설정한 규칙에 대한 설명을 볼 수 있습니다.
+
 Quantity, Total_Sales의 값이 행의 100% 이상에 대해 0 >= 0인 경우 규칙이 통과됩니다.
 
     - ![](images/create_sales_dq_ruleset_5.png)
-
 1. 이제 데이터 품질 검사를 시작할 준비가 되었습니다. **Create ruleset** 버튼을 클릭하여 데이터 품질 검사를 저장합니다.
      - ![](images/create_sales_dq_ruleset_6.png)
-
-
 1. 그러면 **DQ RULES**메뉴에 **Data quality rulesets**으로 이동합니다. Sales dataset에 새 규칙 집합을 적용하기 위한 profile Job을 만들기 위해
 **Sales DQ Checks**를 선택하고, **Create profile job with ruleset** 를 선택합니다.
      - ![](images/create_sales_dq_ruleset_7.png)
-
-
 1. job name 텍스트 박스에 `Sales profile`으로 입력하고, **Full dataset**을 선택합니다.
      - ![](images/create_a_profile_3.png)
-
 1.  **Job output settings **의 경우, Browse 버튼을 클릭하여 **glue-databrew-immersionday-xxxx S3 버킷 > profile-output 폴더**를 선택 후 Select 버튼을 클릭합니다.
      - ![](images/create_sales_dq_ruleset_8.png)
 1. **Data quality rules** 섹션에서 **Sales DQ Checks** 규칙 집합이 이미 적용되어 있는 것을 볼 수 있습니다.
-
 1. 나머지는 optional 설정은 default settings을 그대로 유지하고, **Role name** 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* role을 선택합니다.
-
 1. **Create and run job**버튼을 클릭합니다.
      - ![](images/create_sales_dq_ruleset_9.png)
-
 Profile jobs 은dataset에 대해 평가를 실행합니다. dataset 수준과 컬럼 수준으로 세분화하여 통계를 생성합니다.
-
 1. 그러면 **Sales Datasets**의 **Data profile overview** 탭으로 이동합니다.
 작업이 완료되는 데 약 5분이 소요됩니다.
      - ![](images/verify_result_2.png)
-
 1. **Value distribution(값 분포)**를 확인합니다.
      - ![](images/verify_result_3.png)
-
 1. **Columns statistics** 탭을 선택합니다
-
      - ![](images/verify_result_4.png)
 
 1. Data quality rules 탭을 선택하면 데이터 품질 검사에 모두 실패한 것을 확인할 수 있습니다.
@@ -292,10 +229,8 @@ Profile jobs 은dataset에 대해 평가를 실행합니다. dataset 수준과 �
 데이터의 계보를 시각적으로 매핑하여 데이터가 거쳐 온 다양한 데이터 원본과 변환 단계를 파악할 수 있습니다.
 
 1. datasets 메뉴에서 Sales dataset을 선택합니다.
-
 1. **Data lineage** 탭을 선택하여 다음을 확인합니다.
      - ![](images/datalineage.png)
-
 1. 해당 dataset의 모든 작업을 보기위해 **CloudTrail logs**를 선택합니다.
      - ![](images/cloudtrail.png)
 
@@ -316,31 +251,19 @@ DataBrew의 대화형 데이터 준비 작업 공간을 project라고 합니다.
 이제 dataset이 만들어졌으므로 데이터 변환을 시작할 수 있습니다.
 
 1. 왼쪽 메뉴에서 **PROJECTS**를 선택합니다.
-
 1. **Create project**를 선택합니다.
-
-1. 프로젝트 이름을 *CleanCustomer*로 지정합니다. 자동 입력된 Recipe name은 그대로 둡니다.
-
+1. 프로젝트 이름을 `CleanCustomer`로 지정합니다. 자동 입력된 Recipe name은 그대로 둡니다.
 1. **My datasets**을 선택합니다.
-
      - ![](images/create_a_project.png)
-
 1. 이전 실습 모듈에서 만든 **Customers dataset**을 선택합니다.
-
 1. **Sampling** 섹션을 열고 Type을 **Random rows**으로 설정합니다.
-
 1. 샘플 크기로 **1,000**을 선택합니다.
-
      - ![](images/select_dataset.png)
-
 1. Permission 섹션의 **Role name**를 드롭다운에서 *AWSGlueDataBrewServiceRole-ID*를 선택합니다.
-
 1. **Create Project**을 클릭합니다.
      - ![](images/create_iam_role.png)
 
-
 새 프로젝트를 초기화하는 데 몇 분 정도 걸립니다.
-
 
 ### 3.2 Build Recipe
 
@@ -348,27 +271,19 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 
 이 실습에서는 병합 및 포맷 변환을 사용하여 이름 컬럼을 표준화합니다. Format transform을 사용하여 생년월일(DoB) 열을 표준화합니다. 다음으로, Clean and SPLIT transform을 사용하여 Address 컬럼을 표준화합니다. 마지막으로 최종 출력에 있는 PII 데이터를 수합니다.
 
-1. 이전 단계에서 만든 CleanCustomer 프로젝트를 엽니다.
-
-1. 상단 메뉴에서 MERGE을 선택합니다.
-
+1. 이전 단계에서 만든 **CleanCustomer** 프로젝트를 엽니다.
+1. 상단 메뉴에서 **MERGE 아이콘**을 선택합니다.
      - ![](images/build_recipe_1.png)
-
-1. 오른쪽 메뉴에 Source Column으로 Prefix, First_Name 및 Last_Name 컬럼을 선택합니다.
-
-1. 공백 문자(스페이스)를 separator(구분 기호)로 입력합니다.
+1. 오른쪽 메뉴에 Source Column으로 *Prefix, First_Name, Last_Name* 컬럼을 선택합니다.
+1. 공백 문자(스페이스 한 칸)를 **separator(구분 기호)**로 입력합니다.
      - ![](images/build_recipe_2.png)
-
-1. **New column name** 텍스트 박에 `Name`을 입력합니다.
-
+1. **New column name** 텍스트 박스에 `Name`을 입력합니다.
 1. **Preview changes**를 클릭하고, 미리 보기에서 예상한 결과가 표시되는지 확인합니다. **Apply**를 클릭합니다.
      - ![](images/build_recipe_3.png)
 
 
 1. 생성한 새 컬럼 위에 표시되는 **줄임표(...)**를 선택합니다.
-
 1. 표시되는 메뉴에서 **Format**을 선택합니다.
-
 1. ***Change to capital case(대문자로 변경)*** 선택합니다.
      - ![](images/build_recipe_4.png)
 1. 오른쪽 하단에 **Apply** 버튼을 클합니다.
@@ -376,25 +291,19 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 1. 상단 메뉴에서 **COLUMN > Delete**를 선택하고, *Middle_Name*과 *Suffix*를 source columns으로 선택한 다음 **Apply** 버튼을 클릭합니다.
      - ![](images/delete.png)
 1. **DoB 컬럼 위의 줄임표(...)**를 선택하고 표시되는 메뉴에서 *Format > Date-time formats > mm-dd-yyyy*를 선택합니다.
-
      - ![](images/build_recipe_7.png)
 1. 오른쪽 하단에 **Apply** 버튼을 클릭
      - ![](images/build_recipe_8.png)
-
 Address 컬럼에서 특수 문자 <>&을 제거합니다. Address 컬럼 헤더에서 줄임표(...)를 선택한 다음 **Clean -> Special Character**를 선택합니다. 
      - ![](images/specialchar.png)
 **Custom special characters** 를 선택하고 입력란에 `<>&`을 입력합니다.
      - ![](images/build_recipe_9.png)
-
 1. **Apply transform to** 섹션에서 **All rows(모든 행)**을 선택한 상태로 둡니다.
-
 1. **Preview changes**를 선택하고 결과가 예상대로 표시되는지 확인합니다.
 1. 오른쪽 하단에 **Apply** 버튼을 클릭합니다.
-
      - ![](images/build_recipe_10.png)
-1. 다음으로 Address 컬럼을 우편번호와 분리합니다. 상단 메뉴에서 **SPLIT**을 선택하고, **On a single delimiter**을 선택합니다.
+1. 다음으로 Address 컬럼을 우편번호와 분리합니다. 상단 메뉴에서 **SPLIT 아이코**을 선택하고, **On a single delimiter**을 선택합니다.
      - ![](images/build_recipe_11.png)
-
 1. **Address**를 *source column*으로 선택하고 **split column options**은 *기본값*으로 둡니다.
      - ![](images/split.png)
 
@@ -412,7 +321,7 @@ Address 컬럼에서 특수 문자 <>&을 제거합니다. Address 컬럼 헤더
 
 **다음 단계에 따라 Address_3의 이름을 City로, Address_4의 이름을 Zip으로, Addrees_5의 이름을 Country로 변경합니다.**
 
-1. 각 컬럼 상단의 (...)을 선택한 다음 표시되는 메뉴에서 Rename를 선택합니다.
+1. 각 컬럼 상단의 ** (...)을 선택한 다음 표시되는 메뉴에서 Rename를 선택합니다.
 
 1. New column name 텍스트 상자에 대상 이름을 입력하고 Apply 선택하여, 컬럼의 이름을 바꿉니다.
      - ![](images/build_recipe_13.png)
