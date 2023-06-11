@@ -5,16 +5,17 @@
 
 ### 1-1. 시작하기 전
 
-이 핸즈온랩을 통해 여러분들은 1) 데이터 분석을 위한 데이터 클랜징과 정규화 2) 쿼리를 통한 데이터 분석과 시각화 작업 3) 데이터 예측 과정을 살펴볼 예정입니다. 
+이 핸즈온랩을 통해 여러분들은 1) 데이터 분석을 위한 데이터 클랜징과 정규화 2) 쿼리를 통한 데이터 분석과 시각화 작업 3) 데이터 예측 과정을 간단하게 살펴볼 예정입니다. 
 
 **Scenario** : ABC 회사는 온라인 반려동물 제품 소매업체입니다. 최근 반려동물을 위한 새로운 제품 라인을 출시했습니다. 큰 성공을 거둘 것으로 예상했지만 일부 지역의 매출이 기대에 미치지 못했습니다. 마케팅 조사에 따르면 해당 지역에서 제품에 대한 인지도가 낮은 것이 판매 부진의 주요 원인인 것으로 나타났습니다. 이 문제를 해결하기 위해 해당 지역에서 타겟팅된 메일 캠페인을 시작하여 인지도를 높이면서 제품 판매를 늘리려고 합니다. 팀은 코딩을 하거나 인프라를 관리할 시간이 많지 않기 때문에 손쉽게 해결할 수 있는 방법이 필요합니다.
 
-**Action** : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 두 제품 라인의 판매를 비교하고, 2) 특정 제품을 마케팅할 고객의 우편 번호를 파악해야 합니다.
+**Action** : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 (신규/기존)두 제품 라인의 판매를 비교하고, 2) 특정 제품을 마케팅할 고객의 우편번호를 파악해야 합니다.
 
-데이터 변환 단계:
-1. 고객 데이터 (Customer) : 고객 데이터를 클랜징하고 주소 열에서 우편 번호를 분석합니다.
-1. 판매 데이터 (Sales): 고객 데이터 및 제품 데이터와 Join하여 우편번호 및 제품 유형별로 판매량을 비교합니다.
-1. 제품 데이터 (Product) : 마지막으로 판매 가능한 제품 ID가 포함된 우편번호 목록을 생성합니다.
+**데이터 변환 단계**:
+1. 고객 데이터 (Customer) : 고객 데이터를 클랜징하고, 주소 컬럼에서 우편번호를 분석합니다.
+1. 판매 데이터 (Sales): 고객 데이터 및 제품 데이터와 Join하여, 우편
+번호 및 제품 유형별로 판매량을 비교합니다.
+1. 제품 데이터 (Product) : 잘 팔리는 제품 ID가 포함된 우편번호 목록을 생성합니다.
 
 **Data Model**
    ![](images/datamodel.png)
@@ -467,7 +468,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여 데이터를 �
 
 ### 4.1 Join and Group By
 
-이 실습에서는 Join(조인) 및 Group By(그룹화 기준) 변환을 사용하여 제품 ID, 우편 번호 및 제품 유형별로 총 매출을 계산합니다
+이 실습에서는 Join(조인) 및 Group By(그룹화 기준) 변환을 사용하여 제품 ID, 우편번호 및 제품 유형별로 총 매출을 계산합니다
 
 1. 왼쪽 탐색 메뉴에서 **PROJECT**를 선택합니다.
 1. **Project Name** 텍스트 박스에 `Sales`를 입력합니다.
@@ -542,7 +543,7 @@ Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 
 
 ### 4.2 Pivot and Custom Recipe
 
-이 실습에서는 Pivot 변환을 총 판매액으로 사용하여 **product Type - Toys - Campaign**에 대한 우편 번호를 식별합니다. 이 실습에서는 custom recipe를 사용하는 방법을 배웁니다.
+이 실습에서는 Pivot 변환을 총 판매액으로 사용하여 **product Type - Toys - Campaign**에 대한 우편번호를 식별합니다. 이 실습에서는 custom recipe를 사용하는 방법을 배웁니다.
 
 1. cloudformation 템플릿으로 생성한 g**lue-databrew-immersionday** s3 버킷의 **recipes/** 폴더에서 *ID-recipe-import.json*을 다운로드합니다.
      - ![](images/s3_custom_recipe.png)
@@ -563,11 +564,12 @@ Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 
      - ![](images/create_new_project_6.png)
 **Toys** 컬럼만 선택 후 Apply
      - ![](images/create_new_project_7.png)
-1. 아래 지침에 따라 Product_Id로 Pivot하여 지정된 우편 번호에 있는 서로 다른 두 제품 라인의 product_Id 매출을 비교합니다.
+1. 아래 지침에 따라 Product_Id로 Pivot하여 지정된 우편번호에 있는 서로 다른 두 제품 라인의 product_Id 매출을 비교합니다.
 상단에 PIVOT 클릭
      - ![](images/create_new_project_8.png)
 **PIVOT - Rows to clomns 선택 > Pivot column (Product_id) > Pivot values (Sum, Total_Sales_sum) > Finish** 버튼을 클릭합니다..
-     - ![](images/create_new_project_9.png)
+     - ![](images/create_new_project_9.png
+     )
 1. 왼쪽 메뉴에서 **Recipes**를 선택한 다음 **Upload Recipe**를 선택합니다.
      - ![](images/uploadrecipe.png)
 1. s3 버킷의 레시피 폴더에서 다운로드한 *ID-recipe-import.json*을 업로드후 **Create and publish recipe** 버튼을 클릭합니다. 이 레시피에는 데이터를 정리하는 추가 단계가 포함되어 있습니다.
@@ -579,7 +581,7 @@ Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 
 1. **Recipe import** 옵션에서 *Append*를 선택하고 **Next** 그리고 **Import**를 선택합니다.
      - ![](images/create_new_project_14.png)
      - ![](images/create_new_project_15.png)
-레시피를 성공적으로 가져오면 장난감 캠페인의 목록 우편 번호가 생성됩니다.
+레시피를 성공적으로 가져오면 장난감 캠페인의 목록 우편번호가 생성됩니다.
 1. 이제 이 레시피를 전체 **Sales dataset**에 적용하기 위해 job을 만듭니다. **Creat job**를 선택합니다.
      - ![](images/create_new_project_16.png)
 1. **Job name**을 `SalesByProductType-Toys`로 지정합니다.
@@ -673,7 +675,7 @@ https://docs.aws.amazon.com/quicksight/latest/user/supported-manifest-file-forma
 #### DataSet을 검토합니다.
 
 1. Edit and Preview 버튼을 눌러 데이터를 확인합니다. 데이터를 로드하는 데 몇 초 정도 걸립니다. 자유롭게 탐색해 보세요.
-1. 오른쪽에는 필드 목록이 표시되고 왼쪽에는 아래 데이터 샘플과 함께 dataset이 표시됩니다. QuickSight가 이미 Zip column이 우편 번호임을 확인한 것을 알 수 있습니다.
+1. 오른쪽에는 필드 목록이 표시되고 왼쪽에는 아래 데이터 샘플과 함께 dataset이 표시됩니다. QuickSight가 이미 Zip column이 우편번호임을 확인한 것을 알 수 있습니다.
    - ![](images/visualize_data_set.png)
 분석에 사용할 새 계산된 필드를 추가해 보겠습니다. 계산된 필드를 ProductStatus라고 부르며, 제품이 새 제품인지 오래된 제품인지를 나타냅니다.
 화면 왼쪽에 있는 계산된 필드 Add를 누릅니다. 이름을 ProductStatus로 설정합니다.
@@ -716,7 +718,7 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
    - ![](images/addvisual.png)
 새 visual이 강조 표시되어 있는지 확인하고 필드를 선택합니다: Total Sales Sum  및 Zip를 선택합니다. 그런 다음 오른쪽 아래 Visual Types 셀에서 맵 버튼을 선택하여 Visual Types을 map으로 변경합니다.
    - ![](images/map1.png)
-1. 지도에는 신상품과 구상품을 포함한 모든 제품의 매출이 표시됩니다. 이를 변경하여 Zip Code(우편 번호)별 New Product sales(새 제품 판매량)을 표시하는 그래프와 Old Product sales(기존 제품 판매량)을 표시하는 그래프 두 개를 만들겠습니다.
+1. 지도에는 신상품과 구상품을 포함한 모든 제품의 매출이 표시됩니다. 이를 변경하여 Zip Code(우편번호)별 New Product sales(새 제품 판매량)을 표시하는 그래프와 Old Product sales(기존 제품 판매량)을 표시하는 그래프 두 개를 만들겠습니다.
 1. 텍스트가 Sum of Total_sales_sum by Zip인 것을 확인하고 텍스트를 클릭하여 Total Sales by Zip for the Old Product으로 변경합니다. visual을 선택한 상태에서 맨 오른쪽의 Filters 버튼을 누릅니다. 이제 맵에 Filters를 적용하여 Old Product sales (기존 제품 판매량)만 표시하겠습니다.
    - ![](images/createfilter.png)
 1. 필터에서 파란색 Create one option을 누릅니다. 필드 목록이 포함된 메뉴가 나타납니다.
@@ -727,9 +729,9 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
     - ![](images/map2.png)
 
 
-#### 우편 번호별 제품
+#### 우편번호별 제품
 
-1. 그래프를 하나 더 추가한 다음 서로 연결해 보겠습니다. 이 visual에서는 Zip Code(우편 번호)별 제품 판매량을 비교하고 New Product (새 제품)과 Old Product(기존 제품)을 비교합니다.
+1. 그래프를 하나 더 추가한 다음 서로 연결해 보겠습니다. 이 visual에서는 Zip Code(우편번호)별 제품 판매량을 비교하고 New Product (새 제품)과 Old Product(기존 제품)을 비교합니다.
 1. 오른쪽 상단의 Add 버튼을 사용하여 new visualization를 추가하고, 텍스트를 업데이트하고, 시각화를 확장합니다. 다음과 같은 내용이 표시됩니다:
     - ![](images/visualize_totalsales.png)
 
