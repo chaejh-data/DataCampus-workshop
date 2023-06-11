@@ -18,6 +18,7 @@
 
 Data Model
    - ![](images/datamodel.png)
+   
 Logical data flow
    - ![](images/dataflow.png)
 
