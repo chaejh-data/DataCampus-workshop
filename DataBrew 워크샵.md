@@ -223,8 +223,11 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
     <img src="images/create_sales_dq_ruleset_3.png">
 
-    **DATASET QUALITY CHECKS** 중복 행이 있는 dataset 있는지 확인
-    **COLUMN QUALITY CHECKS** 모든 컬럼에 missing values가 0% 인지 확인
+    **DATASET QUALITY CHECKS** 
+    중복 행이 있는 dataset 있는지 확인
+    **COLUMN QUALITY CHECKS** 
+    모든 컬럼에 missing values가 0% 인지 확인
+    
     여러 규칙을 추가할 수 있으며, 각 규칙 내에서 여러 데이터 품질 검사를 정의할 수 있습니다.
 
 1. 첫 번째 Rule 이름으로 `Duplicate rows` 입력합니다. Rule 1 에 대해 아래 옵션을 선택합니다:
