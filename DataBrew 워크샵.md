@@ -387,44 +387,69 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 
      <img src="images/build_recipe_3.png">
 
-1. 생성한 새 컬럼 위에 표시되는 **줄임표(...)**를 선택합니다.
-1. 표시되는 메뉴에서 **Format**을 선택합니다.
-1. ***Change to capital case(대문자로 변경)*** 선택합니다.
+1. 생성한 새 컬럼 위에 표시되는 **줄임표**(...)를 선택합니다.
+1. 표시되는 메뉴에서 **Format > Change to capital case(대문자로 변경)** 선택합니다.
+
      <img src="images/build_recipe_4.png">
-1. 오른쪽 하단에 **Apply** 버튼을 클합니다.
+
+1. 오른쪽 하단에 **Apply** 버튼을 클릭합니다.
+
      <img src="images/build_recipe_5.png">
-1. 상단 메뉴에서 **COLUMN .png"> Delete**를 선택하고, *Middle_Name*과 *Suffix*를 source columns으로 선택한 다음 **Apply** 버튼을 클릭합니다.
+
+1. 상단 메뉴에서 **COLUMN 아이콘 > Delete**를 선택하고, *Middle_Name*과 *Suffix*를 source columns으로 선택한 다음 **Apply** 버튼을 클릭합니다.
+
      <img src="images/delete.png">
-1. **DoB 컬럼 위의 줄임표(...)**를 선택하고 표시되는 메뉴에서 *Format .png"> Date-time formats .png"> mm-dd-yyyy*를 선택합니다.
+
+1. **DoB 컬럼 위의 줄임표**(...)를 선택하고 표시되는 메뉴에서 **Format > Date-time formats > mm-dd-yyyy**를 선택합니다.
+
      <img src="images/build_recipe_7.png">
-1. 오른쪽 하단에 **Apply** 버튼을 클릭
+
+1. 오른쪽 하단에 **Apply** 버튼을 클릭합니다.
+
      <img src="images/build_recipe_8.png">
-Address 컬럼에서 특수 문자 <.png">&을 제거합니다. Address 컬럼 헤더에서 줄임표(...)를 선택한 다음 **Clean -.png"> Special Character**를 선택합니다. 
+
+    Address 컬럼에서 특수 문자 <>&을 제거합니다. Address 컬럼 헤더에서 줄임표(...)를 선택한 다음 **Clean > Special Character**를 선택합니다.
+
      <img src="images/specialchar.png">
-**Custom special characters** 를 선택하고 입력란에 `<.png">&`을 입력합니다.
+
+    **Custom special characters** 를 선택하고, 입력란에 `<>&`을 입력합니다.
+
      <img src="images/build_recipe_9.png">
+
 1. **Apply transform to** 섹션에서 **All rows(모든 행)**을 선택한 상태로 둡니다.
 1. **Preview changes**를 선택하고 결과가 예상대로 표시되는지 확인합니다.
 1. 오른쪽 하단에 **Apply** 버튼을 클릭합니다.
+
      <img src="images/build_recipe_10.png">
-1. 다음으로 Address 컬럼을 우편번호와 분리합니다. 상단 메뉴에서 **SPLIT 아이코**을 선택하고, **On a single delimiter**을 선택합니다.
+
+1. 다음으로 Address 컬럼을 우편번호와 분리합니다. 상단 메뉴에서 **SPLIT 아이콘**을 선택하고, **On a single delimiter**을 선택합니다.
+
      <img src="images/build_recipe_11.png">
+
 1. **Address**를 *source column*으로 선택하고 **split column options**은 *기본값*으로 둡니다.
+
      <img src="images/split.png">
+
 1. **Enter custom value** 텍스트 상자에 **delimiter(구분 기호)**로 `;` 를 입력합니다.
 1. **number of times to split(분할할 횟수)**를 *4*로 설정합니다.
 1. **Apply transform** 섹션에서 *All rows(모든 행)*을 선택한 상태로 둡니다.
 1. **Preview changes**를 선택하여 결과를 확인합니다.
 1. **Apply**을 선택합니다.
+
      <img src="images/build_recipe_12.png">
-**다음 단계에 따라 Address_3의 이름을 City로, Address_4의 이름을 Zip으로, Addrees_5의 이름을 Country로 변경합니다.**
+
+    **다음 단계에 따라 Address_3의 이름을 City로, Address_4의 이름을 Zip으로, Addrees_5의 이름을 Country로 변경합니다.**
+
 1. 각 컬럼 상단의 **줄임표(...)**을 선택한 다음, 메뉴에서 **Rename**를 선택합니다.
 1. New column name 텍스트 상자에 대상 이름(Address_3 .png"> `City`, Address_4 .png"> `Zip`, Addrees_5 .png"> `Country`)을 입력하고 **Apply** 선택하여, 컬럼의 이름을 바꿉니다.
+
      <img src="images/build_recipe_13.png">
+
 1. **Customers dataset**에서 PII 데이터를 수정하려면 *SENSITIVE --> Data masking --> Redact values* 선택합니다.
 1. 오른쪽 Source 컬럼에서 **DoB, Address_1 및 Address_2**를 선택하고 **Apply**를 선택합니다. 이제 *DoB, Address_1 및 Address_2* 컬럼이 *#* 값으로 수정된 것을 확인할 수 있습니다.
 
 1. 상단 메뉴의 가장 오른쪽에 있는 **RECIPE**를 선택하여, RECIPE를 열고 아래와 같은 10단계가 포함되어 있는지 확인합니다.
+
      <img src="images/build_recipe_14.png">
 
 다음으로, 위의 recipe를 사용하여 raw Customers data를 clean된 고객으로 변환하는 DataBrew 작업을 만들 것입니다.     
