@@ -103,7 +103,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
    <img src="images/customersampledata.png">
 
 1. AWS 콘솔 상단 검색 창에서 **DataBrew**로 검색하여, [AWS Glue DataBrew](https://console.aws.amazon.com/databrew/home?region=us-east-1#)서비스로 이동합니다.
-1. 왼쪽 메뉴에서 **DATASETS**를 선합니다.
+1. 왼쪽 메뉴에서 **DATASETS**를 선택합니다.
 1. **Connect new dataset** 버튼을 클릭합니다.
 
    <img src="images/create_a_dataset.png">
