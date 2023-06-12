@@ -234,7 +234,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
     **Rule success criteria** : **All data quality checks are met (AND)** 선택
 
-    - Check 1
+    Check 1
 
     **Data quality checks** : 드롭다운하여 **Duplicate rows(중복 행)** 선택
 
@@ -249,28 +249,28 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 1. **Add another rule**를 클릭하여 dataset에 데이터 품질 검사를 추가하고, 규칙의 이름을 `Quantity and total Sales should be >0` 으로 지정해줍니다.
 
-**Data quality check scope**(검사 범위) : **Common checks for selected columns**(선택한 컬럼에 대한 공통 검사) 선택
+    **Data quality check scope**(검사 범위) : **Common checks for selected columns**(선택한 컬럼에 대한 공통 검사) 선택
 
-**Rule success criteria**(규칙 성공 기준) : **All data quality checks are met (AND)** 모든 데이터 품질 검사 충족 선택
+    **Rule success criteria**(규칙 성공 기준) : **All data quality checks are met (AND)** 모든 데이터 품질 검사 충족 선택
 
-**Selected columns** : **Selected columns** 선택
+    **Selected columns** : **Selected columns** 선택
 
-**Column values** : *Quantity*와 *Total_Sales*을 두 개를 선택하여 **select columns** 클릭
+    **Column values** : *Quantity*와 *Total_Sales*을 두 개를 선택하여 **select columns** 클릭
 
-Check 1
+    Check 1
 
-**Data quality check** : **Column values** 드롭다운하여 **Numeric values** 선택
+    **Data quality check** : **Column values** 드롭다운하여 **Numeric values** 선택
 
-**Condition** : **Greater than(다음보다 큼)** 선택
+    **Condition** : **Greater than(다음보다 큼)** 선택
 
-**Value**에 **Custom value**으로 `0`을 입력
+    **Value**에 **Custom value**으로 `0`을 입력
 
-**Threshold(임계값)** : Condition를 드롭다운하여 **Greater than equals**을 선택, **Threshold(임계값)**을 `100`, **%(percent) rows** 으로 설정합니다.
+    **Threshold(임계값)** : Condition를 드롭다운하여 **Greater than equals**을 선택, **Threshold(임계값)**을 `100`, **%(percent) rows** 으로 설정합니다.
 
-**Rule Summary**에서 설정한 규칙에 대한 설명을 볼 수 있습니다.
-모든 컬럼이 Quantity, Total_Sales의 값 >= 0인 경우 규칙이 통과됩니다.
+    **Rule Summary**에서 설정한 규칙에 대한 설명을 볼 수 있습니다.
+    모든 컬럼이 Quantity, Total_Sales의 값 >= 0인 경우 규칙이 통과됩니다.
     
-<img src="images/create_sales_dq_ruleset_5.png">
+    <img src="images/create_sales_dq_ruleset_5.png">
 
 1. 이제 데이터 품질 검사를 시작할 준비가 되었습니다. **Create ruleset** 버튼을 클릭하여 데이터 품질 검사를 저장합니다.
 
