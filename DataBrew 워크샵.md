@@ -15,7 +15,7 @@
 **Action** : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 두 제품 라인(신규/기존)의 판매를 비교하고, 2) 특정 제품을 마케팅할 고객의 우편번호를 파악해야 합니다.
 
 **데이터 변환 단계**:
-1. 고객 데이터 (Customer) : 고객 데이터를 클랜징하고, 주소 컬럼에서 우편번호를 분석합니다.
+1. 고객 데이터 (Customer) : 고객 데이터를 클징하고, 주소 컬럼에서 우편번호를 분석합니다.
 1. 판매 데이터 (Sales): 고객 데이터 및 제품 데이터와 Join하여, 우편번호 및 제품 유형별로 판매량을 비교합니다.
 1. 제품 데이터 (Product) : 캠페인을 위한 시장성있는 제품 ID가 포함된 우편번호 목록을 생성합니다.
 
@@ -29,27 +29,27 @@
 
 ### 1.2 이벤트 계정으로 AWS 콘솔 접속 하기
 <!-- 10분 -->
-1. AWS Wokshop Portal에 로그인하여 실습을 진행하실 경우 Team Hash 값이 필요합니다. 여기를 클릭 한 후, 이벤트 주최자로부터 받은 12자리 Participant Hash 값을 입력하면 오른쪽 하단 버튼이 Accept Terms & Login으로 변경됩니다. 다음 단계로 넘어가기 위해 해당 버튼을 클릭합니다.
+1. AWS Wokshop Portal에 로그인하여 실습을 진행하실 경우 Team Hash 값이 필요합니다. 여기를 클릭 한 후, 이벤트 주최자로부터 받은 12자리 Participant Hash 값을 입력하면 오른쪽 하단 버튼이 **Accept Terms & Login**으로 변경됩니다. 다음 단계로 넘어가기 위해 해당 버튼을 클릭합니다.
 
     <img src="images/setting_up-img1.png">
 
-1. Email One-Time Password (OTP) 버튼을 클릭합니다.
+1. **Email One-Time Password (OTP)** 버튼을 클릭합니다.
 
     <img src="images/1EventEngineSignInOptions.png">
 
-1. 본인의 이메일 계정을 입력하고 Send Code 버튼을 클릭합니다.
+1. 본인의 이메일 계정을 입력하고 **Send Code** 버튼을 클릭합니다.
 
     <img src="images/2EventEngineSpecifyEmail.png">
 
-1. 작성한 이메일 수신함에서 제목이 Your one-time passcode 인 이메일을 확인하고 passcode를 복사합니다. 복사한 passcode를 아래와 같이 붙여넣기 한 뒤, Sign in 버튼을 클릭합니다.
+1. 작성한 이메일 수신함에서 제목이 Your one-time passcode 인 이메일을 확인하고 passcode를 복사합니다. 복사한 passcode를 아래와 같이 붙여넣기 한 뒤, **Sign in** 버튼을 클릭합니다.
 
     <img src="images/3EventEngineSpecifyPasscode.png">
 
-1. 다음 화면에서 AWS Console 버튼을 누르면 AWS 관리콘솔에 로그인할 수 있는 로그인 링크를 받을 수 있습니다.
+1. 다음 화면에서 **AWS Console** 버튼을 누르면 AWS 관리콘솔에 로그인할 수 있는 로그인 링크를 받을 수 있습니다.
 
     <img src="images/4EventEngineTeamDashboard.png">
 
-1. Open AWS Console 버튼을 누르면 AWS 관리콘솔로 접속할 수 있습니다. 또한, CLI 환경을 위한 "Access Key" 와 "Secret Access Key" 도 확인할 수 있습니다.
+1. **Open AWS Console** 버튼을 누르면 AWS 관리콘솔로 접속할 수 있습니다. 또한, CLI 환경을 위한 "Access Key" 와 "Secret Access Key" 도 확인할 수 있습니다.
 
     <img src="images/5EventEngineConsoleLogin.png">
 
@@ -58,10 +58,10 @@
 ### 1.3 S3버킷 생성하기(CloudFormation)
 <!--  5분 -->
 
-1. 워크샵을 시작하기 전에 필요한 AWS 리소스를 생성해야 합니다. 이를 위해 리소스가 포함된 스택을 생성할 수 있는 AWS CloudFormation 템플릿을 제공합니다. 스택을 생성하면 AWS가 계정에 여러 리소스를 생성합니다. 이 워크샵에서는 사용할 데이터 파일 및 폴더와 함께 접두사가 glue-databrew-immersionday인 S3 버킷을 생성합니다. 
+1. 워크샵을 시작하기 전에 필요한 AWS 리소스를 생성해야 합니다. 이를 위해 리소스가 포함된 스택을 생성할 수 있는 AWS CloudFormation 템플릿을 제공합니다. 스택을 생성하면 AWS가 계정에 여러 리소스를 생성합니다. 이 워크샵에서는 사용할 데이터 파일 및 폴더와 함께 *glue-databrew-immersionday*으로 시작하는 S3 버킷을 생성합니다. 
 아래의 Launch Stack 버튼을 클릭하여 이 워크샵에 필요한 리소스를 생성합니다.
 
-    - [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday)
+    [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday)
     
     <img src="images/createstack.png">
 
