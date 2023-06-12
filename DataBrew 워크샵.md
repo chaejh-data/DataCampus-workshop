@@ -230,23 +230,24 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 1. 첫 번째 Rule 이름으로 `Duplicate rows` 입력합니다. Rule 1 에 대해 아래 옵션을 선택합니다:
 
-    **Data quality check scope**(데이터 품질 검사 범위) : **"Individual check for each column"**(각 컬럼에 대해 개별 검사) 선택
+    **Data quality check scope**(검사 범위) : **Individual check for each column**(각 컬럼에 대해 개별 검사) 선택
 
-    **Rule success criteria** : **"All data quality checks are met (AND)"** 선택
+    **Rule success criteria** : **All data quality checks are met (AND)** 선택
 
-    **Check 1**
+    - Check 1
 
     **Data quality checks** : 드롭다운하여 **Duplicate rows(중복 행)** 선택
 
     **Condition(조건)** : **Is equals(같음)** 선택
-    
+
     **Value** : `0`을 입력, 드롭다운하여 **rows** 선택
 
     **Rule Summary**에서 설정한 규칙에 대한 설명을 확인할 수 있습니다.
     Dataset에 중복 행 수가 == 0인 경우 규칙이 통과됩니다.
+
         <img src="images/create_sales_dq_ruleset_4.png">
 
-1. **Add another rule**를 클릭하여 dataset에 다른 데이터 품질 검사를 추가하고, 이 규칙의 이름을 `Quantity and total Sales should be .png">0` 으로 지정해 보겠습니다.
+1. **Add another rule**를 클릭하여 dataset에 다른 데이터 품질 검사를 추가하고, 규칙의 이름을 `Quantity and total Sales should be >0` 으로 지정해줍니다.
 
 - **Data quality check scope**(데이터 품질 검사 범위)에서 **Common checks for selected columns**(선택한 컬럼에 대한 공통 검사)를 선택합니다.
 - **Rule success criteria**(규칙 성공 기준)에서 **All data quality checks are met (AND)** 모든 데이터 품질 검사 충족을 선택합니다.
