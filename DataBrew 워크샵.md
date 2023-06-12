@@ -378,7 +378,7 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
      <img src="images/build_recipe_1.png">
 
 1. 오른쪽 메뉴에 Source Column으로 *Prefix, First_Name, Last_Name* 컬럼을 선택합니다.
-1. 공백 문자(` `)를 **separator(구분 기호)**로 입력합니다.
+1. 공백 문자(` `)를 **separator**(구분 기호)로 입력합니다.
 
      <img src="images/build_recipe_2.png">
 
