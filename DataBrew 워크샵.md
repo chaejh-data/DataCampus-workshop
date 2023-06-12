@@ -232,7 +232,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
     **Data quality check scope**(검사 범위) : **Individual check for each column**(각 컬럼에 대해 개별 검사) 선택
 
-    **Rule success criteria** : **All data quality checks are met (AND)** 선택
+    **Rule success criteria**(규칙 성공 기준) : **All data quality checks are met (AND)** (모든 데이터 품질 검사 충족) 선택
 
     Check 1
 
@@ -251,7 +251,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
     **Data quality check scope**(검사 범위) : **Common checks for selected columns**(선택한 컬럼에 대한 공통 검사) 선택
 
-    **Rule success criteria**(규칙 성공 기준) : **All data quality checks are met (AND)** 모든 데이터 품질 검사 충족 선택
+    **Rule success criteria**(규칙 성공 기준) : **All data quality checks are met (AND)** (모든 데이터 품질 검사 충족) 선택
 
     **Selected columns** : **Selected columns** 선택
 
