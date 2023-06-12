@@ -141,23 +141,36 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 1. 왼쪽 메뉴에서 **DATASETS**를 선합니다.
 1. 이전 단계에서 만든 **Customers** dataset을 선택합니다.
 1. 오른쪽 상단에서 **Run data profile**을 선택합니다.
+
    <img src="images/create_a_customer_profile_1.png">
+
 1. **Create a profile job**를 선택합니다.
    <img src="images/create_a_customer_profile_2.png">
+
 1. Job name 텍스트 박스에 `Customers profile job` 입력합니다.
 1. **Full dataset** 선택합니다.
+
    <img src="images/create_a_customer_profile_3.png">
+
 1. Browse 버튼을 클릭하여 **glue-databrew-immersionday-xxxx S3 버킷 .png"> profile-output 폴더**를 선택 후 Select 버튼을 클릭합니다.
+
    <img src="images/create_a_customer_profile_4.png">
+
 1. **Data profile configurations**을 확장하고, 데이터 프로필 작업을 실행할 때 PII 열을 식별하려면 **PII statistics**에서 **Enable PII statistics**을 선택합니다. 추가로 **PII categories**에서 **All categories**를 선택합니다.
+
    <img src="images/create_a_customer_profile_5.png">
+
 1. **Permissions** 섹션으로 건너뛰고, **Role name** 드롭다운하여 **Create new IAM role**를 선택합니다.
 1. **New IAM Role suffix** 텍스트 박스에 `ID`를 입력합니다. 그러면 AWSGlueDataBrewServiceRole-ID라는 새 IAM role이 생성됩니다.
 1. **Create and run job**을 선택합니다.
+
    <img src="images/create_a_customer_profile_6.png">
+
 1. 그러면 **Customers dataset**의 **Data profile overview** 탭으로 이동합니다.
 작업이 완료되는 데 약 5분이 소요됩니다.
+
    <img src="images/create_a_customer_profile_7.png">
+   
 1. 이 보고서는 컬럼 통계와 함께 PII 대상으로 확인된 PII 컬럼의 카탈로그를 제공합니다. 또한 검토할 수 있는 잠재적인 PII 열을 보여줍니다.
 이후 과정에서는 변환을 통해 확인된 PII 컬럼을 선택적으로 수정합니다.
 다음으로, Sales Dataset 및 Data Quality Rules을 생성합니다.
