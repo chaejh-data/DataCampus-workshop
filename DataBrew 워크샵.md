@@ -69,8 +69,12 @@
 
     <img src="images/cf-complete.png">
 
-1. AWS 콘솔 상단 검색 창에서 **S3**로 검색하여, S3 서비스로 이동 후 Buckets 메뉴를 클릭합니다. *glue-databrew-immersionday*으로 시작하는 S3 버킷을 확인할 수 있습니다.
+1. AWS 콘솔 상단 검색 창에서 **S3**로 검색하여, S3 서비스로 이동합니다. 
+
     <img src="images/s3_search.png">
+
+1. Buckets 메뉴를 클릭합니다. *glue-databrew-immersionday*으로 시작하는 S3 버킷을 확인할 수 있습니다.   
+
     <img src="images/s3-bucket-name.png">
 
 1. *glue-databrew-immersionday* 버킷에는 다음과 같은 구조를 가지고 있습니다.
@@ -88,7 +92,7 @@ Lab2에서는 아래 내용들을 확인해보겠습니다.
 - Data Profile Job 만들기
 	- 개인 식별 정보(Personal identifiable information, PII) 데이터 탐지
 	- Data Quality(DQ) 검사
-- Map Data Lineage 확인하기
+- Data Lineage 확인하기
 
 ### 2.1 Customer Dataset
 
@@ -100,7 +104,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 1. AWS 콘솔 상단 검색 창에서 **DataBrew**로 검색하여, [AWS Glue DataBrew](https://console.aws.amazon.com/databrew/home?region=us-east-1#)서비스로 이동합니다.
 1. 왼쪽 메뉴에서 **DATASETS**를 선합니다.
-1. **Connect new dataset**버튼을 클릭합니다.
+1. **Connect new dataset** 버튼을 클릭합니다.
 
    <img src="images/create_a_dataset.png">
 
