@@ -247,55 +247,86 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
         <img src="images/create_sales_dq_ruleset_4.png">
 
-1. **Add another rule**를 클릭하여 dataset에 다른 데이터 품질 검사를 추가하고, 규칙의 이름을 `Quantity and total Sales should be >0` 으로 지정해줍니다.
+1. **Add another rule**를 클릭하여 dataset에 데이터 품질 검사를 추가하고, 규칙의 이름을 `Quantity and total Sales should be >0` 으로 지정해줍니다.
 
-- **Data quality check scope**(데이터 품질 검사 범위)에서 **Common checks for selected columns**(선택한 컬럼에 대한 공통 검사)를 선택합니다.
-- **Rule success criteria**(규칙 성공 기준)에서 **All data quality checks are met (AND)** 모든 데이터 품질 검사 충족을 선택합니다.
-- **Selected columns**에서 **Selected columns**을 선택합니다.
-- **Column values**에서 *Quantity*와 *Total_Sales*을 두 개를 선택하여 **select columns**를 클릭합니다.
-- Check 1의 **Data quality check**에서 **Column values** 드롭다운하여 **Numeric values**을 선택합니다.
-- **Condition**에서 **Greater than(다음보다 큼)**을 선택합니다.
-- **Value**에 **Custom value**으로 *0*을 입력합니다.
-- **Threshold(임계값)**의 경우 Condition를 드롭다운하여 **Greater than equals**을 선택, **Threshold(임계값)**을 100, **%(percent) rows** 으로 설정합니다.
-- **Rule Summary**에서 설정한 규칙에 대한 설명을 볼 수 있습니다.
+**Data quality check scope**(검사 범위) : **Common checks for selected columns**(선택한 컬럼에 대한 공통 검사) 선택
 
-Quantity, Total_Sales의 값이 행의 100% 이상에 대해 0 .png">= 0인 경우 규칙이 통과됩니다.
+**Rule success criteria**(규칙 성공 기준) : **All data quality checks are met (AND)** 모든 데이터 품질 검사 충족 선택
 
-    <img src="images/create_sales_dq_ruleset_5.png">
+**Selected columns** : **Selected columns** 선택
+
+**Column values** : *Quantity*와 *Total_Sales*을 두 개를 선택하여 **select columns** 클릭
+
+Check 1
+
+**Data quality check** : **Column values** 드롭다운하여 **Numeric values** 선택
+
+**Condition** : **Greater than(다음보다 큼)** 선택
+
+**Value**에 **Custom value**으로 `0`을 입력
+
+**Threshold(임계값)** : Condition를 드롭다운하여 **Greater than equals**을 선택, **Threshold(임계값)**을 `100`, **%(percent) rows** 으로 설정합니다.
+
+**Rule Summary**에서 설정한 규칙에 대한 설명을 볼 수 있습니다.
+모든 컬럼이 Quantity, Total_Sales의 값 >= 0인 경우 규칙이 통과됩니다.
+    
+<img src="images/create_sales_dq_ruleset_5.png">
+
 1. 이제 데이터 품질 검사를 시작할 준비가 되었습니다. **Create ruleset** 버튼을 클릭하여 데이터 품질 검사를 저장합니다.
+
      <img src="images/create_sales_dq_ruleset_6.png">
+
 1. 그러면 **DQ RULES**메뉴에 **Data quality rulesets**으로 이동합니다. Sales dataset에 새 규칙 집합을 적용하기 위한 profile Job을 만들기 위해
-**Sales DQ Checks**를 선택하고, **Create profile job with ruleset** 를 선택합니다.
-     <img src="images/create_sales_dq_ruleset_7.png">
+
+    **Sales DQ Checks**를 선택하고, **Create profile job with ruleset** 를 선택합니다.
+    
+    <img src="images/create_sales_dq_ruleset_7.png">
+
 1. job name 텍스트 박스에 `Sales profile`으로 입력하고, **Full dataset**을 선택합니다.
+    
      <img src="images/create_a_profile_3.png">
+
 1.  **Job output settings **의 경우, Browse 버튼을 클릭하여 **glue-databrew-immersionday-xxxx S3 버킷 .png"> profile-output 폴더**를 선택 후 Select 버튼을 클릭합니다.
+
      <img src="images/create_sales_dq_ruleset_8.png">
+
 1. **Data quality rules** 섹션에서 **Sales DQ Checks** 규칙 집합이 이미 적용되어 있는 것을 볼 수 있습니다.
 1. 나머지는 optional 설정은 default settings을 그대로 유지하고, **Role name** 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* role을 선택합니다.
 1. **Create and run job**버튼을 클릭합니다.
+
      <img src="images/create_sales_dq_ruleset_9.png">
+
 Profile jobs 은dataset에 대해 평가를 실행합니다. dataset 수준과 컬럼 수준으로 세분화하여 통계를 생성합니다.
 1. 그러면 **Sales Datasets**의 **Data profile overview** 탭으로 이동합니다.
 작업이 완료되는 데 약 5분이 소요됩니다.
+
      <img src="images/verify_result_2.png">
+
 1. **Value distribution(값 분포)**를 확인합니다.
+
      <img src="images/verify_result_3.png">
+
 1. **Columns statistics** 탭을 선택합니다
+
      <img src="images/verify_result_4.png">
 
 1. Data quality rules 탭을 선택하면 데이터 품질 검사에 모두 실패한 것을 확인할 수 있습니다.
+
      <img src="images/create_sales_dq_ruleset_10.png">
 
 1. Advance Transform lab module에서는 데이터 품질 문제가 있는 행을 필터링하기 위해 변환을 수행합니다.
+
 ### 2.5 Data Lineage
 
 데이터의 계보를 시각적으로 매핑하여 데이터가 거쳐 온 다양한 데이터 원본과 변환 단계를 파악할 수 있습니다.
 
 1. datasets 메뉴에서 Sales dataset을 선택합니다.
 1. **Data lineage** 탭을 선택하여 다음을 확인합니다.
+
      <img src="images/datalineage.png">
-1. 해당 dataset의 모든 작업을 보기위해 **CloudTrail logs**를 선택합니다.
+
+1. 해당 dataset의 모든 작업을 보기 위해 **CloudTrail logs**를 선택합니다.
+
      <img src="images/cloudtrail.png">
 
 ## 3. Standard Transform
