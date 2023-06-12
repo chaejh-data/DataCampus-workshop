@@ -61,9 +61,12 @@
 1. 워크샵을 시작하기 전에 필요한 AWS 리소스를 생성해야 합니다. 이를 위해 리소스가 포함된 스택을 생성할 수 있는 AWS CloudFormation 템플릿을 제공합니다. 스택을 생성하면 AWS가 계정에 여러 리소스를 생성합니다. 이 워크샵에서는 사용할 데이터 파일 및 폴더와 함께 *glue-databrew-immersionday*으로 시작하는 S3 버킷을 생성합니다. 
 아래의 Launch Stack 버튼을 클릭하여 이 워크샵에 필요한 리소스를 생성합니다.
 
-    [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday)
+오른쪽 상단에 **US East (N. Virginia) us-east-1** 리전을 사용하고 있는지 확인합니다.
+<img src="images/checkregion.png">
+
+ [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday)
     
-    <img src="images/createstack.png">
+<img src="images/createstack.png">
 
 CloudFormation 스택을 완료하는데 대략 3~5분 정도 소요됩니다.
 <!-- 15:52:46 15:54:06 금방이네 -->
@@ -90,33 +93,43 @@ Lab2에서는 아래 내용들을 확인해보겠습니다.
 - Data Profile Job 만들기
 	- 개인 식별 정보(Personal identifiable information, PII) 데이터 탐지
 	- Data Quality(DQ) 검사
-- Map Data Lineage
+- Map Data Lineage 확인하기
 
 ### 2.1 Customer Dataset
 
-Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 집합을 의미합니다. DataBrew는 형식이 지정된 파일에서 가져온 모든 소스의 데이터로 작업할 수 있으며, 점점 늘어나는 데이터 저장소 목록에 직접 연결할 수 있습니다. DataBrew에서 데이터 집합은 데이터에 대한 읽기 전용 연결입니다. DataBrew는 데이터를 참조하기 위해 일련의 설명 메타데이터를 수집합니다. 실제 데이터는 DataBrew에서 변경하거나 저장할 수 없습니다. 간단히 설명하기 위해 Dataset은 실제 Dataset과 DataBrew가 사용하는 메타데이터를 모두 의미합니다.
+Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 집합을 의미합니다. DataBrew는 형식이 지정된 파일에서 가져온 모든 소스의 데이터로 작업할 수 있으며, 데이터 저장소 목록에 직접 연결할 수 있습니다. DataBrew에서 데이터 집합은 데이터에 대한 읽기 전용 연결입니다. DataBrew는 데이터를 참조하기 위해 일련의 메타데이터를 수집합니다. 실제 데이터는 DataBrew에서 변경하거나 저장할 수 없습니다. 즉, Dataset은 실제 Dataset과 DataBrew가 사용하는 메타데이터를 모두 의미합니다.
 
 이 실습에서는 Customers dataset을 만듭니다. 아래는 샘플 고객 데이터입니다.
-1. [AWS Glue DataBrew](https://console.aws.amazon.com/databrew/home?region=us-east-1#)서비스로 이동합니다.
-오른쪽 상단에 **US East (N. Virginia) us-east-1** 리전을 사용하고 있는지 확인합니다.
-   <img src="images/checkregion.png">
+   
+   <img src="images/customersampledata.png">
+
+1. AWS 콘솔 상단 검색 창에서 **DataBrew**로 검색하여, [AWS Glue DataBrew](https://console.aws.amazon.com/databrew/home?region=us-east-1#)서비스로 이동합니다.
 1. 왼쪽 메뉴에서 **Datasets**를 선택합니다.
 1. **Connect new dataset**을 선택합니다.
+
    <img src="images/create_a_dataset.png">
+
 1. dataset의 이름을 `Customers`로 지정합니다.
 1. 서비스로 **Amazon S3**를 선택합니다.
 1. **Enter your source from S3** 텍스트 박스에 `*s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
 1. **datafiles .png"> customers** 폴더로 이동합니다.
 1. "customer.csv" 파일을 체크합니다.
+
    <img src="images/dataset_details.png">
+
 1. file type으로 **CSV**를 선택합니다.
 1. **Comma(쉼표)**를 CSV 구분 기호로 선택합니다.
 1. **Treat first row as header(첫 번째 행을 헤더로 처리)**를 선택합니다.
 1. 오른쪽 아래에 있는 **Create dataset 버튼**을 선택합니다.
+
    <img src="images/dataset_type_as_csv.png">
+
 1. Customers Dataset이 생성됩니다.
+
    <img src="images/datasetcreated.png">
+
 1. Customers Dataset을 선택하여 고객 데이터를 미리 확인해봅니다.
+
    <img src="images/datasetpreview.png">
 
 다음으로 DataBrew 프로젝트를 생성합니다.
