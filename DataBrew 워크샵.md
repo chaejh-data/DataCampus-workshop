@@ -298,12 +298,11 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 Profile jobs은 dataset에 대해 평가를 실행합니다. dataset 수준과 컬럼 수준으로 세분화하여 통계를 생성합니다.
 
-1. 그러면 **Sales Datasets**의 **Data profile overview** 탭으로 이동합니다.
-작업이 완료되는 데 약 5분이 소요됩니다.
+1. 그러면 **Sales Datasets**의 **Data profile overview** 탭으로 이동합니다. 작업이 완료되는 데 약 5분이 소요됩니다.
 
      <img src="images/verify_result_2.png">
 
-1. **Value distribution(값 분포)**를 확인합니다.
+1. Value distribution(값 분포)를 확인합니다.
 
      <img src="images/verify_result_3.png">
 
