@@ -111,15 +111,15 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 1. dataset의 이름을 `Customers`로 지정합니다.
 1. 서비스로 **Amazon S3**를 선택합니다.
 1. **Enter your source from S3** 텍스트 박스에 `*s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
-1. **datafiles .png"> customers** 폴더로 이동합니다.
-1. "customer.csv" 파일을 체크합니다.
+1. **datafiles > customers** 폴더로 이동합니다.
+1. *customer.csv* 파일을 체크합니다.
 
    <img src="images/dataset_details.png">
 
 1. file type으로 **CSV**를 선택합니다.
 1. **Comma(쉼표)**를 CSV 구분 기호로 선택합니다.
 1. **Treat first row as header(첫 번째 행을 헤더로 처리)**를 선택합니다.
-1. 오른쪽 아래에 있는 **Create dataset 버튼**을 선택합니다.
+1. 오른쪽 아래에 있는 **Create dataset** 버튼을 선택합니다.
 
    <img src="images/dataset_type_as_csv.png">
 
@@ -133,11 +133,10 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 다음으로 DataBrew 프로젝트를 생성합니다.
 
-
 ### 2.2 Customer Profile Job (Personal identifiable information, PII)
 
-프로파일링 작업은 dataset에 대해 다양한 평가를 실행합니다. 데이터 프로파일링이 수집하는 정보는 어떤 종류의 데이터 준비 단계가 필요한지 결정하는 데 도움이 됩니다.
-이 섹션에서는 프로필 작업에서 PII 탐지 기능을 활성화하여 데이터 집합에 있는 민감한 개인 식별 정보(PII) 데이터를 식별합니다.
+프로파일링 작업은 dataset에 대해 다양한 평가를 실행합니다. 데이터 프로파일링이 수집하는 정보는 어떤 종류의 데이터 준비 단계가 필요할지 결정하는 데 도움이 됩니다.
+이 LAB에서는 프로필 작업에서 PII 탐지 기능을 활성화하여 dataset에 있는 민감한 개인 식별 정보(PII) 데이터를 식별합니다.
 
 1. 왼쪽 메뉴에서 **DATASETS**를 선합니다.
 1. 이전 단계에서 만든 **Customers** dataset을 선택합니다.
@@ -171,7 +170,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 1. 왼쪽 메뉴에서 **DATASETS**를 선택합니다.
 1. **Connect new dataset** 버튼을 클릭합니다.
    <img src="images/connectnewdataset.png">
-1. dataset의 이름을 `Sales`로 지정합니다.
+1. dataset 이름을 `Sales`로 지정합니다.
 1. 서비스로 **Amazon S3**를 선택합니다.
 1. **Enter your source from S3** 텍스트 박스에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
 1. **datafiles .png"> sales** 폴더를 선택합니다.
