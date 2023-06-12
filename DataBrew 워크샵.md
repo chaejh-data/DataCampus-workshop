@@ -70,7 +70,7 @@
     <img src="images/cf-complete.png">
 
 1. AWS 콘솔 상단 검색 창에서 **S3**로 검색하여, S3 서비스로 이동 후 Buckets 메뉴를 클릭합니다. *glue-databrew-immersionday*으로 시작하는 S3 버킷을 확인할 수 있습니다.
-
+    <img src="images/s3_search.png">
     <img src="images/s3-bucket-name.png">
 
 1. *glue-databrew-immersionday* 버킷에는 다음과 같은 구조를 가지고 있습니다.
