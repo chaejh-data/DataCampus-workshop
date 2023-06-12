@@ -223,24 +223,24 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
     <img src="images/create_sales_dq_ruleset_3.png">
 
-    **DATASET QUALITY CHECKS** 
-    중복 행이 있는 dataset 있는지 확인
-    **COLUMN QUALITY CHECKS** 
-    모든 컬럼에 missing values가 0% 인지 확인
-    
+    **DATASET QUALITY CHECKS** : 중복 행이 있는 dataset 있는지 확인
+    **COLUMN QUALITY CHECKS** : 모든 컬럼에 missing values가 0% 인지 확인
+
     여러 규칙을 추가할 수 있으며, 각 규칙 내에서 여러 데이터 품질 검사를 정의할 수 있습니다.
 
 1. 첫 번째 Rule 이름으로 `Duplicate rows` 입력합니다. Rule 1 에 대해 아래 옵션을 선택합니다:
 
-**Data quality check scope**(데이터 품질 검사 범위)에서 **"Individual check for each column"**(각 컬럼에 대해 개별 검사)를 선택합니다.
-**Rule success criteria**에서 **"All data quality checks are met (AND)"** 을 선택합니다.
-<!-- 모든 데이터 품질 검사 충족-->
-**Data quality checks**에서 Check 1의 아래 드롭다운하여 **Duplicate rows(중복 행)**을 선택합니다.
-**Condition(조건)에서 Is equals(같음)을 선택합니다.
-**Value에 0**을 입력하고, 드롭다운하여 **rows**을 선택합니다.
-**Rule Summary**에서 설정한 규칙에 대한 설명을 확인할 수 있습니다.
-Dataset에 중복 행 수가 == 0인 경우 규칙이 통과됩니다.
-    <img src="images/create_sales_dq_ruleset_4.png">
+    **Data quality check scope**(데이터 품질 검사 범위) : **"Individual check for each column"**(각 컬럼에 대해 개별 검사)를 선택합
+    **Rule success criteria** : **"All data quality checks are met (AND)"** 을 선택합
+    <!-- 모든 데이터 품질 검사 충족-->
+    **Data quality checks**에서 Check 1의 아래 드롭다운하여 **Duplicate rows(중복 행)**을 선택
+    **Condition(조건)** : **Is equals(같음)**을 선택
+    **Value** : `0`을 입력하고,
+    드롭다운하여 **rows**을 선택
+
+    **Rule Summary**에서 설정한 규칙에 대한 설명을 확인할 수 있습니다.
+    Dataset에 중복 행 수가 == 0인 경우 규칙이 통과됩니다.
+        <img src="images/create_sales_dq_ruleset_4.png">
 
 1. **Add another rule**를 클릭하여 dataset에 다른 데이터 품질 검사를 추가하고, 이 규칙의 이름을 `Quantity and total Sales should be .png">0` 으로 지정해 보겠습니다.
 
