@@ -145,6 +145,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
    <img src="images/create_a_customer_profile_1.png">
 
 1. **Create a profile job**를 선택합니다.
+
    <img src="images/create_a_customer_profile_2.png">
 
 1. Job name 텍스트 박스에 `Customers profile job` 입력합니다.
@@ -170,7 +171,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 작업이 완료되는 데 약 5분이 소요됩니다.
 
    <img src="images/create_a_customer_profile_7.png">
-   
+
 1. 이 보고서는 컬럼 통계와 함께 PII 대상으로 확인된 PII 컬럼의 카탈로그를 제공합니다. 또한 검토할 수 있는 잠재적인 PII 열을 보여줍니다.
 이후 과정에서는 변환을 통해 확인된 PII 컬럼을 선택적으로 수정합니다.
 다음으로, Sales Dataset 및 Data Quality Rules을 생성합니다.
