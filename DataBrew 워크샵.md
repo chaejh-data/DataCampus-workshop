@@ -230,13 +230,12 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 1. 첫 번째 Rule 이름으로 `Duplicate rows` 입력합니다. Rule 1 에 대해 아래 옵션을 선택합니다:
 
-    **Data quality check scope**(데이터 품질 검사 범위) : **"Individual check for each column"**(각 컬럼에 대해 개별 검사)를 선택합
-    **Rule success criteria** : **"All data quality checks are met (AND)"** 을 선택합
-    <!-- 모든 데이터 품질 검사 충족-->
-    **Data quality checks**에서 Check 1의 아래 드롭다운하여 **Duplicate rows(중복 행)**을 선택
-    **Condition(조건)** : **Is equals(같음)**을 선택
-    **Value** : `0`을 입력하고,
-    드롭다운하여 **rows**을 선택
+    **Data quality check scope**(데이터 품질 검사 범위) : **"Individual check for each column"**(각 컬럼에 대해 개별 검사) 선택
+    **Rule success criteria** : **"All data quality checks are met (AND)"** 선택
+    **Check 1**
+    **Data quality checks** : 드롭다운하여 **Duplicate rows(중복 행)** 선택
+    **Condition(조건)** : **Is equals(같음)** 선택
+    **Value** : `0`을 입력, 드롭다운하여 **rows** 선택
 
     **Rule Summary**에서 설정한 규칙에 대한 설명을 확인할 수 있습니다.
     Dataset에 중복 행 수가 == 0인 경우 규칙이 통과됩니다.
