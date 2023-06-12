@@ -65,7 +65,7 @@
  [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday)
     <img src="images/createstack.png">
 
-CloudFormation 스택을 완료하는데 대략 3~5분 정도 소요됩니다.
+    CloudFormation 스택을 완료하는데 대략 3~5분 정도 소요됩니다.
 <!-- 15:52:46 15:54:06 금방이네 -->
 1. 스택 생성이 성공하면 **Outputs** 탭에서 새로 생성된 버킷 이름을 확인할 수 있습니다.
 
