@@ -178,21 +178,30 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 ### 2.3 Sales Dataset
 
 이 실습에서는 Sales Dataset을 만듭니다. 아래는 샘플 판매 데이터입니다.
+
    <img src="images/salesdatasample.png">
+
 1. 왼쪽 메뉴에서 **DATASETS**를 선택합니다.
 1. **Connect new dataset** 버튼을 클릭합니다.
+
    <img src="images/connectnewdataset.png">
+
 1. dataset 이름을 `Sales`로 지정합니다.
 1. 서비스로 **Amazon S3**를 선택합니다.
 1. **Enter your source from S3** 텍스트 박스에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
-1. **datafiles .png"> sales** 폴더를 선택합니다.
+1. **datafiles > sales** 폴더를 선택합니다.
+
    <img src="images/Create_a_sales_dataset_1.png">
+
 1. file type으로 *CSV*를 선택합니다.
 1. **Comma(쉼표)**를 *CSV* 구분 기호로 선택합니다.
 1. **Treat first row as header**(첫 번째 행을 헤더로 처리)를 선택합니다.
 1. 오른쪽 아래에 있는 **Create dataset** 버튼을 선택합니다.
+
    <img src="images/Create_a_sales_dataset_2.png">
+
 1. Sales Dataset이 생성됩니다. **Sales Dataset**을 선택하여, 고객 데이터를 미리 확인해봅니다.
+
    <img src="images/salesdataset.png">
 
 다음으로 data quality rules과 data profiling job을 만들어보겠습니다.
@@ -201,12 +210,17 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 이 실습에서는 Sales dataset의 data quality을 확인하고, data quality ruleset을 만든 다음 profile job을 실행하여 적용합니다.
 1. 왼쪽 메뉴에서 **DQ Rules**을 선택하고, **Create data quality ruleset** 버튼 클릭합니다.
+
     <img src="images/create_sales_dq_ruleset_1.png">
-1. **ruleset name** 텍스트 박스에 `Sales DQ Checks`로 지정합니다.
-1. **Associated datase** 섹션에서 **Sales dataset**을 선택합니다. **View associated dataset details**를 클릭하여 dataset을 미리 확인합니다.
-1. 이제 dataset을 미리 볼 수 있으며, **Sales dataset의 Quality, Total_Sales 컬럼**에 data quality 문제가 있음을 확인할 수 있습니다.
+
+1. **Ruleset** 이름을 `Sales DQ Checks`로 지정합니다.
+1. **Associated dataset** 섹션에서 **Sales** dataset을 선택합니다. **View associated dataset details**를 클릭하여 dataset을 미리 확인합니다.
+1. 이제 dataset을 미리 볼 수 있으며, Sales dataset의 *Quality, Total_Sales*컬럼에 data quality 문제가 있음을 확인할 수 있습니다.
+
     <img src="images/create_sales_dq_ruleset_2.png">
+
 1. 또한 적용할 수 있는 data quality check에 대한 **Recommendations**(권장 사항)도 확인할 수 있습니다.
+
     <img src="images/create_sales_dq_ruleset_3.png">
 
 - DATASET QUALITY CHECKS
