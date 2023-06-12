@@ -60,8 +60,7 @@
 오른쪽 상단에 **US East (N. Virginia) us-east-1** 리전을 사용하고 있는지 확인합니다.
 <img src="images/checkregion.png">
 
-1. 워크샵을 시작하기 전에 필요한 AWS 리소스를 생성해야 합니다. 이를 위해 리소스가 포함된 스택을 생성할 수 있는 AWS CloudFormation 템플릿을 제공합니다. 스택을 생성하면 AWS가 계정에 여러 리소스를 생성합니다. 이 워크샵에서는 사용할 데이터 파일 및 폴더와 함께 *glue-databrew-immersionday*으로 시작하는 S3 버킷을 생성합니다. 
-아래의 Launch Stack 버튼을 클릭하여 이 워크샵에 필요한 리소스를 생성합니다. CloudFormation 스택을 완료하는데 대략 3~5분 정도 소요됩니다. [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday)
+1. 워크샵을 시작하기 전에 필요한 AWS 리소스를 생성해야 합니다. 이를 위해 리소스가 포함된 스택을 생성할 수 있는 AWS CloudFormation 템플릿을 제공합니다. 스택을 생성하면 AWS가 계정에 여러 리소스를 생성합니다. 이 워크샵에서는 사용할 데이터 파일 및 폴더와 함께 *glue-databrew-immersionday*으로 시작하는 S3 버킷을 생성합니다. 아래의 Launch Stack 버튼을 클릭하여 이 워크샵에 필요한 리소스를 생성합니다. CloudFormation 스택을 완료하는데 대략 3~5분 정도 소요됩니다. [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday)
 
     <img src="images/createstack.png">
 
