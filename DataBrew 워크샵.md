@@ -71,7 +71,7 @@ CloudFormation 스택을 완료하는데 대략 3~5분 정도 소요됩니다.
 
     <img src="images/cf-complete.png">
 
-1. AWS 콘솔 상단 검색 창에서 **S3**로 검색하여, S3 서비스로 이동 후 버킷 메뉴를 클릭합니다. *glue-databrew-immersionday*으로 시작하는 S3 버킷을 확인할 수 있습니다.
+1. AWS 콘솔 상단 검색 창에서 **S3**로 검색하여, S3 서비스로 이동 후 Buckets 메뉴를 클릭합니다. *glue-databrew-immersionday*으로 시작하는 S3 버킷을 확인할 수 있습니다.
 
     <img src="images/s3-bucket-name.png">
 
@@ -81,10 +81,12 @@ CloudFormation 스택을 완료하는데 대략 3~5분 정도 소요됩니다.
 
 ## 2. Profiling and Data Quality
 <!-- 30분 -->
-AWS Glue DataBrew는 데이터 패턴을 이해하고 이상 징후를 감지하기 위해 데이터를 프로파일링하여 데이터의 품질을 평가할 수 있도록 도와줍니다. 데이터 세트의 데이터 프로필 개요 섹션에서 데이터에 대한 통계 요약을 검토하고 수집할 수 있습니다.
+AWS Glue DataBrew는 데이터 패턴을 이해하고, 이상 징후를 감지하기 위해 데이터를 프로파일링하여 데이터의 품질을 평가할 수 있도록 도와줍니다. Dataset의 Data profile overview 섹션에서 데이터에 대한 통계 요약을 검토하고 수집할 수 있습니다.
+
    <img src="images/profiling.png">
 
-아래 내용들을 확인해보겠습니다.
+Lab2에서는 아래 내용들을 확인해보겠습니다.
+
 - Data Profile Job 만들기
 	- 개인 식별 정보(Personal identifiable information, PII) 데이터 탐지
 	- Data Quality(DQ) 검사
