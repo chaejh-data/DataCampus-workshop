@@ -247,7 +247,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
     <img src="images/create_sales_dq_ruleset_4.png">
 
-1. **Add another rule**를 클릭하여 dataset에 데이터 품질 검사를 추가하고, 규칙의 이름을 `Quantity and total Sales should be >0` 으로 지정해줍니다.
+1. **Add another rule**를 클릭하여 dataset에 데이터 품질 검사를 추가하고, 두번째 규칙 이름을 `Quantity and total Sales should be >0` 으로 지정해줍니다.
 
     **Data quality check scope**(검사 범위) : **Common checks for selected columns**(선택한 컬럼에 대한 공통 검사) 선택
 
@@ -282,21 +282,22 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
     
     <img src="images/create_sales_dq_ruleset_7.png">
 
-1. job name 텍스트 박스에 `Sales profile`으로 입력하고, **Full dataset**을 선택합니다.
+1. job 이름으로 `Sales profile job`을 입력하고, **Full dataset**을 선택합니다.
     
      <img src="images/create_a_profile_3.png">
 
-1.  **Job output settings **의 경우, Browse 버튼을 클릭하여 **glue-databrew-immersionday-xxxx S3 버킷 .png"> profile-output 폴더**를 선택 후 Select 버튼을 클릭합니다.
+1.  **Job output settings**의 경우, Browse 버튼을 클릭하여 **glue-databrew-immersionday-xxxx S3 버킷 > profile-output 폴더**를 선택 후 **Select** 버튼을 클릭합니다.
 
      <img src="images/create_sales_dq_ruleset_8.png">
 
 1. **Data quality rules** 섹션에서 **Sales DQ Checks** 규칙 집합이 이미 적용되어 있는 것을 볼 수 있습니다.
-1. 나머지는 optional 설정은 default settings을 그대로 유지하고, **Role name** 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* role을 선택합니다.
+1. 나머지는 optional 설정은 default settings을 그대로 유지하고, **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* role을 선택합니다.
 1. **Create and run job**버튼을 클릭합니다.
 
      <img src="images/create_sales_dq_ruleset_9.png">
 
-Profile jobs 은dataset에 대해 평가를 실행합니다. dataset 수준과 컬럼 수준으로 세분화하여 통계를 생성합니다.
+Profile jobs은 dataset에 대해 평가를 실행합니다. dataset 수준과 컬럼 수준으로 세분화하여 통계를 생성합니다.
+
 1. 그러면 **Sales Datasets**의 **Data profile overview** 탭으로 이동합니다.
 작업이 완료되는 데 약 5분이 소요됩니다.
 
@@ -306,15 +307,15 @@ Profile jobs 은dataset에 대해 평가를 실행합니다. dataset 수준과 �
 
      <img src="images/verify_result_3.png">
 
-1. **Columns statistics** 탭을 선택합니다
+1. **Columns statistics** 탭을 선택합니다.
 
      <img src="images/verify_result_4.png">
 
-1. Data quality rules 탭을 선택하면 데이터 품질 검사에 모두 실패한 것을 확인할 수 있습니다.
+1. **Data quality rules** 탭을 선택하면 데이터 품질 검사에 모두 실패한 것을 확인할 수 있습니다.
 
      <img src="images/create_sales_dq_ruleset_10.png">
 
-1. Advance Transform lab module에서는 데이터 품질 문제가 있는 행을 필터링하기 위해 변환을 수행합니다.
+1. 이후 Lab4에서 데이터 품질 문제가 있는 행을 필터링하기 위해 변환을 수행합니다.
 
 ### 2.5 Data Lineage
 
