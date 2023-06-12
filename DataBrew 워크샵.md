@@ -99,8 +99,8 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
    <img src="images/customersampledata.png">
 
 1. AWS 콘솔 상단 검색 창에서 **DataBrew**로 검색하여, [AWS Glue DataBrew](https://console.aws.amazon.com/databrew/home?region=us-east-1#)서비스로 이동합니다.
-1. 왼쪽 메뉴에서 **Datasets**를 선택합니다.
-1. **Connect new dataset**을 선택합니다.
+1. 왼쪽 메뉴에서 **DATASETS**를 선합니다.
+1. **Connect new dataset**버튼을 클릭합니다.
 
    <img src="images/create_a_dataset.png">
 
@@ -135,7 +135,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 프로파일링 작업은 dataset에 대해 다양한 평가를 실행합니다. 데이터 프로파일링이 수집하는 정보는 어떤 종류의 데이터 준비 단계가 필요한지 결정하는 데 도움이 됩니다.
 이 섹션에서는 프로필 작업에서 PII 탐지 기능을 활성화하여 데이터 집합에 있는 민감한 개인 식별 정보(PII) 데이터를 식별합니다.
 
-1. 왼쪽 탐색 창에서 **Datasets**을 선택합니다.
+1. 왼쪽 메뉴에서 **DATASETS**를 선합니다.
 1. 이전 단계에서 만든 **Customers** dataset을 선택합니다.
 1. 오른쪽 상단에서 **Run data profile**을 선택합니다.
    <img src="images/create_a_customer_profile_1.png">
@@ -164,8 +164,8 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 이 실습에서는 Sales 데이터 집합을 만듭니다. 아래는 샘플 판매 데이터입니다.
    <img src="images/salesdatasample.png">
-1. 왼쪽 메뉴에서 **Datasets**을 선택합니다.
-1. **Connect new dataset**을 선택합니다.
+1. 왼쪽 메뉴에서 **DATASETS**를 선택합니다.
+1. **Connect new dataset** 버튼을 클릭합니다.
    <img src="images/connectnewdataset.png">
 1. dataset의 이름을 `Sales`로 지정합니다.
 1. 서비스로 **Amazon S3**를 선택합니다.
@@ -185,7 +185,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 ### 2.4 Sales Profile Job (DQ)
 
 이 실습에서는 Sales dataset의 data quality을 확인하고, data quality ruleset을 만든 다음 profile job을 실행하여 적용합니다.
-1. 왼쪽 메뉴에서 **DQ Rules**을 선택하고, **Create data quality ruleset**를 클릭합니다.
+1. 왼쪽 메뉴에서 **DQ Rules**을 선택하고, **Create data quality ruleset** 버튼 클릭합니다.
     <img src="images/create_sales_dq_ruleset_1.png">
 1. **ruleset name** 텍스트 박스에 `Sales DQ Checks`로 지정합니다.
 1. **Associated datase** 섹션에서 **Sales dataset**을 선택합니다. **View associated dataset details**를 클릭하여 dataset을 미리 확인합니다.
@@ -282,7 +282,7 @@ DataBrew의 대화형 데이터 준비 작업 공간을 project라고 합니다.
 이제 dataset이 만들어졌으므로 데이터 변환을 시작할 수 있습니다.
 
 1. 왼쪽 메뉴에서 **PROJECTS**를 선택합니다.
-1. **Create project**를 선택합니다.
+1. 오른쪽 상단 메뉴에서 **Create project** 버튼을 클릭합니다.
 1. 프로젝트 이름을 `CleanCustomer`로 지정합니다. 자동 입력된 Recipe name은 그대로 둡니다.
 1. **My datasets**을 선택합니다.
      <img src="images/create_a_project.png">
@@ -387,7 +387,8 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여 데이터를 �
 
 이 실습에서는 Join(조인) 및 Group By(그룹화 기준) 변환을 사용하여 제품 ID, 우편번호 및 제품 유형별로 총 매출을 계산합니다
 
-1. 왼쪽 탐색 메뉴에서 **PROJECT**를 선택합니다.
+1. 왼쪽 메뉴에서 **PROJECTS**를 선택합니다.
+1. 오른쪽 상단 메뉴에서 **Create project** 버튼을 클릭합니다.
 1. **Project Name** 텍스트 박스에 `Sales`를 입력합니다.
 1. **Select a dataset** 섹션에서 **My datasets**을 선택한 다음 **Sales**를 선택합니다.
      <img src="images/total_sales_1.png">
@@ -487,11 +488,11 @@ Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 
 **PIVOT - Rows to clomns 선택 .png"> Pivot column (Product_id) .png"> Pivot values (Sum, Total_Sales_sum) .png"> Finish** 버튼을 클릭합니다..
      <img src="images/create_new_project_9.png
      )
-1. 왼쪽 메뉴에서 **Recipes**를 선택한 다음 **Upload Recipe**를 선택합니다.
+1. 왼쪽 메뉴에서 **RECIPES**를 선택한 다음 **Upload Recipe**를 선택합니다.
      <img src="images/uploadrecipe.png">
 1. s3 버킷의 레시피 폴더에서 다운로드한 *ID-recipe-import.json*을 업로드후 **Create and publish recipe** 버튼을 클릭합니다. 이 레시피에는 데이터를 정리하는 추가 단계가 포함되어 있습니다.
      <img src="images/create_new_project_11.png">
-1. 왼쪽 메뉴에서 **Project**를 선택 후, **SalesByProductType-Toys** 프로젝트로 돌아가서 아래 스크린샷과 같이 **Import recipe**를 선택합니다.
+1. 왼쪽 메뉴에서 **PROJECTS**를 선택 후, **SalesByProductType-Toys** 프로젝트로 돌아가서 아래 스크린샷과 같이 **Import recipe**를 선택합니다.
      <img src="images/create_new_project_12.png">
 1. 업로드한 레시피 *ID-recipe-import.json*을 선택하고 **Next**을 선택합니다.
      <img src="images/create_new_project_13.png">
@@ -515,11 +516,11 @@ Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 
 
 언제든지 DataBrew 작업을 다시 실행할 수 있으며, 일정에 따라 DataBrew 작업 실행을 자동화할 수도 있습니다.
 
-1. 왼쪽 메뉴에서 Job을 선택하고 Schedules 탭으로 이동하여 Create schedule를 선택합니다.
+1. 왼쪽 메뉴에서 JOBS을 선택하고 Schedules 탭으로 이동하여 Create schedule를 선택합니다.
      <img src="images/schedule_1.png">
 1. 아래 스크린샷과 같이 **Schedule name**을 `Hourly`로 입력하고 frequency를 Recurring.png">1.png">Weekdays.png">00:00 선택한 후 Add를 선택합니다.
      <img src="images/schedule_2.png">
-1. 왼쪽 메뉴에서 **job**을 선택하고 오른쪽 상단 메뉴에서 **Action .png"> Edit** 을 선택하여 **Total-Sales job**을 선택합니다.
+1. 왼쪽 메뉴에서 **JOBS**을 선택하고 오른쪽 상단 메뉴에서 **Action > Edit** 을 선택하여 **Total-Sales job**을 선택합니다.
      <img src="images/schedule_3.png">
 1. **Associated schedule** 으로 이동하여 **Hourly**을 선택하고 **Sav**을 선택합니다.
 
@@ -560,7 +561,7 @@ Amazon QuickSight에서 액세스하려는 버킷을 선택합니다. 그런 다
 
 
 #### 데이터 세트 만들기.
-1. 이제 Amazon QuickSight 오리엔테이션을 완료하고 QuickSight를 실행했으므로 왼쪽의 메뉴를 보고 데이터 세트를 선택합니다. 섹션 6.1에서 처리한 Total-Sales data를 가져올 것입니다.
+1. 이제 Amazon QuickSight 오리엔테이션을 완료하고 QuickSight를 실행했으므로 왼쪽 메뉴를 보고 데이터 세트를 선택합니다. 섹션 6.1에서 처리한 Total-Sales data를 가져올 것입니다.
    <img src="images/visualize_newdataset.png">
 1. 화면 오른쪽 상단에서 New Dataset button을 누르면 다음과 같이 표시됩니다:
 1. 보시다시피 QuickSight는 여러 데이터 소스를 지원합니다. Twitter, Github, Snowflake, Redshift 등에서 데이터를 가져올 수 있습니다. 사용 가능한 데이터 소스의 전체 목록은 여기에서 설명서를 참조하세요. 데이터 소스 페이지에서 S3를 선택합니다.
@@ -682,7 +683,7 @@ target visuals : all visuals
 해당 세션에서 사용할 dataset은 접두사가 glue-databrew-immersionday인 S3 버킷의 feature-engineering 폴더에 있습니다.
 해당 데이터 세트에 연결하려면 다음과 같이 하세요:
 
-1. 화면 왼쪽에 있는 Datasets를 클릭한 다음
+1. 왼쪽 메뉴에서 **DATASETS**를 선한 다음
 1. 화면 오른쪽에 있는 Connect new dataset 을 클릭합니다.
    <img src="images/connecting-to-dataset-1.png">
 1. DataSet name은 databrew-immersion-day-feature-engineering-census-adult로 입력하고, S3 소스를 입력하고, 파일 유형으로 CSV를 선택하고, 구분 기호로 Comma(쉼표)를 선택하고, Treat first row as a header(첫 번째 행을 헤더로 처리)를 선택합니다.
@@ -696,8 +697,8 @@ dataset가 연결되면 메인 화면의 Dataset dashboard에 dataset 이름이 
 
 ### 5.2 Create a project
 
-1. 새 프로젝트를 만들기 위해 왼쪽의 메뉴에 Project를 클릭하고
-1. 오른쪽의 Create projec 버튼을 클릭합니다.
+1. 새 프로젝트를 만들기 위해 왼쪽 메뉴에서 **PROJECTS**를 클릭하고
+1. 오른쪽에서 Create project 버튼을 클릭합니다.
    <img src="images/cdatabrew-create-project-1.png">
 1. Project name를 immserionday-feature-engineering으로 입력합니다.
    <img src="images/db-imm-project-1.png">
