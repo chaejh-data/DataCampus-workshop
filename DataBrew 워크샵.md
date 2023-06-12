@@ -320,7 +320,7 @@ Profile jobs은 dataset에 대해 평가를 실행합니다. dataset 수준과 �
 
 데이터의 계보를 시각적으로 매핑하여 데이터가 거쳐 온 다양한 데이터 원본과 변환 단계를 파악할 수 있습니다.
 
-1. datasets 메뉴에서 Sales dataset을 선택합니다.
+1. 왼쪽 메뉴에서 **DATASETS**를 선택합니다. **Sales** dataset을 선택합니다.
 1. **Data lineage** 탭을 선택하여 다음을 확인합니다.
 
      <img src="images/datalineage.png">
@@ -331,7 +331,7 @@ Profile jobs은 dataset에 대해 평가를 실행합니다. dataset 수준과 �
 
 ## 3. Standard Transform
 <!-- 20분 -->
-이 실습에서는 name 컬럼을 표준화 및 결합하고 address 컬럼을 분리하여 customer data를 정리하고 변환합니다.
+이 실습에서는 name 컬럼을 표준화 및 결합하고, address 컬럼을 분리하여 customer data를 정리하고 변환합니다.
      <img src="images/basictransform.png">
 
 다음 방법을 실습하게 됩니다.
@@ -343,39 +343,49 @@ Profile jobs은 dataset에 대해 평가를 실행합니다. dataset 수준과 �
 
 DataBrew의 대화형 데이터 준비 작업 공간을 project라고 합니다. data project를 사용하여 데이터, 변환 및 예약된 프로세스와 같은 관련 항목 아이템을 관리합니다. 프로젝트 생성의 일부로 작업할 dataset을 선택하거나 만듭니다. 그런 다음, DataBrew가 실행할 일련의 지침 또는 단계인 recipe를 만듭니다. 이러한 작업을 통해 raw data를 분석이나 예측을 위한 데이터 파이프라인에서 사용할 수 있는 형태로 변환합니다.
 
-이제 dataset이 만들어졌으므로 데이터 변환을 시작할 수 있습니다.
+이제 dataset이 만들어졌으므로, 데이터 변환을 시작할 수 있습니다.
 
 1. 왼쪽 메뉴에서 **PROJECTS**를 선택합니다.
 1. 오른쪽 상단 메뉴에서 **Create project** 버튼을 클릭합니다.
-1. 프로젝트 이름을 `CleanCustomer`로 지정합니다. 자동 입력된 Recipe name은 그대로 둡니다.
+1. project 이름을 `CleanCustomer`로 지정합니다. 자동 입력된 Recipe 이름은
+ 그대로 둡니다.
 1. **My datasets**을 선택합니다.
      <img src="images/create_a_project.png">
-1. 이전 실습 모듈에서 만든 **Customers dataset**을 선택합니다.
-1. **Sampling** 섹션을 열고 Type을 **Random rows**으로 설정합니다.
+
+1. 이전 실습 모듈에서 만든 **Customers** dataset을 선택합니다.
+1. **Sampling** 섹션을 열고 Type을 **Random rows**로 설정합니다.
 1. 샘플 크기로 **1,000**을 선택합니다.
+
      <img src="images/select_dataset.png">
-1. Permission 섹션의 **Role name**를 드롭다운에서 *AWSGlueDataBrewServiceRole-ID*를 선택합니다.
+
+1. Permission 섹션의 **Role name**를 드롭다운하여 앞서 생성했던 *AWSGlueDataBrewServiceRole-ID*를 선택합니다.
 1. **Create Project**을 클릭합니다.
+
      <img src="images/create_iam_role.png">
 
 새 프로젝트를 초기화하는 데 몇 분 정도 걸립니다.
 
 ### 3.2 Build Recipe
 
-recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작동하도록 하려는 데이터입니다. recipe에는 여러 단계가 포함될 수 있으며, 각 단계에는 여러 작업이 포함될 수 있습니다. toolbar의 transformation 도구를 사용하여 데이터에 적용하려는 모든 변경 사항을 설정할 수 있습니다. DataBrew는 데이터 변환에 대한 지침을 저장하지만 실제 데이터는 저장하지 않습니다. 프로젝트는 기본적으로 데이터 집합의 첫 번째 샘플 n개를 로드합니다. DataBrew는 데이터 집합에 대한 통계를 자동으로 생성하고 데이터의 그리드(샘플 데이터 집합의 표 형식, Excel과 비슷한 시각화), 스키마 및 프로필(전체 dataset에 대한 통계) 보기를 제공합니다. 샘플링을 업데이트하여 변환 프로세스의 어느 시점에서든 작업할 데이터의 다른 부분을 검색할 수 있습니다.
+recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작동하도록 하려는 데이터입니다. recipe에는 여러 단계가 포함될 수 있으며, 각 단계에는 여러 작업이 포함될 수 있습니다. toolbar의 transformation 도구를 사용하여 데이터에 적용하려는 모든 변경 사항을 설정할 수 있습니다. DataBrew는 데이터 변환에 대한 지침을 저장하지만 실제 데이터는 저장하지 않습니다. 프로젝트는 기본적으로 데이터 집합의 첫 번째 샘플 n개를 로드합니다. DataBrew는 dataset에 대한 통계를 자동으로 생성하고 데이터의 그리드(샘플 데이터 집합의 표 형식, Excel과 비슷한 시각화), 스키마 및 프로필(전체 dataset에 대한 통계) 보기를 제공합니다.
 
-이 실습에서는 병합 및 포맷 변환을 사용하여 이름 컬럼을 표준화합니다. Format transform을 사용하여 생년월일(DoB) 열을 표준화합니다. 다음으로, Clean and SPLIT transform을 사용하여 Address 컬럼을 표준화합니다. 마지막으로 최종 출력에 있는 PII 데이터를 수합니다.
+이 실습에서는 병합 및 포맷 변환을 사용하여 Name 컬럼을 표준화합니다. Format transform을 사용하여 DoB(생년월일) 컬럼을 표준화합니다. 다음으로, Clean과 SPLIT transform을 사용하여 Address 컬럼을 표준화합니다. 마지막으로 PII 데이터를 수정합니다.
 
 1. 이전 단계에서 만든 **CleanCustomer** 프로젝트를 엽니다.
+
 1. 상단 메뉴에서 **MERGE 아이콘**을 선택합니다.
+
      <img src="images/build_recipe_1.png">
+
 1. 오른쪽 메뉴에 Source Column으로 *Prefix, First_Name, Last_Name* 컬럼을 선택합니다.
-1. 공백 문자(스페이스 한 칸)를 **separator(구분 기호)**로 입력합니다.
+1. 공백 문자(` `)를 **separator(구분 기호)**로 입력합니다.
+
      <img src="images/build_recipe_2.png">
+
 1. **New column name** 텍스트 박스에 `Name`을 입력합니다.
 1. **Preview changes**를 클릭하고, 미리 보기에서 예상한 결과가 표시되는지 확인합니다. **Apply**를 클릭합니다.
-     <img src="images/build_recipe_3.png">
 
+     <img src="images/build_recipe_3.png">
 
 1. 생성한 새 컬럼 위에 표시되는 **줄임표(...)**를 선택합니다.
 1. 표시되는 메뉴에서 **Format**을 선택합니다.
