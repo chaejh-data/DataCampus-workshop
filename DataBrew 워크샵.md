@@ -16,13 +16,13 @@
 1. 판매 데이터 (Sales): 고객 데이터 및 제품 데이터와 Join하여, 우편번호 및 제품 유형별로 판매량을 비교합니다.
 1. 제품 데이터 (Product) : 캠페인을 위한 시장성있는 제품 ID가 포함된 우편번호 목록을 생성합니다.
 
-Data Model
+**Data Model**
 
 <img src=images/datamodel.png>
 
   <!-- - ![](images/datamodel.png) -->
  
-Logical data flow
+**Logical data flow**
 
 <img src=images/dataflow.png>
 
