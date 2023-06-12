@@ -64,7 +64,6 @@
 
     <img src="images/createstack.png">
 
-<!-- 15:52:46 15:54:06 금방이네 -->
 1. 스택 생성이 성공하면 **Outputs** 탭에서 새로 생성된 버킷 이름을 확인할 수 있습니다.
 
     <img src="images/cf-complete.png">
