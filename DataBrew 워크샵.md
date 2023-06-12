@@ -149,15 +149,15 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
    <img src="images/create_a_customer_profile_2.png">
 
 1. Job name 텍스트 박스에 `Customers profile job` 입력합니다.
-1. **Full dataset** 선택합니다.
+1. **Full dataset**을 선택합니다.
 
    <img src="images/create_a_customer_profile_3.png">
 
-1. Browse 버튼을 클릭하여 **glue-databrew-immersionday-xxxx S3 버킷 .png"> profile-output 폴더**를 선택 후 Select 버튼을 클릭합니다.
+1. Browse 버튼을 클릭하여 **glue-databrew-immersionday-xxxx S3 버킷 > profile-output 폴더**를 선택 후 **Select 버튼**을 클릭합니다.
 
    <img src="images/create_a_customer_profile_4.png">
 
-1. **Data profile configurations**을 확장하고, 데이터 프로필 작업을 실행할 때 PII 열을 식별하려면 **PII statistics**에서 **Enable PII statistics**을 선택합니다. 추가로 **PII categories**에서 **All categories**를 선택합니다.
+1. **Data profile configurations**을 확장하고, 데이터 프로필 작업을 실행 시 PII 컬럼 식별을 위해 **PII statistics**에서 **Enable PII statistics**을 선택합니다. 그 다음으로 **PII categories**에서 **All categories**를 선택합니다.
 
    <img src="images/create_a_customer_profile_5.png">
 
@@ -167,19 +167,17 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
    <img src="images/create_a_customer_profile_6.png">
 
-1. 그러면 **Customers dataset**의 **Data profile overview** 탭으로 이동합니다.
+1. 그러면 **Customers** dataset의 **Data profile overview** 탭으로 이동합니다.
 작업이 완료되는 데 약 5분이 소요됩니다.
 
    <img src="images/create_a_customer_profile_7.png">
 
 1. 이 보고서는 컬럼 통계와 함께 PII 대상으로 확인된 PII 컬럼의 카탈로그를 제공합니다. 또한 검토할 수 있는 잠재적인 PII 열을 보여줍니다.
-이후 과정에서는 변환을 통해 확인된 PII 컬럼을 선택적으로 수정합니다.
-다음으로, Sales Dataset 및 Data Quality Rules을 생성합니다.
-
+이후 과정에서는 변환을 통해 확인된 PII 컬럼을 수정할 예정입니다. 다음 LAB에서 Sales Dataset 및 Data Quality Rules을 생성하겠습니다.
 
 ### 2.3 Sales Dataset
 
-이 실습에서는 Sales 데이터 집합을 만듭니다. 아래는 샘플 판매 데이터입니다.
+이 실습에서는 Sales Dataset을 만듭니다. 아래는 샘플 판매 데이터입니다.
    <img src="images/salesdatasample.png">
 1. 왼쪽 메뉴에서 **DATASETS**를 선택합니다.
 1. **Connect new dataset** 버튼을 클릭합니다.
