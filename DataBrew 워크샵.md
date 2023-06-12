@@ -245,7 +245,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
     **Rule Summary**에서 설정한 규칙에 대한 설명을 확인할 수 있습니다.
     Dataset에 중복 행 수가 == 0인 경우 규칙이 통과됩니다.
 
-        <img src="images/create_sales_dq_ruleset_4.png">
+    <img src="images/create_sales_dq_ruleset_4.png">
 
 1. **Add another rule**를 클릭하여 dataset에 데이터 품질 검사를 추가하고, 규칙의 이름을 `Quantity and total Sales should be >0` 으로 지정해줍니다.
 
