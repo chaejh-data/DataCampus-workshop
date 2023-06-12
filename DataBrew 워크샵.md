@@ -59,17 +59,21 @@
 아래의 Launch Stack 버튼을 클릭하여 이 워크샵에 필요한 리소스를 생성합니다.
 
     - [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://aws-data-analytics-workshops.s3.amazonaws.com/glue-databrew-immersionday-v2/databrew_ID-prod.yaml&stackName=glue-databrew-immersionday)
+    
     <img src="images/createstack.png">
 
 CloudFormation 스택을 완료하는 데 대략 3~5분 정도 소요됩니다.
 <!-- 15:52:46 15:54:06 금방이네 -->
 1. 스택 생성이 성공하면 **Outputs** 탭에서 새로 생성된 버킷 이름을 확인할 수 있습니다.
+
     <img src="images/cf-complete.png">
 
 1. 상단 검색창에 **S3**로 검색하여, S3 서비스로 이동 후 버킷 메뉴를 클릭하면 glue-databrew-immersionday 버킷을 확인할 수 있습니다.
+
     <img src="images/s3-bucket-name.png">
 
 1. glue-databrew-immersionday 버킷에는 다음과 같은 구조를 가지고 있습니다.
+
     <img src="images/s3-bucket.png">
 
 ## 2. Profiling and Data Quality
