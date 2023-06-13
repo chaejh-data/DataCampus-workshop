@@ -586,7 +586,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
      <img src="images/group.png">
 
 1. 아래 스크린샷과 같이 *Product_Id, Zip, Product_Type*컬럼을 대상으로 **Column name과 Aggregate**(집계 함수)를 선택하고 **Finish**을 선택합니다.
-     이를 통해 **Product_Id, Zip, Product_Type 기준으로 그룹화하여 총매출액을 Sum 하는 recipe**가 생성됩니다.
+     이를 통해 **Product_Id, Zip, Product_Type 기준으 그룹화하여 총매출액을 Sum 하는 recipe**가 생성됩니다.
 
      <img src="images/total_sales_15.png">
 
@@ -622,14 +622,14 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
 ### 4.2 Pivot and Custom Recipe
 
-이 실습에서는 Pivot 변환을 총 판매액으로 사용하여 **product Type - Toys - Campaign**에 대한 우편번호를 식별할 것입니. 이 실습에서는 custom recipe를 사용하는 방법을 배웁니다.
+이 실습에서는 **product Type(Toys) Campaign**에 대한 우편번호를 식별하기 위해 총 판매액에 Pivot 변환을 사용합니다. custom recipe를 사용하는 방법을 배웁니다.
 
 1. cloudformation 템플릿으로 생성한 **glue-databrew-immersionday** s3 버킷의 **recipes/** 폴더에서 *ID-recipe-import.json*을 다운로드합니다.
 
      <img src="images/s3_custom_recipe.png">
 
 1. **project** 이름으로 `SalesByProductType-Toys` 를 입력합니다. **Recipe detail** 섹션에서 **Import steps from recipe**를 활성화합니다.
-**Browse Recipes**를 사용하여 S3에서 다운 받았던 *Sales-recipe*를 선택합니다.
+**Browse Recipes**를 사용하여 앞에서 publish 했던 *Sales-recipe*를 선택합니다.
 
      <img src="images/create_new_project_1.png">
 
@@ -652,7 +652,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/create_new_project_5.png">
 
-1. Toys product type에 대한 캠페인이므로 상단 메뉴의 Filter transform을 사용하여 Toys product type만 필터링합니다.
+1.  product type(Toys)에 대한 캠페인이므로 상단 메뉴의 Filter transform을 사용하여 Toys product type만 필터링합니다.
     상단에 **FILTER 아이콘 > By condition > Is exactly**를 선택하고
 
      <img src="images/create_new_project_6.png">
@@ -661,7 +661,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/create_new_project_7.png">
 
-1. 아래 스크린샷에 따라 Product_Id로 Pivot하여 지정된 우편번호에 있는 서로 다른 두 제품 라인의 product_Id 매출을 비교합니다. 상단 메뉴에 **PIVOT 아이콘** 클릭
+1. 아래 스크린샷에 따라 Product_Id로 Pivot하여 지정된 우편번호에 있는 서로 다른 두 제품 라인(기존/신규)의 product_Id 매출을 비교합니다. 상단 메뉴에 **PIVOT 아이콘** 클릭
 
      <img src="images/create_new_project_8.png">
 
@@ -673,7 +673,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/uploadrecipe.png">
 
-1. s3 버킷의 레시피 폴더에서 다운로드한 *ID-recipe-import.json*을 업로드후 **Create and publish recipe** 버튼을 클릭합니다. 이 레시피에는 데이터를 정리하는 추가 단계가 포함되어 있습니다.
+1. s3 버킷의 레시피 폴더에서 다운로드한 *ID-recipe-import.json*을 업로드후 **Create and publish recipe** 버튼을 클릭합니다. 이 레시피에는 데이터를 정리하는 추가 단계가 포함되어 있습니다.(null 값 > 0으로 채워주기, SUBTRACT컬럼 생성 : Id-11 - id22, SUBTRACT 컬럼 값이 1 이상만 필터, ZIP이랑 Product Type 빼고 컬럼 삭제)
 
      <img src="images/create_new_project_11.png">
 
@@ -690,7 +690,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
      <img src="images/create_new_project_14.png">
      <img src="images/create_new_project_15.png">
 
-    레시피를 성공적으로 가져오면 장난감 캠페인의 우편번호 목록이 생성됩니다.
+    레시피를 성공적으로 가져오면, 기존 제품의 장난감 판매액이 신규보다 높은 우편번호 목록이 생성됩니다.
 
 1. 이제 이 레시피를 전체 **Sales dataset**에 적용하기 위해 job을 만듭니다. **Creat job**를 선택합니다.
 
@@ -721,7 +721,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/schedule_1.png">
 
-1. 아래 스크린샷과 같이 **Schedule** 이름을 `Hourly`로 입력하고 Run frequency : Recurring, Evnery x housr : 1, On days : Weekdays, start time : 00:00 선택한 후 **Add**를 선택합니다.
+1. 아래 스크린샷과 같이 **Schedule** 이름을 `Hourly`로 입력하고 Run frequency : **Recurring**, Evnery x housr : **1**, On days : **Weekdays**, start time : **00:00** 선택한 후 **Add**를 선택합니다. **월요일부터 금요일까지 오전 12시(UTC)부터 매 1시간 마다**
 
      <img src="images/schedule_2.png">
 
@@ -806,7 +806,7 @@ https://docs.aws.amazon.com/quicksight/latest/user/supported-manifest-file-forma
    <img src="images/visualize_data_set.png">
 분석에 사용할 새 계산된 필드를 추가해 보겠습니다. 계산된 필드를 ProductStatus라고 부르며, 제품이 새 제품인지 오래된 제품인지를 나타냅니다.
 화면 왼쪽에 있는 계산된 필드 Add를 누릅니다. 이름을 ProductStatus로 설정합니다.
-오른쪽에 함수 목록이 표시되며, 함수를 선택하면 설명과 명령 구문이 표시됩니다. 기존 제품의 ID가 11 이하인 반면 모든 새 제품의 ID는 10보다 크다는 것을 알 수 있습니다. 제품이 신상품인지 구상품인지 확인하려면 IF 문이 필요합니다. 따라서 계산은 다음과 같습니다:
+오른쪽에 함수 목록이 표시되며, 함수를 선택하면 설명과 명령 구문이 표시됩니다. 기존 제품의 ID가 11 이하인 반면 모든 새 제품의 ID는 11보다 크다는 것을 알 수 있습니다. 제품이 신상품인지 구상품인지 확인하려면 IF 문이 필요합니다. 따라서 계산은 다음과 같습니다:
 ```
 ifelse({Product_Id}<=11,'Old Product','New Product')
 ```
