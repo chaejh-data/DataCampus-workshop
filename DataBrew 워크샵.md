@@ -594,49 +594,79 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
      recipe를 확인한 후 **Publish**를 선택합니다.
 
      <img src="images/total_sales_16.png">
-     
-1. **Version description**으로 `Total-Sales`을 입력하고 게시를 선택합니다.
+
+1. **Version description**으로 `Total-Sales`을 입력하고 **Publish**를 클릭합니다.?
+
      <img src="images/total_sales_17.png">
+
 1. 마지막으로 이 recipe를 사용하여 전체 sales dataset에 대해 총 판매량을 생성하는 작업을 만듭니다. **Create job**을 선택합니다.
+
      <img src="images/total_sales_18.png">
-1. **Job name**을 `Total-Sales`로 지정합니다.
-1. 작업의 출력 위치를 지정해야 합니다. **Job output settings**에서 **File Type**으로 *"CSV"*를 선택합니다.
-1. **Browse**를 선택하여 S3 위치를 선택하고 텍스트 상자에 `glue-databrew-immersionday`를 이전에 생성한 S3 버킷 위치를 선택합니다. **shared 폴더**를 **Select**를 클릭합니다.
+
+1. **Job**이름을 `Total-Sales`로 지정합니다.
+
+1. Job의 출력 위치를 지정해야 합니다. **Job output settings**에서 **File Type**으로 *"CSV"*를 선택합니다.
+
+1. **Browse**를 선택하여 S3 위치를 선택하고 텍스트 상자에 `glue-databrew-immersionday`를 이전에 생성한 S3 버킷 위치를 선택합니다. **shared 폴더**를 선택한 후 **Select**를 클릭합니다.
      <img src="images/total_sales_19.png">
+
 1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
+
 1. 오른쪽 하단에 **Create project**을 선택합니다.
+
      <img src="images/total_sales_20.png">
-1. 작업이 성공적으로 실행되면. Output은 s3에 기록됩니다.
+
+1. Job이 성공적으로 실행되면. Output은 s3에 기록됩니다.
+
      <img src="images/total_sales_21.png">
 
 ### 4.2 Pivot and Custom Recipe
 
-이 실습에서는 Pivot 변환을 총 판매액으로 사용하여 **product Type - Toys - Campaign**에 대한 우편번호를 식별합니다. 이 실습에서는 custom recipe를 사용하는 방법을 배웁니다.
+이 실습에서는 Pivot 변환을 총 판매액으로 사용하여 **product Type - Toys - Campaign**에 대한 우편번호를 식별할 것입니. 이 실습에서는 custom recipe를 사용하는 방법을 배웁니다.
 
-1. cloudformation 템플릿으로 생성한 g**lue-databrew-immersionday** s3 버킷의 **recipes/** 폴더에서 *ID-recipe-import.json*을 다운로드합니다.
+1. cloudformation 템플릿으로 생성한 **glue-databrew-immersionday** s3 버킷의 **recipes/** 폴더에서 *ID-recipe-import.json*을 다운로드합니다.
+
      <img src="images/s3_custom_recipe.png">
-1. **project name**으로 `SalesByProductType-Toys` 를 입력합니다. **Recipe detail** 섹션에서 **Import steps from recipe**를 활성화합니다.
+
+1. **project** 이름으로 `SalesByProductType-Toys` 를 입력합니다. **Recipe detail** 섹션에서 **Import steps from recipe**를 활성화합니다.
 **Browse Recipes**를 사용하여 S3에서 다운 받았던 *Sales-recipe*를 선택합니다.
+
      <img src="images/create_new_project_1.png">
-1. **dataset section** 섹션에서 **Sales dataset**을 선택합니다.
+
+1. **My datasets**에서 **Sales** dataset을 선택합니다.
+
      <img src="images/create_new_project_2.png">
+
 1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
-1. 오른쪽 하단에 **Create project**을 선택합니다.
+
+1. 오른쪽 하단에 **Create project**을 클릭합니다.
+
      <img src="images/create_new_project_3.png">
+
 1. 프로젝트의 데이터 sample을 아래 두 스크린샷과 같이 변경합니다. 
-오른쪽 상단 **First in sample** 클릭합니다.
+     왼쪽 상단 **First in sample** 클릭합니다.
+    
      <img src="images/create_new_project_4.png">
-**Last n rows .png"> Custom siza .png"> 4000** 설정 후 **Load this sample** 클릭합니다.
+    
+     **Last n rows > Custom size** : `4000` 입력 후 **Load this sample**를 클릭합니다.
+
      <img src="images/create_new_project_5.png">
-1. 캠페인이 Toys product type에 대한 캠페인이므로 상단 메뉴의 Filter transform을 사용하여 Toys product type 만 필터링합니다.
-상단에 **FILTER > By condition > Is exactly**
+
+1. 캠페인이 Toys product type에 대한 캠페인이므로 상단 메뉴의 Filter transform을 사용하여 Toys product type만 필터링합니다.
+    상단에 **FILTER 아이콘 > By condition > Is exactly**를 선택하고
+
      <img src="images/create_new_project_6.png">
-**Toys** 컬럼만 선택 후 Apply
+
+    **Toys** 컬럼만 선택 후 **Apply**를 클릭합니다.
+
      <img src="images/create_new_project_7.png">
+
 1. 아래 지침에 따라 Product_Id로 Pivot하여 지정된 우편번호에 있는 서로 다른 두 제품 라인의 product_Id 매출을 비교합니다.
-상단에 PIVOT 클릭
+    상단에 PIVOT 클릭
+
      <img src="images/create_new_project_8.png">
-**PIVOT - Rows to clomns 선택 .png"> Pivot column (Product_id) > Pivot values (Sum, Total_Sales_sum) > Finish** 버튼을 클릭합니다..
+
+    **PIVOT - Rows to clomns 선택 .png"> Pivot column (Product_id) > Pivot values (Sum, Total_Sales_sum) > Finish** 버튼을 클릭합니다..
      <img src="images/create_new_project_9.png">
 1. 왼쪽 메뉴에서 **RECIPES**를 선택한 다음 **Upload Recipe**를 선택합니다.
      <img src="images/uploadrecipe.png">
