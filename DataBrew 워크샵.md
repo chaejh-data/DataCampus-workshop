@@ -492,7 +492,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
 ### 4.1 Join and Group By
 
-이 실습에서는 Join(조인) 및 Group By(그룹화) 변환을 사용하여 제품 ID, 우편번호 및 제품 유형별로 총 매출을 계산합니다.
+이 실습에서는 Sales dataset를 이용하여 Join(조인) 및 Group By(그룹화) 변환을 사용하여 제품 ID, 우편번호 및 제품 유형별로 총 매출을 계산합니다.
 
 1. 왼쪽 메뉴에서 **PROJECTS**를 선택합니다.
 1. 오른쪽 상단 메뉴에서 **Create project** 버튼을 클릭합니다.
@@ -543,12 +543,12 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/total_sales_4.png">
 
-1. **Dataset** 이름으로 `CleanCustomer`로 입력한 후 **'Amazon S3'**를 선택합니다. **Enter your source from S3**에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다. 
+1. **Dataset** 이름으로 `CleanCustomer`로 입력한 후 **Amazon S3**를 선택합니다. **Enter your source from S3**에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다. 
 **shared > CleanCustomer_Date_Timestamp** 폴더로 이동합니다.
 
      <img src="images/total_sales_5_A.png">
 
-1. 폴더에서 csv 파일을 선택합니다. **Additional configuration**에서 **Selected file type**을 *CSV*로 지정하고 오른쪽 하단에 **Create dataset** 버튼 클릭합니다.
+1. 폴더에서 **CleanCustomer_xxxx.csv** 파일을 선택합니다. **Additional configuration**에서 **Selected file type**을 *CSV*로 지정하고, **Treat first row as header(첫 번째 행을 헤더로 처리)**를 선택합니다. 오른쪽 하단에 **Create dataset** 버튼을 클릭합니다.
 
      <img src="images/total_sales_5_B.png">
 
@@ -562,22 +562,31 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
      <img src="images/total_sales_8.png">
 
 1. 다음으로 **Product** dataset를 join 합니다. 위와 유사하게 상단 메뉴에서 **Join 아이콘**을 선택하고 **Connect new dataset**을 선택합니다.
-1. **Dataset** 이름으로 `Product`로 입력한 후 **''Amazon S3'**'를 선택합니다. **'Enter your source from S3**에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
- **datafiles > products** 폴더로 이동합니다.
-1. **products.csv** 파일을 선택합니다. Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 **Create dataset**를 선택합니다.
+1. **Dataset** 이름으로 `Product`로 입력한 후 **''Amazon S3'**'를 선택합니다. **'Enter your source from S3**에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다. **datafiles > products** 폴더로 이동합니다.
+1. **products.csv** 파일을 선택합니다. Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고, **Treat first row as header(첫 번째 행을 헤더로 처리)**를 선택합니다. 오른쪽 하단에 **Create dataset** 버튼을 선택합니다.
 
      <img src="images/total_sales_9.png">
 
 1. Product dataset 미리 보기가 표시됩니다. **Next**을 선택합니다.
-1. **Inner join** 옵션을 선택합니다. Table A 드롭다운에서 *Product_id*를 선택하고 Table B 드롭다운에서 *Product Key*를 선택합니다. 그리고 아래 두 스크린샷에 따라 컬럼을 선택하고 **Finish**을 선택합니다.
+1. **Inner join** 옵션을 선택합니다. **Table A** 드롭다운하여 *Product_id*를 선택하고, **Table B** 드롭다운하여 *Product Key*를 선택합니다. 그리고 아래 두 스크린샷에 따라 필용한 컬럼만 선택하고 **Finish**을 선택합니다.
+
      <img src="images/total_sales_10.png">
      <img src="images/total_sales_10_B.png">
+
 1. **Zip 컬럼 헤더**에서 *#*을 클릭하여 **Zip data type**을 *integer(정수)*로 변경합니다.
-     <img src="images/total_sales_12_B.png">
-1. 스크린샷에 따라 COLUMN .png"> Delete를 선택하여 *불필요한 Source Columns(Txn_Date, Customer_Id 및 Quantity)*을 삭제합니다.
-1. 상단 메뉴에서 Group 선택합니다.
+
+     <img src="images/total_sales_12.png">
+
+1. 스크린샷에 따라 **COLUMN 아이콘 > Delete**를 선택하여 불필요한 Source Columns(Txn_Date, Customer_Id, Quantity)을 선택하여 삭제합니다.
+     <img src="images/total_sales_13.png">
+     <img src="images/total_sales_14.png">
+
+1. 상단 메뉴에서 **Group 아이콘**을 선택합니다.
+
      <img src="images/group.png">
-1. 아래 스크린샷과 같이 Product_Id, Zip, Product_Type를 대상으로 **Column names과 Aggregate(집계 함수)**를 선택하고 **Finish**을 선택합니다.
+
+1. 아래 스크린샷과 같이 *Product_Id, Zip, Product_Type*를 대상으로 **Column names과 Aggregate(집계 함수)**를 선택하고 **Finish**을 선택합니다.
+
 해당 결과로 Product_Id, Zip, Product_Type별로 총 매출을 Sum하는 recipe가 생성됩니다.
      <img src="images/total_sales_15.png">
 1. recipe를 Publish하여 새 버전의 recipe를 만듭니다. 이렇게 하면 게시된 recipe 버전을 recipe Job의 옵션으로 선택할 수 있습니다. 
