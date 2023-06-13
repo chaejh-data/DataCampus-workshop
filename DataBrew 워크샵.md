@@ -110,7 +110,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 1. dataset의 이름을 `Customers`로 지정합니다.
 1. 서비스로 **Amazon S3**를 선택합니다.
-1. **Enter your source from S3** 텍스트 박스에 `*s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
+1. **Enter your source from S3**에 `*s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
 1. **datafiles > customers** 폴더로 이동합니다.
 1. *customer.csv* 파일을 체크합니다.
 
@@ -148,7 +148,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
    <img src="images/create_a_customer_profile_2.png">
 
-1. Job name 텍스트 박스에 `Customers profile job` 입력합니다.
+1. Job 이름으로 `Customers profile job` 입력합니다.
 1. **Full dataset**을 선택합니다.
 
    <img src="images/create_a_customer_profile_3.png">
@@ -162,7 +162,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
    <img src="images/create_a_customer_profile_5.png">
 
 1. **Permissions** 섹션으로 건너뛰고, **Role name** 드롭다운하여 **Create new IAM role**를 선택합니다.
-1. **New IAM Role suffix** 텍스트 박스에 `ID`를 입력합니다. 그러면 AWSGlueDataBrewServiceRole-ID라는 새 IAM role이 생성됩니다.
+1. **New IAM Role suffix**으로 `ID`를 입력합니다. 그러면 AWSGlueDataBrewServiceRole-ID라는 새 IAM role이 생성됩니다.
 1. **Create and run job**을 선택합니다.
 
    <img src="images/create_a_customer_profile_6.png">
@@ -188,7 +188,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 1. dataset 이름을 `Sales`로 지정합니다.
 1. 서비스로 **Amazon S3**를 선택합니다.
-1. **Enter your source from S3** 텍스트 박스에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
+1. **Enter your source from S3**에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
 1. **datafiles > sales** 폴더를 선택합니다.
 
    <img src="images/Create_a_sales_dataset_1.png">
@@ -287,8 +287,8 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
      <img src="images/create_sales_dq_ruleset_8.png">
 
 1. **Data quality rules** 섹션에서 **Sales DQ Checks** 규칙 집합이 이미 적용되어 있는 것을 볼 수 있습니다.
-1. 나머지는 optional 설정은 default settings을 그대로 유지하고, **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* role을 선택합니다.
-1. **Create and run job**버튼을 클릭합니다.
+1. 나머지는 optional 설정은 default settings을 그대로 유지하고, **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
+1. 오른쪽 하단에 **Create project**을 선택합니다.
 
      <img src="images/create_sales_dq_ruleset_9.png">
 
@@ -354,8 +354,8 @@ DataBrew의 대화형 데이터 준비 작업 공간을 project라고 합니다.
 
      <img src="images/select_dataset.png">
 
-1. Permission 섹션의 **Role name**를 드롭다운하여 앞서 생성했던 *AWSGlueDataBrewServiceRole-ID*를 선택합니다.
-1. **Create Project**을 클릭합니다.
+1. **Permissions** 섹션의 **Role name**를 드롭다운하여 앞서 생성했던 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
+1. 오른쪽 하단에 **Create project**을 선택합니다.
 
      <img src="images/create_iam_role.png">
 
@@ -378,7 +378,7 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 
      <img src="images/build_recipe_2.png">
 
-1. **New column name** 텍스트 박스에 `Name`을 입력합니다.
+1. **New column** 이름으로 `Name`을 입력합니다.
 1. **Preview changes**를 클릭하고, 미리 보기에서 예상한 결과가 표시되는지 확인합니다. **Apply**를 클릭합니다.
 
      <img src="images/build_recipe_3.png">
@@ -426,7 +426,7 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 
      <img src="images/split.png">
 
-1. **Enter custom value** 텍스트 상자에 **delimiter**(구분 기호)로 `;` 를 입력합니다.
+1. **Enter custom value**에 **delimiter**(구분 기호)로 `;` 를 입력합니다.
 1. **number of times to split**(분할할 횟수)를 *4*로 설정합니다.
 1. **Apply transform** 섹션에서 *All rows*(모든 행)을 선택한 상태로 둡니다.
 1. **Preview changes**를 선택하여 결과를 확인합니다.
@@ -437,7 +437,7 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
     **다음 단계에 따라 Address_3의 이름을 City로, Address_4의 이름을 Zip으로, Addrees_5의 이름을 Country로 변경합니다.**
 
 1. 각 컬럼 상단의 **줄임표**(...)을 선택한 다음, 메뉴에서 **Rename**를 선택합니다.
-1. New column name 텍스트 상자에 대상 이름(Address_3 > `City`, Address_4 > `Zip`, Addrees_5 > `Country`)을 입력하고 **Apply** 선택하여, 컬럼의 이름을 변경해줍니다.
+1. **New column** 이름으로 대상 이름(Address_3 > `City`, Address_4 > `Zip`, Addrees_5 > `Country`)을 입력하고 **Apply** 선택하여, 컬럼의 이름을 변경해줍니다.
 
      <img src="images/build_recipe_13.png">
 
@@ -455,10 +455,12 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 변환하는 작업을 수행합니다. 이러한 지침을 실행하는 프로세스를 Job이라고 합니다. Job은 미리 설정된 일정에 따라 데이터 레시피를 실행하거나 필요에 따라 Job을 실행할 수도 있습니다. 일부 데이터를 프로파일링하려는 경우에는 recipe를 만들 필요없 profile job을 설정하여 data profile을 만들면 됩니다.
 
 1. 오른쪽 상단 메뉴에서 Create Job 를 선택합니다.
+
      <img src="images/createjob.png">
-1. Job 이 텍스트 박스에 `CleanCustomer`를 입력합니다.
+
+1. **Job** 이름으로 `CleanCustomer`를 입력합니다.
 1. Job의 출력 위치를 지정해야 합니다. DataBrew는 단일 작업에서 여러 가지 형식의 출력을 생성할 수 있는 유연성을 제공합니다. 
-**Job output settings**의 **File type** 드롭다운하여 *CSV*를 선택합니다.
+**Job output settings**에 **File type** 드롭다운하여 *CSV*를 선택합니다.
 1. **Browse 버튼**을 클릭하여 이전에 생성한 **glue-databrew-immersionday-xxxx** S3 버킷을 클릭합니다.
 
      <img src="images/create_a_job_1.png">
@@ -470,28 +472,40 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
 1. **Advanced job settings** 섹션을 열고 *Maximum number of units*에 `5`를 입력합니다.
 1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
-1. **Create and run job**을 선택합니다.
+1. 오른쪽 하단에 **Create project**을 선택합니다.
+
      <img src="images/create_a_job_3.png">
-1. CleanCustomer JOB이 실행되고 **Job output** 항목에 **output**에 대한 링크가 나타납니다.
+
+1. CleanCustomer JOB이 실행되고 **Job output** 항목에 **output**에 대한 링크가 생깁니다.
+
      <img src="images/create_a_job_4.png">
-1. **output 링크**를 클릭하면 출력 파일의 위치가 표시됩니다.
+
+1. **output** 링크를 클릭하면 출력 파일의 위치가 표시됩니다.
+
      <img src="images/create_a_job_5.png">
-1. **S3 URL**을 클릭하면 첫 번째 실행의 출력 파일이 들어 있는 폴더가 표시됩니다.
+
+1. **S3 Destination URL**을 클릭하면 첫 번째 Job 실행의 출력 파일이 들어 있는 폴더가 표시됩니다.
+
      <img src="images/create_a_job_6.png">
 
 ## 4. Advanced Transform
 
 ### 4.1 Join and Group By
 
-이 실습에서는 Join(조인) 및 Group By(그룹화 기준) 변환을 사용하여 제품 ID, 우편번호 및 제품 유형별로 총 매출을 계산합니다
+이 실습에서는 Join(조인) 및 Group By(그룹화) 변환을 사용하여 제품 ID, 우편번호 및 제품 유형별로 총 매출을 계산합니다
 
 1. 왼쪽 메뉴에서 **PROJECTS**를 선택합니다.
 1. 오른쪽 상단 메뉴에서 **Create project** 버튼을 클릭합니다.
-1. **Project Name** 텍스트 박스에 `Sales`를 입력합니다.
+1. **Project**이름으로 `Sales`를 입력합니다.
 1. **Select a dataset** 섹션에서 **My datasets**을 선택한 다음 **Sales**를 선택합니다.
+
      <img src="images/total_sales_1.png">
-1. **Role name**를 드롭다운해서 *AWSGlueDataBrewServiceRole-ID* 역할을 선택하고 **Create project**을 선택합니다.
+
+1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
+1. 오른쪽 하단에 **Create project**을 선택합니다.
+
      <img src="images/total_sales_2.png">
+
 새 프로젝트를 초기화하는 데 몇 분 정도 걸립니다.
 1. 먼저 **Sales** dataset에서 데이터 품질 문제가 있는 rows을 필터링해 보겠습니다.
 1. 상단 메뉴에서 **FILTER**를 선택하고 **By condition .png"> Greater than**을 선택합니다.
@@ -514,7 +528,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 상단 메뉴 표시줄에 JOIN이 보이지 않는다면 MORE 섹션에서 찾을 수 있습니다.
 1. Standard Transform 단계에서 생성한 CleanCustomer output을 사용하여 새로운 Dataset을 만들려고 합니다. Connect new dataset을 선택합니다.
      <img src="images/total_sales_4.png">
-1. **Dataset name**을 `CleanCustomer`로 입력한 후 **'Amazon S3'**를 선택합니다. **Enter your source from S3** 텍스트 상자에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다. 
+1. **Dataset name**을 `CleanCustomer`로 입력한 후 **'Amazon S3'**를 선택합니다. **Enter your source from S3**에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다. 
 **shared .png"> CleanCustomer_Date_Timestamp** 폴더로 이동합니다.
      <img src="images/total_sales_5_A.png">
 1. 폴더에서 csv 파일을 선택합니다. (참고: 날짜와 타임스탬프는 CleanCustomer 작업이 실행된 날짜와 시간과 일치합니다.)
@@ -526,7 +540,7 @@ Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 
      <img src="images/total_sales_7.png">
      <img src="images/total_sales_8.png">
 1. 다음으로 Product data를 join합니다. 위와 유사하게 상단 메뉴 모음에서 Join 옵션을 선택하고 Connect new dataset을 선택합니다.
-1. **Dataset name**을 `Product`로 입력한 후 **''Amazon S3'**'를 선택합니다. **'Enter your source from S3** 텍스트 상자에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다. 
+1. **Dataset name**을 `Product`로 입력한 후 **''Amazon S3'**'를 선택합니다. **'Enter your source from S3**에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다. 
 폴더에서 csv 파일을 선택합니다. **datafiles .png"> products** 폴더로 이동합니다. Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 **Create dataset**를 선택합니다.
      <img src="images/total_sales_9.png">
 1. Product dataset 미리 보기가 표시됩니다. **Next**을 선택합니다.
@@ -550,9 +564,10 @@ Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 
      <img src="images/total_sales_18.png">
 1. **Job name**을 `Total-Sales`로 지정합니다.
 1. 작업의 출력 위치를 지정해야 합니다. **Job output settings**에서 **File Type**으로 *"CSV"*를 선택합니다.
-1. **Browse**를 선택하여 S3 위치를 선택하고 텍스트 상자에 `glue-databrew-immersionday`를 이전에 생성한 S3 버킷 위치를 선택합니다.. **shared 폴더**를 **Select**를 클릭합니다.
+1. **Browse**를 선택하여 S3 위치를 선택하고 텍스트 상자에 `glue-databrew-immersionday`를 이전에 생성한 S3 버킷 위치를 선택합니다. **shared 폴더**를 **Select**를 클릭합니다.
      <img src="images/total_sales_19.png">
-1.  Permissions 세션에서 **Role name** 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* role을 선택합니다. **"Create and run job"**을 선택합니다.
+1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
+1. 오른쪽 하단에 **Create project**을 선택합니다.
      <img src="images/total_sales_20.png">
 1. 작업이 성공적으로 실행되면. Output은 s3에 기록됩니다.
      <img src="images/total_sales_21.png">
@@ -568,7 +583,8 @@ Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 
      <img src="images/create_new_project_1.png">
 1. **dataset section** 섹션에서 **Sales dataset**을 선택합니다.
      <img src="images/create_new_project_2.png">
-1.  Permissions 세션에서 **Role name** 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* role을 선택합니다. **"Create Project"**을 선택합니다.
+1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
+1. 오른쪽 하단에 **Create project**을 선택합니다.
      <img src="images/create_new_project_3.png">
 1. 프로젝트의 데이터 sample을 아래 두 스크린샷과 같이 변경합니다. 
 오른쪽 상단 **First in sample** 클릭합니다.
@@ -576,16 +592,15 @@ Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 
 **Last n rows .png"> Custom siza .png"> 4000** 설정 후 **Load this sample** 클릭합니다.
      <img src="images/create_new_project_5.png">
 1. 캠페인이 Toys product type에 대한 캠페인이므로 상단 메뉴의 Filter transform을 사용하여 Toys product type 만 필터링합니다.
-상단에 **FILTER .png"> By condition .png"> Is exactly**
+상단에 **FILTER > By condition > Is exactly**
      <img src="images/create_new_project_6.png">
 **Toys** 컬럼만 선택 후 Apply
      <img src="images/create_new_project_7.png">
 1. 아래 지침에 따라 Product_Id로 Pivot하여 지정된 우편번호에 있는 서로 다른 두 제품 라인의 product_Id 매출을 비교합니다.
 상단에 PIVOT 클릭
      <img src="images/create_new_project_8.png">
-**PIVOT - Rows to clomns 선택 .png"> Pivot column (Product_id) .png"> Pivot values (Sum, Total_Sales_sum) .png"> Finish** 버튼을 클릭합니다..
-     <img src="images/create_new_project_9.png
-     )
+**PIVOT - Rows to clomns 선택 .png"> Pivot column (Product_id) > Pivot values (Sum, Total_Sales_sum) > Finish** 버튼을 클릭합니다..
+     <img src="images/create_new_project_9.png">
 1. 왼쪽 메뉴에서 **RECIPES**를 선택한 다음 **Upload Recipe**를 선택합니다.
      <img src="images/uploadrecipe.png">
 1. s3 버킷의 레시피 폴더에서 다운로드한 *ID-recipe-import.json*을 업로드후 **Create and publish recipe** 버튼을 클릭합니다. 이 레시피에는 데이터를 정리하는 추가 단계가 포함되어 있습니다.
@@ -604,7 +619,8 @@ Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 
 1. 작업의 출력 위치를 지정해야 합니다. **Job output settings**에서 **File Type**으로 *"CSV"*를 선택합니다.
 1. **Browse**를 선택하여 S3 위치를 선택하고 텍스트 상자에 `glue-databrew-immersionday`를 이전에 생성한 S3 버킷 위치를 선택합니다. **shared 폴더**를 **Select**를 클릭합니다.
      <img src="images/create_new_project_17.png">
-1.  Permissions 세션에서 **Role name** 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* role을 선택합니다. **"Create and run job"**을 선택합니다.
+1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
+1. 오른쪽 하단에 **Create project**을 선택합니다.
      <img src="images/create_new_project_18.png">
 
 1. 작업이 성공적으로 실행되면. **Output**은 s3에 기록됩니다
@@ -802,7 +818,8 @@ dataset가 연결되면 메인 화면의 Dataset dashboard에 dataset 이름이 
    <img src="images/db-imm-project-1.png">
 1. My dataset을 클릭한 다음 dataset name을 선택하여 이전에 생성한 데이터 집합을 선택합니다.
    <img src="images/db-imm-project-2.png">
-1.  Permissions 세션에서 **Role name** 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* role을 선택합니다. **"Create project"**을 선택합니다.
+1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
+1. 오른쪽 하단에 **Create project**을 선택합니다.
 DataBrew가 새 세션을 시작합니다.
    <img src="images/databrew-project-initiation.png">
 세션이 시작되면 각 데이터 컬럼에 대한 메트릭이 포함된 데이터 샘플이 표시되며, DataBrew recipe를 만들 준비가 완료됩니다.
