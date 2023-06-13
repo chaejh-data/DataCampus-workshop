@@ -758,7 +758,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
    <img src="images/quicksight-setting.png">
 
-1. glue-databrew-immersionday으로 시작한 S3 버킷을 선택하고 Finish 버튼을 클릭합니다.
+1. *glue-databrew-immersionday*으로 시작한 S3 버킷을 선택하고 **Finish** 버튼을 클릭합니다.
   
    <img src="quicksight-select-s3.png">
 
@@ -766,32 +766,17 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
    <img src="images/quicksight-main.png">
 
-#### S3 액세스 권한 부여하기
-Amazon QuickSight 내에서 오른쪽 상단에 있는 **프로필 이름**을 선택합니다. QuickSight 관리를 선택한 다음 보안 및 권한을 선택합니다.
-
-추가 또는 제거를 선택합니다.
-
-목록에서 Amazon S3를 찾습니다. 다음 중 하나를 선택합니다. 이러한 작업을 수행하면 S3 버킷을 선택할 수 있는 화면이 열립니다.
-
-확인란이 선택 취소되어 있으면 Amazon S3 옆의 확인란을 사용 설정합니다.
-
-확인란이 이미 사용 설정되어 있으면 세부 정보를 선택한 다음 S3 버킷 선택을 선택합니다.
-
-Amazon QuickSight에서 액세스하려는 버킷을 선택합니다. 그런 다음 선택을 선택합니다.
-
-업데이트를 선택합니다.
-
-이 프로세스의 첫 번째 단계에서 AWS 리전을 변경한 경우 사용하려는 AWS 리전으로 다시 변경합니다.
-
-
 #### 데이터 세트 만들기.
 1. 이제 Amazon QuickSight 왼쪽 메뉴에서 **Dataset**를 선택합니다. **4.1 Join and Group By**에서 생성한 **Total-Sales** data를 가져올 것입니다.
+
    <img src="images/visualize_newdataset.png">
+
 1. 화면 오른쪽 상단에서 New Dataset button을 누르면 다음과 같이 표시됩니다:
-1. 보시다시피 QuickSight는 여러 데이터 소스를 지원합니다. Twitter, Github, Snowflake, Redshift 등에서 데이터를 가져올 수 있습니다. 사용 가능한 데이터 소스의 전체 목록은 여기에서 설명서를 참조하세요. 데이터 소스 페이지에서 S3를 선택합니다.
+1. 보시다시피 QuickSight는 여러 데이터 소스를 지원합니다. Twitter, Github, Snowflake, Redshift 등에서 데이터를 가져올 수 있습니다. 데이터 소스 페이지에서 S3를 선택합니다.
+
    <img src="images/visualize_dataset_options.png">
 
-1. S3 import에는 Data Source Name과 Manifest File이 필요합니다. 컴퓨터에서 텍스트 편집기를 사용하여 Manifest File 을 만듭니다. 파일의 구조는 다음과 같습니다:
+1. S3 import에는 Data Source Name과 Manifest File이 필요합니다. 컴퓨터에서 텍스트 편집기를 사용하여 Manifest File을 만듭니다. 파일 구조는 다음과 같습니다:
 ```
 {
     "fileLocations": [
@@ -810,72 +795,91 @@ Amazon QuickSight에서 액세스하려는 버킷을 선택합니다. 그런 다
 1. manifest file은 4.1에서 생성한 폴더를 가리킵니다. manifest file에 대한 자세한 내용은 다음 문서를 참조하세요.
 https://docs.aws.amazon.com/quicksight/latest/user/supported-manifest-file-format.html
 
-1. 파일을 생성했으면 data.manifest 파일로 저장합니다. 파일에 올바른 버킷 이름이 포함되어 있는지, 폴더가 Total-Sales Data를 참조하는지 확인하세요.
+1. 파일을 생성했으면* *data.manifest* 파일로 저장합니다. 파일에 올바른 버킷 이름이 포함되어 있는지, 폴더가 Total-Sales Data를 참조하는지 확인하세요.
 
 1. 이제 manifest 파일을 만들었으므로 라디오 버튼을 URL에서 Upload로 변경하여 업로드합니다.  목록 파일 업로드 입력 상자 오른쪽에 있는 작은 파일 버튼을 사용하여 파일을 업로드합니다:
 
    <img src="images/visualize_new_s3_data_source.png">
 
-1. 그런 다음 Connect 버튼을 누릅니다. 그러면 데이터가 SPICE 데이터베이스에 업로드됩니다. 다음과 같은 확인 메시지가 표시됩니다:
+1. 그런 다음 **Connect** 버튼을 누릅니다. 그러면 데이터가 SPICE 데이터베이스에 업로드됩니다. 다음과 같은 확인 메시지가 표시됩니다:
 
    <img src="images/visualize_import_successfull.png">
 
 #### DataSet을 검토합니다.
 
-1. Edit and Preview 버튼을 눌러 데이터를 확인합니다. 데이터를 로드하는 데 몇 초 정도 걸립니다.
+1. Edit and Preview 버튼을 눌러 데이터를 확인합니다. 데이터를 로드하는데 몇 초 정도 걸립니다.
 1. 오른쪽에는 필드 목록이 표시되고 왼쪽에는 아래 데이터 샘플과 함께 dataset이 표시됩니다. QuickSight가 이미 Zip column이 우편번호 데이터임을 확인한 것을 알 수 있습니다.
 
    <img src="images/visualize_data_set.png">
 
-분석에 사용할 새 계산된 필드를 추가해 보겠습니다. 계산된 필드를 ProductStatus라고 부르며, 제품이 새 제품인지 오래된 제품인지를 나타냅니다.
-화면 왼쪽에 있는 계산된 필드 Add를 누릅니다. 이름을 ProductStatus로 설정합니다.
-오른쪽에 함수 목록이 표시되며, 함수를 선택하면 설명과 명령 구문이 표시됩니다. 기존 제품의 ID가 11 이하인 반면 모든 새 제품의 ID는 11보다 크다는 것을 알 수 있습니다. 제품이 신상품인지 구상품인지 확인하려면 IF 문이 필요합니다. 따라서 계산은 다음과 같습니다:
+1. 이제 분석에 사용할 **calculated field**를 추가해 보겠습니다. calculated field 이름을 `ProductStatus`라고 정의하여, 제품 ID를 통해 New product인지 Old product인지 구분해줍니다. 화면 왼쪽에 있는 ADD를 클릭하고 Add calculated field를 선택합니다. 이름을 `ProductStatus`로 설정합니다. 오른쪽에 함수 목록이 표시되며, 함수를 선택하면 설명과 명령 구문이 표시됩니다. 기존 제품의 ID가 11 이하인 반면 모든 새 제품의 ID는 11보다 크다는 것을 알 수 있습니다. 제품이 신상품인지 기존상품인지 확인하려면 IF 문이 필요합니다. 따라서 계산은 다음과 같습니다:
+
+   <img src="images/quicksight-addfield.png">
 ```
 ifelse({Product_Id}<=11,'Old Product','New Product')
 ```
-다음과 같이 계산에 입력합니다:
+다음과 같이 계산 입력합니다:
+
    <img src="images/visualize_calculated_field.png">
-오른쪽 상단의 SAVE을 누르고 화면이 새로 고쳐질 때까지 기다립니다. 새로 생성된 계산된 필드를 탐색합니다.
+
+오른쪽 상단의 **SAVE**을 누르고 화면이 새로 고쳐질 때까지 기다립니다. 새로 생성된 계산된 필드를 확인합니다.
 
 #### 분석 만들기
 
-1. 데이터 집합 화면에서 오른쪽 상단의 Save & Visualize버튼을 누릅니다.
+1. Dataset 화면에서 오른쪽 상단의 **PUBLISH & VISUALIZE** 버튼을 누릅니다.
 1. 화면이 변경되고 빈 분석 화면이 표시됩니다. 오른쪽 상단에서 데이터를 성공적으로 가져온 것을 볼 수 있습니다.
-1. 왼쪽에는 데이터 집합 내에 있는 필드 목록이 표시됩니다. 여기에는 새로 생성된 계산된 필드 제품 상태도 포함됩니다.
+1. 왼쪽에는 데이터 집합 내에 있는 필드 목록이 표시됩니다. 여기에는 새로 생성된 calculated field의 ProductStatus를 포함됩니다.
 1. 오른쪽 상단의 작은 X를 눌러 가져오기 완료 알림을 닫을 수 있습니다.
-   <img src="images/visualize_empty_analysis.png">
-1. 어떤 제품이 가장 많은 매출을 올렸나요?
-1. 이 질문에 답하려면 왼쪽에서 제품 유형 및 총 매출을 선택합니다. 그래프가 변경되는 것을 확인할 수 있습니다.
-   <img src="images/graph_product_by_sales.png">
-1. 오른쪽 하단에서 원하는 유형을 선택하여 그래프 유형을 변경할 수 있습니다. 예를 들어 세로 막대 그래프로 변경해 보겠습니다:
-   <img src="images/vertical_bar_chart.png">
 
+   <img src="images/visualize_empty_analysis.png">
+
+1. **어떤 제품이 가장 많은 매출을 올렸나요?** 이 질문에 답하려면 왼쪽에서 **Y axis** : *Product Type*과 **Value** : *Total_Sales_sum*(Sum)을 선택합니다. 그래프가 변경되는 것을 확인할 수 있습니다.
+
+   <img src="images/graph_product_by_sales.png">
+
+1. 오른쪽 하단에서 원하는 유형을 선택하여 그래프 유형을 변경할 수 있습니다. 예를 들어 세로 막대 그래프로 변경해 보겠습니다:
+
+   <img src="images/vertical_bar_chart.png">
 
 #### 신제품과 기존 제품 판매 비교
 
 1. 세로 막대 그래프를 보면 Exercise Pen이 가장 많이 판매된 품목임을 명확하게 알 수 있습니다. 하지만 신제품의 판매량은 이전 제품의 판매량과 어떻게 비교했을까요?
-1. 그래프 위로 마우스를 이동하여 타원을 확인하고 클릭한 다음 시각적 복제 버튼을 누릅니다.
+1. 그래프 위로 마우스를 이동하여 타원을 확인하고 클릭한 다음 **Duplicate visual**을 클릭합니다.
+
    <img src="images/duplicate_graph.png">
-오른쪽 상단의 화살표를 눌러 메뉴를 확장하고 새롭게 복제 그래프가 선택되어 있는지 확인합니다
+
+1. 오른쪽 상단의 화살표를 눌러 메뉴를 확장하고 새롭게 복제 그래프가 선택되어 있는지 확인합니다
+
    <img src="images/extend_graph.png">
-화면 상단에 Field Wells을 볼 수 있어야 합니다. 필드 열에서 Field Wells로 필드를 끌어 color field well에 계산된 필드 Product Status를 추가합니다. 그래픽의 크기도 자유롭게 조정할 수 있습니다. 다음은 표시되는 내용의 예입니다:
+
+1. 화면 상단에 Field Wells을 확인해볼 수 있습니다. 필드 열에서 Field Wells로 필드를 끌어 Group/color field well에 calculated field인 Product Status를 추가합니다. 그래픽의 크기도 자유롭게 조정할 수 있습니다. 다음은 표시되는 내용의 예입니다:
+
    <img src="images/salesbyproduct.png">
 
 
 #### 위치별 매출
 
-지도를 추가하여 위치별 매출을 좀 더 자세히 분석해 보겠습니다. 화면 오른쪽 상단에서 다음과 같이 Add Visual 를 선택합니다:
+1. 지도 그래프를 추가하여 위치별 매출을 좀 더 자세하 분석해 보겠습니다. 화면 오른쪽 상단에서 다음과 같이 화면 왼쪽에 있는 ADD를 클릭하고 Add calculated field를 선택합니다:
+
    <img src="images/addvisual.png">
-새 visual이 강조 표시되어 있는지 확인하고 필드를 선택합니다: Total Sales Sum  및 Zip를 선택합니다. 그런 다음 오른쪽 아래 Visual Types 셀에서 맵 버튼을 선택하여 Visual Types을 map으로 변경합니다.
+
+1. 새 visual이 강조 표시되어 있는지 확인하고 필드를 선택합니다: Total Sales Sum과 Zip 필드를 선택합니다. 그런 다음 왼쪽 아래 visual Types을 Filled map으로 변경합니다.
+
    <img src="images/map1.png">
-1. 지도에는 신상품과 구상품을 포함한 모든 제품의 매출이 표시됩니다. 이를 변경하여 Zip Code(우편번호)별 New Product sales(새 제품 판매량)을 표시하는 그래프와 Old Product sales(기존 제품 판매량)을 표시하는 그래프 두 개를 만들겠습니다.
+
+1. 지도에는 신상품과 기존상품을 포함한 모든 제품의 매출이 표시됩니다. 이를 변경하여 Zip Code(우편번호)별 New Product sales(새 제품 판매량)을 표시하는 그래프와 Old Product sales(기존 제품 판매량)을 표시하는 그래프 두 개를 만들겠습니다.
 1. 텍스트가 Sum of Total_sales_sum by Zip인 것을 확인하고 텍스트를 클릭하여 Total Sales by Zip for the Old Product으로 변경합니다. visual을 선택한 상태에서 맨 오른쪽의 Filters 버튼을 누릅니다. 이제 맵에 Filters를 적용하여 Old Product sales (기존 제품 판매량)만 표시하겠습니다.
+
    <img src="images/createfilter.png">
+
 1. 필터에서 파란색 Create one option을 누릅니다. 필드 목록이 포함된 메뉴가 나타납니다.
 1. Product Status를 선택합니다. 필터가 이 visual에만 적용된다는 점에 유의하세요. Ellipse(...) 버튼을 누른 다음 edit을 누릅니다.
 1. Select All을 취소하고 다음과 같이 Old Product을 선택합니다:
+
    <img src="images/createfilter2.png">
+
  1. Apply 버튼을 눌러 변경 사항을 적용합니다. 이제 이전 제품의 판매량을 표시하는 맵이 생겼습니다. 이전에 수행한 복제 기능을 사용하여 맵을 duplicate(복제)한 다음 새로 만든 맵을 업데이트하여 새 제품에 대해 필터링합니다. 결과는 다음과 같아야 합니다:
+
     <img src="images/map2.png">
 
 
@@ -883,8 +887,8 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
 
 1. 그래프를 하나 더 추가한 다음 서로 연결해 보겠습니다. 이 visual에서는 Zip Code(우편번호)별 제품 판매량을 비교하고 New Product (새 제품)과 Old Product(기존 제품)을 비교합니다.
 1. 오른쪽 상단의 Add 버튼을 사용하여 new visualization를 추가하고, 텍스트를 업데이트하고, 시각화를 확장합니다. 다음과 같은 내용이 표시됩니다:
-    <img src="images/visualize_totalsales.png">
 
+    <img src="images/visualize_totalsales.png">
 
 #### 분석
 
