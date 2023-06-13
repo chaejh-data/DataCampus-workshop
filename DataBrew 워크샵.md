@@ -263,7 +263,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
     **Threshold(임계값)** : Condition를 드롭다운하여 **Greater than equals**을 선택, **Threshold(임계값)**을 `100`, **%(percent) rows** 으로 설정합니다.
 
-    **Rule Summary**에서 설정한 규칙에 대한 설명을 볼 수 있습니다.
+    **Rule Summary**에서 설정한 규칙에 대한 설명을 볼 수 있습니//다.
     모든 컬럼이 Quantity, Total_Sales의 값 > 0인 경우 규칙이 통과됩니다.
     
     <img src="images/create_sales_dq_ruleset_5.png">
@@ -326,8 +326,8 @@ Profile jobs은 dataset에 대해 평가를 실행합니다. dataset 수준과 �
      <img src="images/cloudtrail.png">
 
 ## 3. Standard Transform
-<!-- 20분 -->
-이 실습에서는 name 컬럼을 표준화 및 결합하고, address 컬럼을 분리하여 customer data를 정리하고 변환합니다.
+<!-- 20분~25 -->
+이 실습에서는 Customers dataset에 name 컬럼을 표준화 및 결합하고, address 컬럼을 분리하여 customer data를 정리하고 변환합니다.
      <img src="images/basictransform.png">
 
 다음 방법을 실습하게 됩니다.
@@ -563,7 +563,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
 1. 다음으로 **Product** dataset를 join 합니다. 위와 유사하게 상단 메뉴에서 **Join 아이콘**을 선택하고 **Connect new dataset**을 선택합니다.
 1. **Dataset** 이름으로 `Product`로 입력한 후 **''Amazon S3'**'를 선택합니다. **'Enter your source from S3**에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다. **datafiles > products** 폴더로 이동합니다.
-1. **products.csv** 파일을 선택합니다. Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고, **Treat first row as header(첫 번째 행을 헤더로 처리)**를 선택합니다. 오른쪽 하단에 **Create dataset** 버튼을 선택합니다.
+1. **products.csv** 파일을 선택합니다. Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고, **Treat first row as header**(첫 번째 행을 헤더로 처리)를 선택합니다. 오른쪽 하단에 **Create dataset** 버튼을 선택합니다.
 
      <img src="images/total_sales_9.png">
 
