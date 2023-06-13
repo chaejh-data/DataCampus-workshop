@@ -852,77 +852,87 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
 
    <img src="images/extend_graph.png">
 
-1. 화면 상단에 Field Wells을 확인해볼 수 있습니다. 필드 열에서 Field Wells로 필드를 끌어 Group/color field well에 calculated field인 Product Status를 추가합니다. 그래픽의 크기도 자유롭게 조정할 수 있습니다. 다음은 표시되는 내용의 예입니다:
+1. 화면 상단에 Field Wells을 확인해볼 수 있습니다. 필드 열에서 Field Wells로 필드를 끌어 **Group/color field well**에 calculated field인 **Product Status**를 추가합니다. 그래픽의 크기도 자유롭게 조정할 수 있습니다. 다음은 표시되는 내용의 예입니다:
 
    <img src="images/salesbyproduct.png">
 
 
 #### 위치별 매출
 
-1. 지도 그래프를 추가하여 위치별 매출을 좀 더 자세하 분석해 보겠습니다. 화면 오른쪽 상단에서 다음과 같이 화면 왼쪽에 있는 ADD를 클릭하고 Add calculated field를 선택합니다:
+1. 지도 그래프를 추가하여 위치별 매출을 좀 더 자세하게 분석해 보겠습니다. 화면 오른쪽 상단에서 다음과 같이 화면 왼쪽에 있는 **ADD**를 클릭하고 **Add calculated field**를 선택합니다:
 
    <img src="images/addvisual.png">
 
-1. 새 visual이 강조 표시되어 있는지 확인하고 필드를 선택합니다: Total Sales Sum과 Zip 필드를 선택합니다. 그런 다음 왼쪽 아래 visual Types을 Filled map으로 변경합니다.
+1. 새 visual이 강조 표시되어 있는지 확인하고 필드를 선택합니다: *Total Sales Sum*과 *Zip* 필드를 선택합니다. 그런 다음 왼쪽 아래 visual Types을 **Filled map**으로 변경합니다.
 
    <img src="images/map1.png">
 
 1. 지도에는 신상품과 기존상품을 포함한 모든 제품의 매출이 표시됩니다. 이를 변경하여 Zip Code(우편번호)별 New Product sales(새 제품 판매량)을 표시하는 그래프와 Old Product sales(기존 제품 판매량)을 표시하는 그래프 두 개를 만들겠습니다.
-1. 텍스트가 Sum of Total_sales_sum by Zip인 것을 확인하고 텍스트를 클릭하여 Total Sales by Zip for the Old Product으로 변경합니다. visual을 선택한 상태에서 맨 오른쪽의 Filters 버튼을 누릅니다. 이제 맵에 Filters를 적용하여 Old Product sales (기존 제품 판매량)만 표시하겠습니다.
+1. 먼저 Filled Map 그래프 제목을 수정하기 위해 *Sum of Total_sales_sum by Zip* 텍스트를 클릭하여 `Total Sales by Zip for the Old Product`으로 변경합니다. 
 
+   <img src="images/quicksight-addfield.png">
+
+1. Map 그래프를 선택한 상태에서 맨 오른쪽의 **Filters** 버튼을 누릅니다. 이제 맵에 Filters를 적용하여 Old Product sales (기존 제품 판매량)만 표시하겠습니다.
    <img src="images/createfilter.png">
 
-1. 필터에서 파란색 Create one option을 누릅니다. 필드 목록이 포함된 메뉴가 나타납니다.
-1. Product Status를 선택합니다. 필터가 이 visual에만 적용된다는 점에 유의하세요. Ellipse(...) 버튼을 누른 다음 edit을 누릅니다.
-1. Select All을 취소하고 다음과 같이 Old Product을 선택합니다:
+1. 왼쪽 메뉴에서 **Filter**를 선택하고 **ADD FILTER**을 누릅니다. 필드 목록이 포함된 메뉴가 나타납니다.
+1. **Product Status**를 선택합니다. **... 버튼**을 누른 다음 **edit**을 누릅니다.
+1. Select All을 취소하고 다음과 같이 **Old Product**을 선택합니다:
 
    <img src="images/createfilter2.png">
 
- 1. Apply 버튼을 눌러 변경 사항을 적용합니다. 이제 이전 제품의 판매량을 표시하는 맵이 생겼습니다. 이전에 수행한 복제 기능을 사용하여 맵을 duplicate(복제)한 다음 새로 만든 맵을 업데이트하여 새 제품에 대해 필터링합니다. 결과는 다음과 같아야 합니다:
+ 1. Apply 버튼을 눌러 변경 사항을 적용합니다. 이제 이전 제품의 판매량을 표시하는 Map이 생겼습니다. 이번에는 New Product을 표시하는 그래프를 만들기 위해 해당 Map 오른쪽에 (...) 버튼을 누르고 **duplicate visual**을 선택한 다음, `Total Sales by Zip for the New Product`으로 이름을 변경해주고, ProductSatus 필터링을 편집하여 New Product만 필터링합니다. 결과는 다음과 같아야 합니다:
 
     <img src="images/map2.png">
-
 
 #### 우편번호별 제품
 
 1. 그래프를 하나 더 추가한 다음 서로 연결해 보겠습니다. 이 visual에서는 Zip Code(우편번호)별 제품 판매량을 비교하고 New Product (새 제품)과 Old Product(기존 제품)을 비교합니다.
-1. 오른쪽 상단의 Add 버튼을 사용하여 new visualization를 추가하고, 텍스트를 업데이트하고, 시각화를 확장합니다. 다음과 같은 내용이 표시됩니다:
+1. 왼쪽 상단의 Add 버튼을 사용하여 Add visual를 추가하고, 왼쪽 아래 Visual types으로 Vertical bar chart를 선택합니다. 다음으로 상단에 Field Wells를 확장하여 Rows: Zip, Value : Total_Sales_sum(SUM), Group/Color : ProcductStatus, 를 클릭하여 넣어줍니다. 제목을 클릭하여 `Total Salues by Zip and Product status` 업데이트 합니다. 다음과 같은 내용이 표시됩니다:
 
     <img src="images/visualize_totalsales.png">
 
 #### 분석
 
-1. 새 그래프를 보완하기 위해 테이블을 추가해 보겠습니다. 오른쪽 상단의 추가 버튼을 사용하여 new visualization를 추가하고, visualization를 pivot table로 변경하고, 행으로 Zip을 추가하고, 열로 Product Status를 추가하고, 값으로 Total Sales Sum을 사용합니다.
-1. New Product의 Total Sales을 클릭하고 sort ascending(오름차순 정렬)을 선택합니다. 다음과 같은 시각화가 표시됩니다:
+1. 새 그래프를 보완하기 위해 테이블을 추가해 보겠습니다. 왼쪽 상단의 Add 버튼을 사용하여 Add visual를 추가하고, 왼쪽 아래 Visual types으로 Pivot table를 선택합니다. Rows : Zip, Columns : ProductStatus, values : Total Sales Sum을 사용합니다.
+1. New Product의 Total Sales을 클릭하고 sort ascending(오름차순 정렬)을 선택합니다. 다음과 같은 그래프가
+ 표시됩니다:
     <img src="images/table.png">
+
 1. 지역별 제품 판매를 이해하기 위해 visualizations 동작을 추가할 수 있습니다.
-1. 처음 만든 그래프를 선택하고 ellipses(...)에서 작업을 선택합니다:
+1. 처음 만든 그래프(Sum of Total Sales by Product Type)를 선택하고 (...)에서 **Actions**을 선택합니다:
+
     <img src="images/actions.png">
-1. 오른쪽에서 Define new action를 누르고 아래 내용을 확인하여 Apply를 클릭합니다.
-activation : Select
-action type : filter action
-field scope : all fields
-target visuals : all visuals
+
+1. 오른쪽에서 Define a custom action를 누르고 아래 내용을 확인하여 Apply를 클릭합니다.
+    activation : Select
+    action type : filter action
+    field scope : all fields
+    target visuals : all visuals
+
    <img src="images/actions_apply.png">
-이제 모든 시각화가 서로 연결되었으므로 첫 번째 시각화에서 제품을 선택하고 나머지 그래프가 어떻게 업데이트되는지 확인할 수 있습니다.
-예를 들어 첫 번째 그래프에서 collar를 선택하면 모든 시각화가 업데이트되는 것을 알 수 있습니다.
+
+    이제 모든 시각화가 서로 연결되었으므로 첫 번째 시각화에서 제품을 선택하고 나머지 그래프가 어떻게 업데이트되는지 확인할 수 있습니다.
+    예를 들어 첫 번째 그래프에서 collar를 선택하면 모든 시각화가 업데이트되는 것을 알 수 있습니다.
+
    <img src="images/collar.png">
    <img src="images/sales_by_zip.png">
    <img src="images/target_zip.png">
-그래프에서 Collar를 선택하면 대부분의 지역에서 기존 제품이 신제품보다 더 많이 팔린다는 것을 명확하게 알 수 있습니다. 신제품이 전혀 판매되지 않는 지역도 있습니다.
+
+    그래프에서 Collar를 선택하면 대부분의 지역에서 기존 제품이 신제품보다 더 많이 팔린다는 것을 명확하게 알 수 있습니다. 신제품이 전혀 판매되지 않는 지역도 있습니다.
 
 ## 5. Feature Engineering
 
 ### 5.1 Connect a new dataset
 
-새 데이터 세트 연결
-해당 세션에서 사용할 dataset은 접두사가 glue-databrew-immersionday인 S3 버킷의 feature-engineering 폴더에 있습니다.
-해당 데이터 세트에 연결하려면 다음과 같이 하세요:
+feature-engineering를 위한 dataset 연결
+해당 세션에서 사용할 dataset은 glue-databrew-immersionday S3 버킷의 feature-engineering 폴더에 있습니다.
 
-1. 왼쪽 메뉴에서 **DATASETS**를 선한 다음
-1. 화면 오른쪽에 있는 Connect new dataset 을 클릭합니다.
+1. 왼쪽 메뉴에서 **DATASETS**를 선택하고 Connect new dataset을 클릭합니다.
+
    <img src="images/connecting-to-dataset-1.png">
-1. DataSet name은 databrew-immersion-day-feature-engineering-census-adult로 입력하고, S3 소스를 입력하고, 파일 유형으로 CSV를 선택하고, 구분 기호로 Comma(쉼표)를 선택하고, Treat first row as a header(첫 번째 행을 헤더로 처리)를 선택합니다.
+
+1. DataSet 이름은 databrew-immersion-day-feature-engineering-census-adult로 입력하고, S3 소스를 입력하고, 파일 유형으로 CSV를 선택하고, 구분 기호로 Comma(쉼표)를 선택하고, Treat first row as a header(첫 번째 행을 헤더로 처리)를 선택합니다.
 1. Create dataset 버튼을 클릭합니다.
    <img src="images/connecting-to-dataset-2.png">
    <img src="images/connecting-to-dataset-3.png">
