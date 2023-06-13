@@ -404,11 +404,11 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 
      <img src="images/build_recipe_8.png">
 
-    Address 컬럼에서 특수 문자 <>&을 제거합니다. Address 컬럼 헤더에서 줄임표(...)를 선택한 다음 **Clean > Special Character**를 선택합니다.
+1. Address 컬럼에서 특수 문자 <>&을 제거합니다. Address 컬럼 헤더에서 줄임표(...)를 선택한 다음 **Clean > Special Character**를 선택합니다.
 
      <img src="images/specialchar.png">
 
-    오른쪽에서 source column으로 Address 컬럼을 확인하고, **Custom special characters** 를 선택하여 입력란에 `<>&`을 입력합니다.
+1. 오른쪽에서 source column으로 Address 컬럼을 확인하고, **Custom special characters** 를 선택하여 입력란에 `<>&`을 입력합니다.
 
      <img src="images/build_recipe_9.png">
 
@@ -426,9 +426,9 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 
      <img src="images/split.png">
 
-1. **Enter custom value** 텍스트 상자에 **delimiter(구분 기호)**로 `;` 를 입력합니다.
-1. **number of times to split(분할할 횟수)**를 *4*로 설정합니다.
-1. **Apply transform** 섹션에서 *All rows(모든 행)*을 선택한 상태로 둡니다.
+1. **Enter custom value** 텍스트 상자에 **delimiter**(구분 기호)로 `;` 를 입력합니다.
+1. **number of times to split**(분할할 횟수)를 *4*로 설정합니다.
+1. **Apply transform** 섹션에서 *All rows*(모든 행)을 선택한 상태로 둡니다.
 1. **Preview changes**를 선택하여 결과를 확인합니다.
 1. **Apply**을 선택합니다.
 
@@ -437,7 +437,7 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
     **다음 단계에 따라 Address_3의 이름을 City로, Address_4의 이름을 Zip으로, Addrees_5의 이름을 Country로 변경합니다.**
 
 1. 각 컬럼 상단의 **줄임표**(...)을 선택한 다음, 메뉴에서 **Rename**를 선택합니다.
-1. New column name 텍스트 상자에 대상 이름(Address_3 > `City`, Address_4 > `Zip`, Addrees_5 > `Country`)을 입력하고 **Apply** 선택하여, 컬럼의 이름을 바꿉니다.
+1. New column name 텍스트 상자에 대상 이름(Address_3 > `City`, Address_4 > `Zip`, Addrees_5 > `Country`)을 입력하고 **Apply** 선택하여, 컬럼의 이름을 변경해줍니다.
 
      <img src="images/build_recipe_13.png">
 
@@ -452,7 +452,7 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 
 ### 3.3 Create Job
 
-DataBrew는 recipe를 만들 때 설정한 지침을 실행하여 데이터를 변환하는 작업을 수행합니다. 이러한 지침을 실행하는 프로세스를 Job이라고 합니다. Job은 미리 설정된 일정에 따라 데이터 레시피를 실행할 수 있습니다. 하지만 일정에 국한되어 있지 않습니다. 필요에 따라 Job을 실행할 수도 있습니다. 일부 데이터를 프로파일링하려는 경우,recipe가 필요하지 않습니다. 이 경우, profile job을 설정하여 data profile을 만들면 됩니다.
+DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 변환하는 작업을 수행합니다. 이러한 지침을 실행하는 프로세스를 Job이라고 합니다. Job은 미리 설정된 일정에 따라 데이터 레시피를 실행하거나 필요에 따라 Job을 실행할 수도 있습니다. 일부 데이터를 프로파일링하려는 경우에는 recipe를 만들 필요없 profile job을 설정하여 data profile을 만들면 됩니다.
 
 1. 오른쪽 상단 메뉴에서 Create Job 를 선택합니다.
      <img src="images/createjob.png">
