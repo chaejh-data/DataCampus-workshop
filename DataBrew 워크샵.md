@@ -492,7 +492,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
 ### 4.1 Join and Group By
 
-이 실습에서는 Sales dataset를 이용하여 Join(조인) 및 Group By(그룹화) 변환을 사용하여 제품 ID, 우편번호 및 제품 유형별로 총 매출을 계산합니다.
+이 실습에서는 Sales dataset를 이용하여 Join(조인) 및 Group By(그룹화) 변환을 사용하여 Product ID, Product Type, 우편번호 별 총 매출을 계산합니다.
 
 1. 왼쪽 메뉴에서 **PROJECTS**를 선택합니다.
 1. 오른쪽 상단 메뉴에서 **Create project** 버튼을 클릭합니다.
@@ -586,12 +586,15 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
      <img src="images/group.png">
 
 1. 아래 스크린샷과 같이 *Product_Id, Zip, Product_Type*컬럼을 대상으로 **Column name과 Aggregate(집계 함수)**를 선택하고 **Finish**을 선택합니다.
-     해당 결과로 Product_Id, Zip, Product_Type별 총 매출을 Sum하는 recipe가 생성됩니다.
+     이를 통해 **Product_Id, Zip, Product_Type별 총 매출을 Sum하는 recipe**가 생성됩니다.
+
      <img src="images/total_sales_15.png">
 
-1. recipe를 Publish하여 새 버전의 recipe를 만듭니다. 이렇게 하면 게시된 recipe 버전을 recipe Job의 옵션으로 선택할 수 있습니다. 
- recipe를 확인한 후 **Publish**를 선택합니다.
+1. recipe를 Publish하여 새로운 recipe를 만듭니다. 이렇게 하면 게시된 recipe 버전을 recipe Job의 옵션으로 선택할 수 있습니다. 
+     recipe를 확인한 후 **Publish**를 선택합니다.
+
      <img src="images/total_sales_16.png">
+     
 1. **Version description**으로 `Total-Sales`을 입력하고 게시를 선택합니다.
      <img src="images/total_sales_17.png">
 1. 마지막으로 이 recipe를 사용하여 전체 sales dataset에 대해 총 판매량을 생성하는 작업을 만듭니다. **Create job**을 선택합니다.
