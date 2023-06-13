@@ -234,8 +234,6 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
     **Rule success criteria**(규칙 성공 기준) : **All data quality checks are met (AND)** (모든 데이터 품질 검사 충족) 선택
 
-    Check 1
-
     **Data quality checks** : 드롭다운하여 **Duplicate rows(중복 행)** 선택
 
     **Condition(조건)** : **Is equals(같음)** 선택
@@ -247,7 +245,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
     <img src="images/create_sales_dq_ruleset_4.png">
 
-1. **Add another rule**를 클릭하여 dataset에 데이터 품질 검사를 추가하고, 두번째 규칙 이름을 `Quantity and total Sales should be >0` 으로 지정해줍니다.
+1. **Add another rule**를 클릭하여 dataset에 데이터 품질 검사를 추가하고, 두번째 규칙 이름으로 `Quantity and total Sales should be >0` 입력합니다. Rule 2 에 대해 아래 옵션을 선택합니다:
 
     **Data quality check scope**(검사 범위) : **Common checks for selected columns**(선택한 컬럼에 대한 공통 검사) 선택
 
@@ -256,8 +254,6 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
     **Selected columns** : **Selected columns** 선택
 
     **Column values** : *Quantity*와 *Total_Sales*을 두 개를 선택하여 **select columns** 클릭
-
-    Check 1
 
     **Data quality check** : **Column values** 드롭다운하여 **Numeric values** 선택
 
@@ -302,7 +298,7 @@ Profile jobs은 dataset에 대해 평가를 실행합니다. dataset 수준과 �
 
      <img src="images/verify_result_2.png">
 
-1. Value distribution(값 분포)를 확인합니다.
+1. **Value distribution**(값 분포)를 확인합니다.
 
      <img src="images/verify_result_3.png">
 
@@ -377,7 +373,7 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 
      <img src="images/build_recipe_1.png">
 
-1. 오른쪽 메뉴에 Source Column으로 *Prefix, First_Name, Last_Name* 컬럼을 선택합니다.
+1. 오른쪽에서 Source Column으로 *Prefix, First_Name, Last_Name* 컬럼을 선택합니다.
 1. 공백 문자(` `)를 **separator**(구분 기호)로 입력합니다.
 
      <img src="images/build_recipe_2.png">
@@ -412,7 +408,7 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 
      <img src="images/specialchar.png">
 
-    **Custom special characters** 를 선택하고, 입력란에 `<>&`을 입력합니다.
+    오른쪽에서 source column으로 Address 컬럼을 확인하고, **Custom special characters** 를 선택하여 입력란에 `<>&`을 입력합니다.
 
      <img src="images/build_recipe_9.png">
 
@@ -440,13 +436,13 @@ recipe는 데이터에 대한 일련의 지침 또는 단계로, DataBrew가 작
 
     **다음 단계에 따라 Address_3의 이름을 City로, Address_4의 이름을 Zip으로, Addrees_5의 이름을 Country로 변경합니다.**
 
-1. 각 컬럼 상단의 **줄임표(...)**을 선택한 다음, 메뉴에서 **Rename**를 선택합니다.
-1. New column name 텍스트 상자에 대상 이름(Address_3 .png"> `City`, Address_4 .png"> `Zip`, Addrees_5 .png"> `Country`)을 입력하고 **Apply** 선택하여, 컬럼의 이름을 바꿉니다.
+1. 각 컬럼 상단의 **줄임표**(...)을 선택한 다음, 메뉴에서 **Rename**를 선택합니다.
+1. New column name 텍스트 상자에 대상 이름(Address_3 > `City`, Address_4 > `Zip`, Addrees_5 > `Country`)을 입력하고 **Apply** 선택하여, 컬럼의 이름을 바꿉니다.
 
      <img src="images/build_recipe_13.png">
 
-1. **Customers dataset**에서 PII 데이터를 수정하려면 *SENSITIVE --> Data masking --> Redact values* 선택합니다.
-1. 오른쪽 Source 컬럼에서 **DoB, Address_1 및 Address_2**를 선택하고 **Apply**를 선택합니다. 이제 *DoB, Address_1 및 Address_2* 컬럼이 *#* 값으로 수정된 것을 확인할 수 있습니다.
+1. **Customers dataset**에서 PII 데이터를 수정하려면 *SENSITIVE 아이콘 > Data masking > Redact values* 선택합니다.
+1. 오른쪽 Source 컬럼에서 *DoB, Address_1, Address_2*를 선택하고 **Apply**를 선택합니다. 이제 *DoB, Address_1, Address_2* 컬럼이 *#* 값으로 수정된 것을 확인할 수 있습니다.
 
 1. 상단 메뉴의 가장 오른쪽에 있는 **RECIPE**를 선택하여, RECIPE를 열고 아래와 같은 10단계가 포함되어 있는지 확인합니다.
 
@@ -829,7 +825,7 @@ missing values(누락된 값을 처리하는 방법에는 여러 가지가 있�
 1. source 컬럼(workclass)을 선택하고 상단에 Missing 아이콘을 클릭한 다음
 1. Remove missing rows를 클릭합니다.
    <img src="images/databrew-missing-rows-1.png">
-1. 오른쪽에서 source column으로 workclass를 확인, 하고, Miss value action으로 Delete rows with missing values(누락된 값 삭제)를 클릭합니다.
+1. 오른쪽에서 source column으로 workclass를 확인하고, Miss value action으로 Delete rows with missing values(누락된 값 삭제)를 클릭합니다.
    <img src="images/databrew-missing-rows-2.png">
 1. 오른쪽에서 아래로 스크롤하여 All rows 을 선택하고 Apply를 클릭합니다.
    <img src="images/databrew-missing-rows-4.png">
