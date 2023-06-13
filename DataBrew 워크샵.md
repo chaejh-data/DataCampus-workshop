@@ -690,7 +690,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
      <img src="images/create_new_project_14.png">
      <img src="images/create_new_project_15.png">
 
-    레시피를 성공적으로 가져오면, 기존 제품의 장난감 판매액이 신규보다 높은 우편번호 목록이 생성됩니다.
+    레시피를 성공적으로 가져오면, 기존 제품의 장난감 판매액이 신규보 높은 우편번호 목록이 생성됩니다.
 
 1. 이제 이 레시피를 전체 **Sales dataset**에 적용하기 위해 job을 만듭니다. **Creat job**를 선택합니다.
 
@@ -721,11 +721,11 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/schedule_1.png">
 
-1. 아래 스크린샷과 같이 **Schedule** 이름을 `Hourly`로 입력하고 Run frequency : **Recurring**, Evnery x housr : **1**, On days : **Weekdays**, start time : **00:00** 선택한 후 **Add**를 선택합니다. **월요일부터 금요일까지 오전 12시(UTC)부터 매 1시간 마다**
+1. 아래 스크린샷과 같이 **Schedule** 이름을 `Hourly`로 입력하고 Run frequency : **Recurring**, Evnery x housr : **1**, On days : **Weekdays**, start time : **00:00** 설정  **Add**를 선택합니다. **월요일부터 금요일까지 오전 12시(UTC)부터 매 1시간 마다**
 
      <img src="images/schedule_2.png">
 
-1. 왼쪽 메뉴에서 **JOBS**을 선택하고 오른쪽 상단 메뉴에서 **Action > Edit**을 선택하여 **Total-Sales** job을 선택합니다.
+1. 왼쪽 메뉴에서 **JOBS > Recipe jobs**을 선택하고 오른쪽 상단 메뉴에서 **Action > Edit**을 선택하여 **Total-Sales** job을 선택합니다.
 
      <img src="images/schedule_3.png">
 
@@ -746,10 +746,25 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
    <img src="images/visualize_open_quicksight.png">
 
-1. QuickSight를 선택하면 QuickSight 시작 페이지가 표시됩니다. QuickSight에 가입하지 않은 경우 가입을 완료해야 할 수 있습니다. QuickSight에 가입하는 방법에 대한 자세한 안내는 여기에서 확인할 수 있습니다. 이 워크샵에서는 QuickSight Enterprise Addition에서만 사용할 수 있는 인사이트 및 머신 러닝을 사용합니다. 
+1. QuickSight를 선택하면 QuickSight 시작 페이지가 표시됩니다. 최초에는 QuickSight 가입이 필요하므로 **sign up for QuickSight**를 클릭합니다.
 
-가입을 완료하면, QuickSight에서 시작 마법사가 표시되며, 제시된 가이드를 자유롭게 살펴보세요. 슬라이드는 다음과 같은 형태로 나타납니다:
-   <img src="images/visualize_quicksight_start.png">
+   <img src="images/quicksight-signup.png">
+
+1. **Enterprise Edition** 선택 후 **Continue 버튼**을 클릭합니다.
+
+   <img src="images/quicksight-enterpise.png">
+
+1. 다음과 같이 계정 생성을 위한 정보들을 기입합니다. **region : US East(N.Virginia), QuickSight account name : 이니셜-demo, Notification email address : 이메일 주소** 작성 후 Amazon S3 버킷을 선택합니다.
+
+   <img src="images/quicksight-setting.png">
+
+1. glue-databrew-immersionday으로 시작한 S3 버킷을 선택하고 Finish 버튼을 클릭합니다.
+  
+   <img src="quicksight-select-s3.png">
+
+1. 계정 생성이 완료되면 다음과 같이 Quicksight 메인 화면을 보실 수 있습니다.
+
+   <img src="images/quicksight-main.png">
 
 #### S3 액세스 권한 부여하기
 Amazon QuickSight 내에서 오른쪽 상단에 있는 **프로필 이름**을 선택합니다. QuickSight 관리를 선택한 다음 보안 및 권한을 선택합니다.
@@ -770,11 +785,12 @@ Amazon QuickSight에서 액세스하려는 버킷을 선택합니다. 그런 다
 
 
 #### 데이터 세트 만들기.
-1. 이제 Amazon QuickSight 오리엔테이션을 완료하고 QuickSight를 실행했으므로 왼쪽 메뉴를 보고 데이터 세트를 선택합니다. 섹션 6.1에서 처리한 Total-Sales data를 가져올 것입니다.
+1. 이제 Amazon QuickSight 왼쪽 메뉴에서 **Dataset**를 선택합니다. **4.1 Join and Group By**에서 생성한 **Total-Sales** data를 가져올 것입니다.
    <img src="images/visualize_newdataset.png">
 1. 화면 오른쪽 상단에서 New Dataset button을 누르면 다음과 같이 표시됩니다:
 1. 보시다시피 QuickSight는 여러 데이터 소스를 지원합니다. Twitter, Github, Snowflake, Redshift 등에서 데이터를 가져올 수 있습니다. 사용 가능한 데이터 소스의 전체 목록은 여기에서 설명서를 참조하세요. 데이터 소스 페이지에서 S3를 선택합니다.
    <img src="images/visualize_dataset_options.png">
+
 1. S3 import에는 Data Source Name과 Manifest File이 필요합니다. 컴퓨터에서 텍스트 편집기를 사용하여 Manifest File 을 만듭니다. 파일의 구조는 다음과 같습니다:
 ```
 {
@@ -791,19 +807,26 @@ Amazon QuickSight에서 액세스하려는 버킷을 선택합니다. 그런 다
     }
 }
 ```
-1. manifest file은 섹션 6.1에서 생성한 폴더를 가리킵니다. manifest file에 대한 자세한 내용은 다음 문서를 참조하세요.
+1. manifest file은 4.1에서 생성한 폴더를 가리킵니다. manifest file에 대한 자세한 내용은 다음 문서를 참조하세요.
 https://docs.aws.amazon.com/quicksight/latest/user/supported-manifest-file-format.html
+
 1. 파일을 생성했으면 data.manifest 파일로 저장합니다. 파일에 올바른 버킷 이름이 포함되어 있는지, 폴더가 Total-Sales Data를 참조하는지 확인하세요.
+
 1. 이제 manifest 파일을 만들었으므로 라디오 버튼을 URL에서 Upload로 변경하여 업로드합니다.  목록 파일 업로드 입력 상자 오른쪽에 있는 작은 파일 버튼을 사용하여 파일을 업로드합니다:
+
    <img src="images/visualize_new_s3_data_source.png">
+
 1. 그런 다음 Connect 버튼을 누릅니다. 그러면 데이터가 SPICE 데이터베이스에 업로드됩니다. 다음과 같은 확인 메시지가 표시됩니다:
+
    <img src="images/visualize_import_successfull.png">
 
 #### DataSet을 검토합니다.
 
-1. Edit and Preview 버튼을 눌러 데이터를 확인합니다. 데이터를 로드하는 데 몇 초 정도 걸립니다. 자유롭게 탐색해 보세요.
-1. 오른쪽에는 필드 목록이 표시되고 왼쪽에는 아래 데이터 샘플과 함께 dataset이 표시됩니다. QuickSight가 이미 Zip column이 우편번호임을 확인한 것을 알 수 있습니다.
+1. Edit and Preview 버튼을 눌러 데이터를 확인합니다. 데이터를 로드하는 데 몇 초 정도 걸립니다.
+1. 오른쪽에는 필드 목록이 표시되고 왼쪽에는 아래 데이터 샘플과 함께 dataset이 표시됩니다. QuickSight가 이미 Zip column이 우편번호 데이터임을 확인한 것을 알 수 있습니다.
+
    <img src="images/visualize_data_set.png">
+
 분석에 사용할 새 계산된 필드를 추가해 보겠습니다. 계산된 필드를 ProductStatus라고 부르며, 제품이 새 제품인지 오래된 제품인지를 나타냅니다.
 화면 왼쪽에 있는 계산된 필드 Add를 누릅니다. 이름을 ProductStatus로 설정합니다.
 오른쪽에 함수 목록이 표시되며, 함수를 선택하면 설명과 명령 구문이 표시됩니다. 기존 제품의 ID가 11 이하인 반면 모든 새 제품의 ID는 11보다 크다는 것을 알 수 있습니다. 제품이 신상품인지 구상품인지 확인하려면 IF 문이 필요합니다. 따라서 계산은 다음과 같습니다:
