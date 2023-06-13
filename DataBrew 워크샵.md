@@ -508,54 +508,68 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
 새 프로젝트를 초기화하는 데 몇 분 정도 걸립니다.
 1. 먼저 **Sales** dataset에서 데이터 품질 문제가 있는 rows을 필터링해 보겠습니다.
-1. 상단 메뉴에서 **FILTER**를 선택하고 **By condition > Greater than**을 선택합니다.
+1. 상단 메뉴에서 **FILTER 아이콘** 선택하고 **By condition > Greater than**을 선택합니다.
 
      <img src="images/total_sales_01.png">
 
-1. **Source column** 드롭다운에서 **Quantity**을 선택하고 **Filter condition**(필터 조건)을 *Greater than 0* (값 0보다 큼)으로 적용합니다.
+1. **Source column** 드롭다운에서 **Quantity**컬럼을 선택하고 **Filter condition**(필터 조건)을 *Greater than 0* (값 0보다 큼)으로 적용합니다.
 미리 보기에서 필터링될 행이 조건을 충족하지 않으면, 취소선으로 강조 표시된 것을 확인할 수 있습니다.
 
      <img src="images/total_sales_02.png">
 
 1. **Apply**를 클릭합니다. 왼쪽 상단 모서리에 행 수가 (500행)에서 (496행)으로 줄어든 것을 볼 수 있습니다.
 
-1. **Total_Sales** 행도 동일한 단계로 진행해 보겠습니다. **FILTER**를 선택하고 **By condition > Greater than**을 선택하여, *Total_Sales* 컬럼이 **Greater than 0 (0 값보다 큼)**을 유지하도록 설정합니다.
+1. **Total_Sales** 컬럼도 동일한 단계로 진행해 보겠습니다. **FILTER 아이콘**을 선택하고 **By condition > Greater than**을 선택합니다. **Source column** 드롭다운에서 **Total_Sales**컬럼을 선택하고 **Filter condition**(필터 조건)을 *Greater than 0* (값 0보다 큼)으로 적용합니다.
 
      <img src="images/total_sales_03.png">
 
 1. **Apply**를 클릭합니다. 왼쪽 상단 모서리에 행 수가 (496행)에서 (491행)으로 줄어든 것을 확인할 수 있습니다.
 
-1. **duplicate rows**(중복 행)을 제거하려면, 상단 메뉴에서 **DUPLICATES**를 선택하고 **Delete duplicate rows**를 선택합니다.
+1. **duplicate rows**(중복 행)을 제거하려면, 상단 메뉴에서 **DUPLICATES 아이콘**을 선택하고 **Delete duplicate rows**를 선택합니다.
 
      <img src="images/total_sales_04.png">
 
-1. **Apply을 클릭하여**, sample dataset에 있는 중복 행 10개를 제거합니다. 이제 행 수가 (481행)이 되어야 합니다. 
-모든 데이터 품질 이슈를 처리했습니다.
+1. **Apply**을 클릭하여, sample dataset에 있는 중복 행 10개를 제거합니다. 이제 행 수가 (481행)이 되어야 합니다. 
+    모든 데이터 품질 이슈를 처리했습니다.
 
      <img src="images/total_sales_05.png">
 
-1. 이 Standard Transform 단계에서 만든 Clean Customer 데이터와 이 Sales dataset과 조인합니다. 상단 메뉴에서 JOIN을 선택합니다.
+1. 이제 LAB3에서 만든 Clean Customer 데이터와 Sales dataset를 조인합니다. 상단 메뉴에서 **JOIN 아이콘**을 선택합니다.
+
      <img src="images/total_sales_3.png">
-상단 메뉴 표시줄에 JOIN이 보이지 않는다면 MORE 섹션에서 찾을 수 있습니다.
-1. Standard Transform 단계에서 생성한 CleanCustomer output을 사용하여 새로운 Dataset을 만들려고 합니다. Connect new dataset을 선택합니다.
+
+상단 메뉴 표시줄에 **JOIN 아이콘**이 보이지 않는다면 **MORE** 섹션에서 찾을 수 있습니다.
+1. LAB3에서 생성한 CleanCustomer output을 사용하여 새로운 Dataset을 만들려고 합니다. **Connect new dataset**을 선택합니다.
+
      <img src="images/total_sales_4.png">
-1. **Dataset name**을 `CleanCustomer`로 입력한 후 **'Amazon S3'**를 선택합니다. **Enter your source from S3**에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다. 
-**shared .png"> CleanCustomer_Date_Timestamp** 폴더로 이동합니다.
+
+1. **Dataset** 이름으로 `CleanCustomer`로 입력한 후 **'Amazon S3'**를 선택합니다. **Enter your source from S3**에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다. 
+**shared > CleanCustomer_Date_Timestamp** 폴더로 이동합니다.
+
      <img src="images/total_sales_5_A.png">
-1. 폴더에서 csv 파일을 선택합니다. (참고: 날짜와 타임스탬프는 CleanCustomer 작업이 실행된 날짜와 시간과 일치합니다.)
-Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 **Create dataset**를 선택합니다.
+
+1. 폴더에서 csv 파일을 선택합니다. **Additional configuration**에서 **Selected file type**을 *CSV*로 지정하고 오른쪽 하단에 **Create dataset** 버튼 클릭합니다.
+
      <img src="images/total_sales_5_B.png">
-1. 새 dataset 집합 미리 보기가 표시됩니다. **Next**을 선택합니다.
+
+1. 새 dataset 미리 보기가 표시됩니다. **Next**을 클릭합니다.
+
      <img src="images/total_sales_6_A.png">
-1. **Inner join** 옵션을 선택합니다. Table A 드롭다운에서 *Customer_id*를 선택하고 Table B 드롭다운에서 *Customer_ID*를 선택합니다. 그리고 아래 두 스크린샷에 따라 컬럼을 선택하고 **Finish**을 선택합니다.
+
+1. **Inner join** 옵션을 선택합니다. **Table A** 드롭다운하여 *Customer_id*를 선택하고, **Table B** 드롭다운하여 *Customer_ID*를 선택합니다. 그리고 아래 두 스크린샷에 따라 필요한 컬럼만 선택하고 **Finish**을 선택합니다.
+
      <img src="images/total_sales_7.png">
      <img src="images/total_sales_8.png">
-1. 다음으로 Product data를 join합니다. 위와 유사하게 상단 메뉴 모음에서 Join 옵션을 선택하고 Connect new dataset을 선택합니다.
-1. **Dataset name**을 `Product`로 입력한 후 **''Amazon S3'**'를 선택합니다. **'Enter your source from S3**에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다. 
-폴더에서 csv 파일을 선택합니다. **datafiles .png"> products** 폴더로 이동합니다. Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 **Create dataset**를 선택합니다.
+
+1. 다음으로 **Product** dataset를 join 합니다. 위와 유사하게 상단 메뉴에서 **Join 아이콘**을 선택하고 **Connect new dataset**을 선택합니다.
+1. **Dataset** 이름으로 `Product`로 입력한 후 **''Amazon S3'**'를 선택합니다. **'Enter your source from S3**에 `s3://glue-databrew-immersionday`를 입력합니다. CloudFormation 템플릿으로 생성한 버킷을 선택합니다.
+ **datafiles > products** 폴더로 이동합니다.
+1. **products.csv** 파일을 선택합니다. Additional configuration 에서 **Selected file type**을 *CSV*로 지정하고 **Create dataset**를 선택합니다.
+
      <img src="images/total_sales_9.png">
+
 1. Product dataset 미리 보기가 표시됩니다. **Next**을 선택합니다.
-1. **Inner join** 옵을 선택합니다. Table A 드롭다운에서 *Product_id*를 선택하고 Table B 드롭다운에서 *Product Key*를 선택합니다. 그리고 아래 두 스크린샷에 따라 컬럼을 선택하고 **Finish**을 선택합니다.
+1. **Inner join** 옵션을 선택합니다. Table A 드롭다운에서 *Product_id*를 선택하고 Table B 드롭다운에서 *Product Key*를 선택합니다. 그리고 아래 두 스크린샷에 따라 컬럼을 선택하고 **Finish**을 선택합니다.
      <img src="images/total_sales_10.png">
      <img src="images/total_sales_10_B.png">
 1. **Zip 컬럼 헤더**에서 *#*을 클릭하여 **Zip data type**을 *integer(정수)*로 변경합니다.
