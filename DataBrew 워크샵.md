@@ -573,7 +573,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
      <img src="images/total_sales_10.png">
      <img src="images/total_sales_10_B.png">
 
-1. **Zip 컬럼 헤더**에서 *#*을 클릭하여 **Zip data type**을 *integer(정수)*로 변경합니다.
+1. **Zip 컬럼 헤더**에서 "#"을 클릭하여 **Zip data type**을 *integer(정수)*로 변경합니다.
 
      <img src="images/total_sales_12.png">
 
