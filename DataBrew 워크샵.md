@@ -538,7 +538,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/total_sales_3.png">
 
-상단 메뉴 표시줄에 **JOIN 아이콘**이 보이지 않는다면 **MORE** 섹션에서 찾을 수 있습니다.
+    상단 메뉴 표시줄에 **JOIN 아이콘**이 보이지 않는다면 **MORE** 섹션에서 찾을 수 있습니다.
 1. LAB3에서 생성한 CleanCustomer output을 사용하여 새로운 Dataset을 만들려고 합니다. **Connect new dataset**을 선택합니다.
 
      <img src="images/total_sales_4.png">
