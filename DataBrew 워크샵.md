@@ -492,7 +492,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
 ### 4.1 Join and Group By
 
-이 실습에서는 Join(조인) 및 Group By(그룹화) 변환을 사용하여 제품 ID, 우편번호 및 제품 유형별로 총 매출을 계산합니다
+이 실습에서는 Join(조인) 및 Group By(그룹화) 변환을 사용하여 제품 ID, 우편번호 및 제품 유형별로 총 매출을 계산합니다.
 
 1. 왼쪽 메뉴에서 **PROJECTS**를 선택합니다.
 1. 오른쪽 상단 메뉴에서 **Create project** 버튼을 클릭합니다.
@@ -508,19 +508,30 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
 새 프로젝트를 초기화하는 데 몇 분 정도 걸립니다.
 1. 먼저 **Sales** dataset에서 데이터 품질 문제가 있는 rows을 필터링해 보겠습니다.
-1. 상단 메뉴에서 **FILTER**를 선택하고 **By condition .png"> Greater than**을 선택합니다.
+1. 상단 메뉴에서 **FILTER**를 선택하고 **By condition > Greater than**을 선택합니다.
+
      <img src="images/total_sales_01.png">
+
 1. **Source column** 드롭다운에서 **Quantity**을 선택하고 **Filter condition**(필터 조건)을 *Greater than 0* (값 0보다 큼)으로 적용합니다.
 미리 보기에서 필터링될 행이 조건을 충족하지 않으면, 취소선으로 강조 표시된 것을 확인할 수 있습니다.
+
      <img src="images/total_sales_02.png">
+
 1. **Apply**를 클릭합니다. 왼쪽 상단 모서리에 행 수가 (500행)에서 (496행)으로 줄어든 것을 볼 수 있습니다.
-1. **Total_Sales** 행도 동일한 단계를 반복해 보겠습니다. **FILTER**를 선택하고 **By condition .png"> Greater than**을 선택하여, Total_Sales 컬럼이 Greater than 0 (0 값보다 큼)을 유지합니다.
+
+1. **Total_Sales** 행도 동일한 단계로 진행해 보겠습니다. **FILTER**를 선택하고 **By condition > Greater than**을 선택하여, *Total_Sales* 컬럼이 **Greater than 0 (0 값보다 큼)**을 유지하도록 설정합니다.
+
      <img src="images/total_sales_03.png">
+
 1. **Apply**를 클릭합니다. 왼쪽 상단 모서리에 행 수가 (496행)에서 (491행)으로 줄어든 것을 확인할 수 있습니다.
+
 1. **duplicate rows**(중복 행)을 제거하려면, 상단 메뉴에서 **DUPLICATES**를 선택하고 **Delete duplicate rows**를 선택합니다.
+
      <img src="images/total_sales_04.png">
+
 1. **Apply을 클릭하여**, sample dataset에 있는 중복 행 10개를 제거합니다. 이제 행 수가 (481행)이 되어야 합니다. 
 모든 데이터 품질 이슈를 처리했습니다.
+
      <img src="images/total_sales_05.png">
 
 1. 이 Standard Transform 단계에서 만든 Clean Customer 데이터와 이 Sales dataset과 조인합니다. 상단 메뉴에서 JOIN을 선택합니다.
