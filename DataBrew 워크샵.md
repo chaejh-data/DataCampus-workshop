@@ -456,16 +456,19 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
 1. 오른쪽 상단 메뉴에서 Create Job 를 선택합니다.
      <img src="images/createjob.png">
-1. Job Name 텍스트 박스에 `CleanCustomer`를 입력합니다.
+1. Job 이 텍스트 박스에 `CleanCustomer`를 입력합니다.
 1. Job의 출력 위치를 지정해야 합니다. DataBrew는 단일 작업에서 여러 가지 형식의 출력을 생성할 수 있는 유연성을 제공합니다. 
 **Job output settings**의 **File type** 드롭다운하여 *CSV*를 선택합니다.
-1. **Browse 버튼**을 클릭하여 `glue-databrew-immersionday` S3 위치를 선택합니다.
+1. **Browse 버튼**을 클릭하여 이전에 생성한 **glue-databrew-immersionday-xxxx** S3 버킷을 클릭합니다.
+
      <img src="images/create_a_job_1.png">
-1. 이전에 생성한 **glue-databrew-immersionday-xxxx** S3 버킷 위치를 선택합니다.
+
 1. **shared 폴더**를 선택합니다.
-1.  **Select 버튼**을 선택합니다.
+1. **Select 버튼**을 클합니다.
+
      <img src="images/create_a_job_2.png">
-1. **Advanced job settings** 섹션을 열고 *Maximum number of units*에 *5*를 입력합니다.
+
+1. **Advanced job settings** 섹션을 열고 *Maximum number of units*에 `5`를 입력합니다.
 1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
 1. **Create and run job**을 선택합니다.
      <img src="images/create_a_job_3.png">
