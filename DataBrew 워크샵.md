@@ -585,8 +585,8 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/group.png">
 
-1. 아래 스크린샷과 같이 *Product_Id, Zip, Product_Type*컬럼을 대상으로 **Column name과 Aggregate(집계 함수)**를 선택하고 **Finish**을 선택합니다.
-     이를 통해 **Product_Id, Zip, Product_Type별 총 매출을 Sum하는 recipe**가 생성됩니다.
+1. 아래 스크린샷과 같이 *Product_Id, Zip, Product_Type*컬럼을 대상으로 **Column name과 Aggregate**(집계 함수)를 선택하고 **Finish**을 선택합니다.
+     이를 통해 **Product_Id, Zip, Product_Type 기준으로 그룹화하여 총매출액을 Sum 하는 recipe**가 생성됩니다.
 
      <img src="images/total_sales_15.png">
 
@@ -595,7 +595,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/total_sales_16.png">
 
-1. **Version description**으로 `Total-Sales`을 입력하고 **Publish**를 클릭합니다.?
+1. **Version description**으로 `Total-Sales`을 입력하고 **Publish**를 클릭합니다.
 
      <img src="images/total_sales_17.png">
 
@@ -616,7 +616,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/total_sales_20.png">
 
-1. Job이 성공적으로 실행되면. Output은 s3에 기록됩니다.
+1. Job이 성공적으로 실행되면 Output은 s3에 기록됩니다.
 
      <img src="images/total_sales_21.png">
 
