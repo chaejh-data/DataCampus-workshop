@@ -144,7 +144,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
    <img src="images/create_a_customer_profile_1.png">
 
-1. **Create a profile job**를 선택합니다.
+1. **Create profile job**를 선택합니다.
 
    <img src="images/create_a_customer_profile_2.png">
 
@@ -172,7 +172,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
    <img src="images/create_a_customer_profile_7.png">
 
-1. 이 보고서는 컬럼 통계와 함께 PII 대상으로 확인된 PII 컬럼의 카탈로그를 제공합니다. 또한 검토할 수 있는 잠재적인 PII 열을 보여줍니다.
+1. 이 보고서는 컬럼 통계와 함께 PII 대상으로 확인된 PII 컬럼의 카탈로그를 제공합니다. 또한 검토할 수 있는 잠재적인 PII 컬을 보여줍니다.
 이후 과정에서는 변환을 통해 확인된 PII 컬럼을 수정할 예정입니다. 다음 LAB에서 Sales Dataset 및 Data Quality Rules을 생성하겠습니다.
 
 ### 2.3 Sales Dataset
@@ -215,7 +215,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
 
 1. **Ruleset** 이름을 `Sales DQ Checks`로 지정합니다.
 1. **Associated dataset** 섹션에서 **Sales** dataset을 선택합니다. **View associated dataset details**를 클릭하여 dataset을 미리 확인합니다.
-1. 이제 dataset을 미리 볼 수 있으며, Sales dataset의 *Quality, Total_Sales*컬럼에 data quality 문제가 있음을 확인할 수 있습니다.
+1. 이제 dataset을 미리 볼 수 있으며, Sales dataset의 *Quality(수량), Total_Sales(총팬매액)*컬럼에 data quality 문제가 있음을 확인할 수 있습니다.
 
     <img src="images/create_sales_dq_ruleset_2.png">
 
@@ -264,7 +264,7 @@ Dataset은 단순히 열 또는 필드로 나뉜 데이터 행 또는 레코드 
     **Threshold(임계값)** : Condition를 드롭다운하여 **Greater than equals**을 선택, **Threshold(임계값)**을 `100`, **%(percent) rows** 으로 설정합니다.
 
     **Rule Summary**에서 설정한 규칙에 대한 설명을 볼 수 있습니다.
-    모든 컬럼이 Quantity, Total_Sales의 값 >= 0인 경우 규칙이 통과됩니다.
+    모든 컬럼이 Quantity, Total_Sales의 값 > 0인 경우 규칙이 통과됩니다.
     
     <img src="images/create_sales_dq_ruleset_5.png">
 
@@ -652,7 +652,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/create_new_project_5.png">
 
-1. 캠페인이 Toys product type에 대한 캠페인이므로 상단 메뉴의 Filter transform을 사용하여 Toys product type만 필터링합니다.
+1. Toys product type에 대한 캠페인이므로 상단 메뉴의 Filter transform을 사용하여 Toys product type만 필터링합니다.
     상단에 **FILTER 아이콘 > By condition > Is exactly**를 선택하고
 
      <img src="images/create_new_project_6.png">
@@ -661,70 +661,98 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/create_new_project_7.png">
 
-1. 아래 지침에 따라 Product_Id로 Pivot하여 지정된 우편번호에 있는 서로 다른 두 제품 라인의 product_Id 매출을 비교합니다.
-    상단에 PIVOT 클릭
+1. 아래 스크린샷에 따라 Product_Id로 Pivot하여 지정된 우편번호에 있는 서로 다른 두 제품 라인의 product_Id 매출을 비교합니다. 상단 메뉴에 **PIVOT 아이콘** 클릭
 
      <img src="images/create_new_project_8.png">
 
-    **PIVOT - Rows to clomns 선택 .png"> Pivot column (Product_id) > Pivot values (Sum, Total_Sales_sum) > Finish** 버튼을 클릭합니다..
+    **PIVOT - Rows to clomns 선택 > Pivot column : Product_id > Pivot values : Sum, Total_Sales_sum > Finish** 버튼을 클릭합니다.
+
      <img src="images/create_new_project_9.png">
+
 1. 왼쪽 메뉴에서 **RECIPES**를 선택한 다음 **Upload Recipe**를 선택합니다.
+
      <img src="images/uploadrecipe.png">
+
 1. s3 버킷의 레시피 폴더에서 다운로드한 *ID-recipe-import.json*을 업로드후 **Create and publish recipe** 버튼을 클릭합니다. 이 레시피에는 데이터를 정리하는 추가 단계가 포함되어 있습니다.
+
      <img src="images/create_new_project_11.png">
+
 1. 왼쪽 메뉴에서 **PROJECTS**를 선택 후, **SalesByProductType-Toys** 프로젝트로 돌아가서 아래 스크린샷과 같이 **Import recipe**를 선택합니다.
+
      <img src="images/create_new_project_12.png">
+
 1. 업로드한 레시피 *ID-recipe-import.json*을 선택하고 **Next**을 선택합니다.
+
      <img src="images/create_new_project_13.png">
-1. **Recipe import** 옵션에서 *Append*를 선택하고 **Next** 그리고 **Import**를 선택합니다.
+
+1. **Recipe import** 옵션에서 *Append*를 선택하고 오른쪽 하단에 **Next** 버튼을 클릭한 후에 **Import**를 선택합니다.
+
      <img src="images/create_new_project_14.png">
      <img src="images/create_new_project_15.png">
-레시피를 성공적으로 가져오면 장난감 캠페인의 목록 우편번호가 생성됩니다.
+
+    레시피를 성공적으로 가져오면 장난감 캠페인의 우편번호 목록이 생성됩니다.
+
 1. 이제 이 레시피를 전체 **Sales dataset**에 적용하기 위해 job을 만듭니다. **Creat job**를 선택합니다.
+
      <img src="images/create_new_project_16.png">
+
 1. **Job name**을 `SalesByProductType-Toys`로 지정합니다.
-1. 작업의 출력 위치를 지정해야 합니다. **Job output settings**에서 **File Type**으로 *"CSV"*를 선택합니다.
+
+1. Job의 출력 위치를 지정해야 합니다. **Job output settings**에서 **File Type**으로 *"CSV"*를 선택합니다.
+
 1. **Browse**를 선택하여 S3 위치를 선택하고 텍스트 상자에 `glue-databrew-immersionday`를 이전에 생성한 S3 버킷 위치를 선택합니다. **shared 폴더**를 **Select**를 클릭합니다.
+
      <img src="images/create_new_project_17.png">
+
 1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
 1. 오른쪽 하단에 **Create project**을 선택합니다.
+
      <img src="images/create_new_project_18.png">
 
-1. 작업이 성공적으로 실행되면. **Output**은 s3에 기록됩니다
+1. 작업이 성공적으로 실행되면, **Output**은 s3에 기록됩니다
+
      <img src="images/create_new_project_19.png">
 
 ### 4.3 Schedules
 
-언제든지 DataBrew 작업을 다시 실행할 수 있으며, 일정에 따라 DataBrew 작업 실행을 자동화할 수도 있습니다.
+언제든지 DataBrew 작업을 다시 실행할 수 있으며, 일정에 따라 DataBrew 작업 실행을 자동화할 수 있습니다.
 
-1. 왼쪽 메뉴에서 JOBS을 선택하고 Schedules 탭으로 이동하여 Create schedule를 선택합니다.
+1. 왼쪽 메뉴에서 **JOBS**을 선택하고 **Schedules** 탭으로 이동하여 **Create schedule**를 선택합니다.
+
      <img src="images/schedule_1.png">
-1. 아래 스크린샷과 같이 **Schedule name**을 `Hourly`로 입력하고 frequency를 Recurring.png">1.png">Weekdays.png">00:00 선택한 후 Add를 선택합니다.
+
+1. 아래 스크린샷과 같이 **Schedule** 이름을 `Hourly`로 입력하고 Run frequency : Recurring, Evnery x housr : 1, On days : Weekdays, start time : 00:00 선택한 후 **Add**를 선택합니다.
+
      <img src="images/schedule_2.png">
-1. 왼쪽 메뉴에서 **JOBS**을 선택하고 오른쪽 상단 메뉴에서 **Action > Edit** 을 선택하여 **Total-Sales job**을 선택합니다.
+
+1. 왼쪽 메뉴에서 **JOBS**을 선택하고 오른쪽 상단 메뉴에서 **Action > Edit**을 선택하여 **Total-Sales** job을 선택합니다.
+
      <img src="images/schedule_3.png">
-1. **Associated schedule** 으로 이동하여 **Hourly**을 선택하고 **Sav**을 선택합니다.
+
+1. **Associated schedule** 으로 이동하여 **Hourly**을 선택하고 **Save**을 선택합니다.
 
      <img src="images/schedule_4.png">
      <img src="images/schedule_5.png">
-1. **Job Details**탭에서 관련 일정을 확인할 수 있으며 일정에 따라 작업이 진행됩니다.
+
+1. **Job Details**탭에서 관련 스케쥴을 확인할 수 있으며 스케쥴에 따라 Job이 진행됩니다.
 
 
 ### 4.4 Visualize In QuickSight
 
-이 섹션에서는 데이터를 탐색하여 어떤 제품이 어느 지역에서 가장 많이 판매되는지 알아보겠습니다. 데이터를 탐색하기 위해 Amazon QuickSight를 사용할 것입니다. Amazon QuickSight는 클라우드용으로 구축된 확장 가능한 서버리스 임베디드형 머신 러닝 기반 비즈니스 인텔리전스(BI) 서비스입니다. QuickSight를 사용하면 머신 러닝 기반 인사이트가 포함된 대화형 BI 대시보드를 쉽게 만들고 게시할 수 있습니다. QuickSight 대시보드는 모든 기기에서 액세스할 수 있으며, 애플리케이션, 포털 및 웹사이트에 원활하게 임베드할 수 있습니다.
+이 섹션에서는 데이터를 탐색하여 어떤 제품이 어느 지역에서 가장 많이 판매되는지 알아보겠습니다. 데이터를 탐색하기 위해 Amazon QuickSight를 사용할 것입니다. Amazon QuickSight는 클라우드용으로 구축된 확장 가능한 서버리스 임베디드형 비즈니스 인텔리전스(BI) 서비스입니다. QuickSight를 사용하면 머신 러닝 기반 인사이트가 포함된 대화형 BI 대시보드를 쉽게 만들고 게시할 수 있습니다. QuickSight 대시보드는 모든 기기에서 액세스할 수 있으며, 애플리케이션, 포털 및 웹사이트에 원활하게 임베드할 수 있습니다.
 
-#### QuickSight 시작하기.
-1. AWS 관리 콘솔에서 아래와 같이 검색 창에 QuickSight를 입력합니다:
+#### QuickSight 시작하기
+1. AWS 관리 콘솔에서 아래와 같이 검색 창에 **QuickSight**를 입력합니다
+
    <img src="images/visualize_open_quicksight.png">
+
 1. QuickSight를 선택하면 QuickSight 시작 페이지가 표시됩니다. QuickSight에 가입하지 않은 경우 가입을 완료해야 할 수 있습니다. QuickSight에 가입하는 방법에 대한 자세한 안내는 여기에서 확인할 수 있습니다. 이 워크샵에서는 QuickSight Enterprise Addition에서만 사용할 수 있는 인사이트 및 머신 러닝을 사용합니다. 
 
-가입을 완료하면 QuickSight에서 시작 마법사가 표시되며, 제시된 슬라이드를 자유롭게 살펴보세요. 슬라이드는 다음과 같은 형태로 나타납니다:
+가입을 완료하면, QuickSight에서 시작 마법사가 표시되며, 제시된 가이드를 자유롭게 살펴보세요. 슬라이드는 다음과 같은 형태로 나타납니다:
    <img src="images/visualize_quicksight_start.png">
 
-
-#### S3 액세스 권한 부여하기.
-Amazon QuickSight 내에서 프로필 이름(오른쪽 상단)을 선택합니다. QuickSight 관리를 선택한 다음 보안 및 권한을 선택합니다.
+#### S3 액세스 권한 부여하기
+Amazon QuickSight 내에서 오른쪽 상단에 있는 **프로필 이름**을 선택합니다. QuickSight 관리를 선택한 다음 보안 및 권한을 선택합니다.
 
 추가 또는 제거를 선택합니다.
 
