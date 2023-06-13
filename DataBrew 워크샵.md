@@ -573,11 +573,11 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
      <img src="images/total_sales_10.png">
      <img src="images/total_sales_10_B.png">
 
-1. **Zip 컬럼 헤더**에서 "#"을 클릭하여 **Zip data type**을 *integer(정수)*로 변경합니다.
+1. **Zip 컬럼 헤더**에서 "#"을 클릭하여 Zip 컬럼의 **data type**을 *integer*(정수)로 변경합니다.
 
      <img src="images/total_sales_12.png">
 
-1. 스크린샷에 따라 **COLUMN 아이콘 > Delete**를 선택하여 불필요한 Source Columns(Txn_Date, Customer_Id, Quantity)을 선택하여 삭제합니다.
+1. 아래 스크린샷과 같이 **COLUMN 아이콘 > Delete**를 선택하여 불필요한 Source Columns으로 *Txn_Date, Customer_Id, Quantity*컬럼 3개를 선택하여 삭제합니다.
      <img src="images/total_sales_13.png">
      <img src="images/total_sales_14.png">
 
@@ -585,10 +585,10 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/group.png">
 
-1. 아래 스크린샷과 같이 *Product_Id, Zip, Product_Type*를 대상으로 **Column names과 Aggregate(집계 함수)**를 선택하고 **Finish**을 선택합니다.
-
-해당 결과로 Product_Id, Zip, Product_Type별로 총 매출을 Sum하는 recipe가 생성됩니다.
+1. 아래 스크린샷과 같이 *Product_Id, Zip, Product_Type*컬럼을 대상으로 **Column name과 Aggregate(집계 함수)**를 선택하고 **Finish**을 선택합니다.
+     해당 결과로 Product_Id, Zip, Product_Type별 총 매출을 Sum하는 recipe가 생성됩니다.
      <img src="images/total_sales_15.png">
+
 1. recipe를 Publish하여 새 버전의 recipe를 만듭니다. 이렇게 하면 게시된 recipe 버전을 recipe Job의 옵션으로 선택할 수 있습니다. 
  recipe를 확인한 후 **Publish**를 선택합니다.
      <img src="images/total_sales_16.png">
