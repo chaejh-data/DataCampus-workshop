@@ -766,7 +766,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
    <img src="images/quicksight-main.png">
 
-#### 데이터 세트 만들기.
+#### Creating a DataSet
 1. 이제 Amazon QuickSight 왼쪽 메뉴에서 **Dataset**를 선택합니다. **4.1 Join and Group By**에서 생성한 **Total-Sales** data를 가져올 것입니다.
 
    <img src="images/visualize_newdataset.png">
@@ -805,7 +805,7 @@ https://docs.aws.amazon.com/quicksight/latest/user/supported-manifest-file-forma
 
    <img src="images/visualize_import_successfull.png">
 
-#### DataSet을 검토합니다.
+#### Review the DataSet
 
 1. Edit and Preview 버튼을 눌러 데이터를 확인합니다. 데이터를 로드하는데 몇 초 정도 걸립니다.
 1. 오른쪽에는 필드 목록이 표시되고 왼쪽에는 아래 데이터 샘플과 함께 dataset이 표시됩니다. QuickSight가 이미 Zip column이 우편번호 데이터임을 확인한 것을 알 수 있습니다.
@@ -824,7 +824,7 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
 
 오른쪽 상단의 **SAVE**을 누르고 화면이 새로 고쳐질 때까지 기다립니다. 새로 생성된 계산된 필드를 확인합니다.
 
-#### 분석 만들기
+#### Creating the Analysis
 
 1. Dataset 화면에서 오른쪽 상단의 **PUBLISH & VISUALIZE** 버튼을 누릅니다.
 1. 화면이 변경되고 빈 분석 화면이 표시됩니다. 오른쪽 상단에서 데이터를 성공적으로 가져온 것을 볼 수 있습니다.
@@ -841,7 +841,7 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
 
    <img src="images/vertical_bar_chart.png">
 
-#### 신제품과 기존 제품 판매 비교
+#### Compare New Product to Old Product Sales
 
 1. 세로 막대 그래프를 보면 Exercise Pen이 가장 많이 판매된 품목임을 명확하게 알 수 있습니다. 하지만 신제품의 판매량은 이전 제품의 판매량과 어떻게 비교했을까요?
 1. 그래프 위로 마우스를 이동하여 타원을 확인하고 클릭한 다음 **Duplicate visual**을 클릭합니다.
@@ -857,7 +857,7 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
    <img src="images/salesbyproduct.png">
 
 
-#### 위치별 매출
+#### Sales per Location
 
 1. 지도 그래프를 추가하여 위치별 매출을 좀 더 자세하게 분석해 보겠습니다. 화면 오른쪽 상단에서 다음과 같이 화면 왼쪽에 있는 **ADD**를 클릭하고 **Add calculated field**를 선택합니다:
 
@@ -885,14 +885,14 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
 
     <img src="images/map2.png">
 
-#### 우편번호별 제품
+#### Product by Zip Code
 
 1. 그래프를 하나 더 추가한 다음 서로 연결해 보겠습니다. 이 visual에서는 Zip Code(우편번호)별 제품 판매량을 비교하고 New Product (새 제품)과 Old Product(기존 제품)을 비교합니다.
 1. 왼쪽 상단의 Add 버튼을 사용하여 Add visual를 추가하고, 왼쪽 아래 Visual types으로 Vertical bar chart를 선택합니다. 다음으로 상단에 Field Wells를 확장하여 Rows: Zip, Value : Total_Sales_sum(SUM), Group/Color : ProcductStatus, 를 클릭하여 넣어줍니다. 제목을 클릭하여 `Total Salues by Zip and Product status` 업데이트 합니다. 다음과 같은 내용이 표시됩니다:
 
     <img src="images/visualize_totalsales.png">
 
-#### 분석
+#### Analysis
 
 1. 새 그래프를 보완하기 위해 테이블을 추가해 보겠습니다. 왼쪽 상단의 Add 버튼을 사용하여 Add visual를 추가하고, 왼쪽 아래 Visual types으로 Pivot table를 선택합니다. Rows : Zip, Columns : ProductStatus, values : Total Sales Sum을 사용합니다.
 1. New Product의 Total Sales을 클릭하고 sort ascending(오름차순 정렬)을 선택합니다. 다음과 같은 그래프가
@@ -925,20 +925,24 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
 
 ### 5.1 Connect a new dataset
 
-feature-engineering를 위한 dataset 연결
+feature-engineering를 위한 dataset 연결이 필요합니다.
 해당 세션에서 사용할 dataset은 glue-databrew-immersionday S3 버킷의 feature-engineering 폴더에 있습니다.
 
-1. 왼쪽 메뉴에서 **DATASETS**를 선택하고 Connect new dataset을 클릭합니다.
+1. 왼쪽 메뉴에서 **DATASETS**를 선택하고 **Connect new dataset**을 클릭합니다.
 
    <img src="images/connecting-to-dataset-1.png">
 
-1. DataSet 이름은 databrew-immersion-day-feature-engineering-census-adult로 입력하고, S3 소스를 입력하고, 파일 유형으로 CSV를 선택하고, 구분 기호로 Comma(쉼표)를 선택하고, Treat first row as a header(첫 번째 행을 헤더로 처리)를 선택합니다.
+1. DataSet 이름은 `atabrew-immersion-day-feature-engineering-census-adult`로 입력하고, S3 소스를 입력하고, 파일 유형으로 *CSV*를 선택하고, 구분 기호로 **Comma(쉼표)**를 선택하고, **Treat first row as a header**(첫 번째 행을 헤더로 처리)를 선택합니다.
 1. Create dataset 버튼을 클릭합니다.
+
    <img src="images/connecting-to-dataset-2.png">
    <img src="images/connecting-to-dataset-3.png">
-dataset가 연결되면 메인 화면의 Dataset dashboard에 dataset 이름이 표시됩니다.
+
+1. dataset 연결되면 메인 화면의 Dataset dashboard에 dataset 이름이 표시됩니다.
+
    <img src="images/connecting-to-dataset-4.png">
-1. 최근에 만든 데이터 세트에서 data profile job 을 실행합니다. 지침은 모듈 5.2 데이터 프로파일 작업을 참조하세요. data profile 결과를 사용하여 Feature Engineering에 도움을 받을 수 있습니다
+
+1. 최근에 만든 데이터 세트에서 **data profile job** 을 실행합니다. 지침은 모듈 5.2 데이터 프로파일 작업을 참조하세요. data profile 결과를 사용하여 Feature Engineering에 도움을 받을 수 있습니다
 
 
 ### 5.2 Create a project
