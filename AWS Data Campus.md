@@ -577,7 +577,8 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/total_sales_12.png">
 
-1. 아래 스크린샷과 같이 **COLUMN 아이콘 > Delete**를 선택하여 불필요한 Source Columns으로 *Txn_Date, Customer_Id, Quantity*컬럼 3개를 선택하여 삭제합니다.
+1. 아래 스크린샷과 같이 **COLUMN 아이콘 > Delete**를 선택하여 불필요한 Source Columns으로 *Txn_Date, Customer_Id, Quantity* 컬럼 3개를 선택하여 삭제합니다.
+
      <img src="images/total_sales_13.png">
      <img src="images/total_sales_14.png">
 
@@ -589,6 +590,10 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
      이를 통해 **Product_Id, Zip, Product_Type 기준으 그룹화하여 총매출액을 Sum 하는 recipe**가 생성됩니다.
 
      <img src="images/total_sales_15.png">
+
+1. 상단 메뉴에서 **column 아이콘**을 선택하여 **Product Type > Product_Type**으로 컬럼이름 변경합니다.
+
+     <img src="images/total_rename_producttype.png">
 
 1. recipe를 Publish하여 새로운 recipe를 만듭니다. 이렇게 하면 게시된 recipe 버전을 recipe Job의 옵션으로 선택할 수 있습니다. 
      recipe를 확인한 후 **Publish**를 선택합니다.
@@ -673,7 +678,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/uploadrecipe.png">
 
-1. s3 버킷의 레시피 폴더에서 다운로드한 *ID-recipe-import.json*을 업로드후 **Create and publish recipe** 버튼을 클릭합니다. 이 레시피에는 데이터를 정리하는 추가 단계가 포함되어 있습니다.(null 값 > 0으로 채워주기, SUBTRACT컬럼 생성 : Id-11 - id22, SUBTRACT 컬럼 값이 1 이상만 필터, ZIP이랑 Product Type 빼고 컬럼 삭제)
+1. s3 버킷의 레시피 폴더에서 다운로드한 *ID-recipe-import.json*을 업로드후 **Create and publish recipe** 버튼을 클릭합니다. 이 레시피에는 데이터를 정리하는 추가 단계가 포함되어 있습니다.(null 값 > 0으로 채워주기, SUBTRACT컬럼 생성 : Id-11 - id22, SUBTRACT 컬럼 값이 1 이상만 필터, ZIP이랑 Product_Type 빼고 컬럼 삭제)
 
      <img src="images/create_new_project_11.png">
 
@@ -930,7 +935,7 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
 
    <img src="images/visualize_empty_analysis.png">
 
-1. **어떤 제품이 가장 많은 매출을 올렸나요?** 이 질문에 답하려면 왼쪽에서 **Y axis** : *Product Type*과 **Value** : *Total_Sales_sum*(Sum)을 선택합니다. 그래프가 변경되는 것을 확인할 수 있습니다.
+1. **어떤 제품이 가장 많은 매출을 올렸나요?** 이 질문에 답하려면 왼쪽에서 **Y axis** : *Product_Type*과 **Value** : *Total_Sales_sum*(Sum)을 선택합니다. 그래프가 변경되는 것을 확인할 수 있습니다.
 
    <img src="images/graph_product_by_sales.png">
 
