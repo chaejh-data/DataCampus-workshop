@@ -1295,16 +1295,27 @@ age column을 선택하고 Scale을 클릭한 다음 Min-max normalization를 �
 
    <img src="images/createcanvas2.png">
 
-1. AWS 콘솔 상단 검색 창에서 **Amazon SageMaker**로 검색하여, Amazon SageMaker 서비스로 이동합니다. 
+1. **Create a SageMaker domain**를 클릭합니다. 
 
-   <img src="images/dcreatecanvas1.png">
+   <img src="images/createcanvas3.png">
 
-1. 생성합니다.
+1. Quick setup를 위해 User Profile 이름으로 `sagemakeruser`를 입력합니다.
 
-<a href="data/sales-by-product-zip.csv"> cvs파일
+   <img src="images/createcanvas4.png">
+
+1.  아래 Execution role에서 Create a new role를 선택합니다.
+
+   <img src="images/createcanvas5.png">
+
+1. 모든 S3버킷에 접근이 가능하도록 IAM role를 설정합니다.
+
+   <img src="images/createcanvas6.png">
 
 
-data/sales-by-product-zip.csv
+1. sales-by-product-zip cvs 파일을 다운로드 합니다.
+
+<a href="data/sales-by-product-zip.csv"> cvs파일 > 상단 위 ... 클릭하여 다운로드
+
 
 
 
