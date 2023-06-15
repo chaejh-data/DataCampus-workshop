@@ -1022,7 +1022,7 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
     그래프에서 Collar를 선택하면 대부분의 지역에서 기존 제품이 신제품보다 더 많이 팔린다는 것을 명확하게 알 수 있습니다. 신제품이 전혀 판매되지 않는 지역도 있습니다.
 
 ## 5. Feature Engineering
-
+<!-- 40분 -->
 ### 5.1 Connect a new dataset
 
 feature-engineering를 위한 dataset 연결이 필요합니다.
@@ -1285,10 +1285,23 @@ age column을 선택하고 Scale을 클릭한 다음 Min-max normalization를 �
 
   <img src="images/databrew-z-score-3.png">
 
+### 5.6 Time series forecasting(Sagemaker canvas)
 
+1. AWS 콘솔 상단 검색 창에서 **Amazon SageMaker**로 검색하여, Amazon SageMaker 서비스로 이동합니다. 
 
+   <img src="images/createcanvas1.png">
 
+1. 왼쪽 메뉴에서 Amazon SageMaker Studio를 클릭합니다.
 
+   <img src="images/createcanvas2.png">
+
+1. AWS 콘솔 상단 검색 창에서 **Amazon SageMaker**로 검색하여, Amazon SageMaker 서비스로 이동합니다. 
+
+   <img src="images/dcreatecanvas1.png">
+
+1. 생성합니다.
+
+cvs파일(images/sales-by-product-zip.csv)
 
 
 
