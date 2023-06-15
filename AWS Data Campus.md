@@ -15,9 +15,9 @@
 **Action** : 팀은 1) 고객/제품/판매 데이터를 분석 및 변환하여 두 제품 라인(신규/기존)의 판매를 비교하고, 2) 특정 제품을 마케팅할 고객의 우편번호를 파악해야 합니다.
 
 **데이터 변환 단계**:
-1. 고객 데이터 (Customer) : 고객 데이터를 클징하고, 주소 컬럼에서 우편번호를 분석합니다.
+1. 고객 데이터 (Customer) : 고객 데이터를 클렌징하고, 주소 컬럼에서 우편번호를 분석합니다.
 1. 판매 데이터 (Sales): 고객 데이터 및 제품 데이터와 Join하여, 우편번호 및 제품 유형별로 판매량을 비교합니다.
-1. 제품 데이터 (Product) : 캠페인을 위한 시장성있는 제품 ID가 포함된 우편번호 목록을 생성합니다.
+1. 제품 데이터 (Product) : 캠페인을 위해 기존 제품의 장난감 판매액이 신규보다 높은 우편번호 목록을 생성합니다.
 
 **Data Model**
 
@@ -694,7 +694,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
      <img src="images/create_new_project_14.png">
      <img src="images/create_new_project_15.png">
 
-    레시피를 성공적으로 가져오면, 기존 제품의 장난감 판매액이 신규보 높은 우편번호 목록이 생성됩니다.
+    레시피를 성공적으로 가져오면, 기존 제품의 장난감 판매액이 신규보다 높은 우편번호 목록이 생성됩니다.
 
 1. 이제 이 레시피를 전체 **Sales dataset**에 적용하기 위해 job을 만듭니다. **Creat job**를 선택합니다.
 
@@ -806,11 +806,8 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/athena-runcrawler3.png">
      
-1. AWS 콘솔 상단 검색 창에서 **S3**로 검색하여, S3 서비스로 이동합니다.
-
-     <img src="images/athena-runcrawler2.png">
-
-1. S3 쿼리 출력 결과를 저장하기 위해 상단 메뉴에서 **Setting**를 선택합니다.
+1. AWS 콘솔 상단 검색 창에서 **Athena**로 검색하여, Athena 서비스로 이동합니다.
+1. 먼저 S3 쿼리 출력 결과를 저장하기 위해 상단 메뉴에서 **Setting**를 선택합니다.
 
      <img src="images/athena-s3A.png">
 
@@ -830,10 +827,10 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/athena-s3E.png">
 
-1. Toys의 신상품-11/기존상품-22의 판매금액을 비교하기 위한 SQL 쿼리를 수행합니다.
+1. Toys의 기존상품-11/신상품-22의 판매금액을 비교하기 위한 아래 SQL 쿼리를 수정하여 **RUN**를 수행합니다.
 
     ```
-    SELECT product_id, sum(total_sales_sum) toysales FROM "sales"."total_sales_14jun2023_1686764963864" where product_type='Toys' GROUP BY product_id; 
+    SELECT product_id, sum(total_sales_sum) toysales FROM "sales"."total_sales폴더이름" where product_type='Toys' GROUP BY product_id; 
     ```
     
     <img src="images/athena-s3F.png">
@@ -872,7 +869,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
    <img src="images/visualize_newdataset.png">
 
-1. 화면 오른쪽 상단에서 New Dataset button을 누르면 다음과 같이 표시됩니다:
+1. 화면 오른쪽 상단에서 New dataset 버을 누르면 다음과 같이 표시됩니다:
 1. 보시다시피 QuickSight는 여러 데이터 소스를 지원합니다. Twitter, Github, Snowflake, Redshift 등에서 데이터를 가져올 수 있습니다. 데이터 소스 페이지에서 S3를 선택합니다.
 
    <img src="images/visualize_dataset_options.png">
@@ -893,16 +890,16 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
     }
 }
 ```
-1. manifest file은 4.1에서 생성한 폴더를 가리킵니다. manifest file에 대한 자세한 내용은 다음 문서를 참조하세요.
+1. manifest file은 4.1에서 생성한 폴더와 연결하게 됩니. manifest file에 대한 자세한 내용은 다음 문서를 참조하세요.
 https://docs.aws.amazon.com/quicksight/latest/user/supported-manifest-file-format.html
 
-1. 파일을 생성했으면* *data.manifest* 파일로 저장합니다. 파일에 올바른 버킷 이름이 포함되어 있는지, 폴더가 Total-Sales Data를 참조하는지 확인하세요.
+1. 파일을 생성했으면 *data.manifest* 파일로 저장합니다. 파일에 올바른 버킷 이름이 포함되어 있는지, 폴더가 Total-Sales Data를 참조하는지 확인하세요.
 
-1. 이제 manifest 파일을 만들었으므로 라디오 버튼을 URL에서 Upload로 변경하여 업로드합니다.  목록 파일 업로드 입력 상자 오른쪽에 있는 작은 파일 버튼을 사용하여 파일을 업로드합니다:
+1. 이제 manifest 파일을 만들었으므로, Data source 이름으로 `SalesbyProduct`를 입력하고, 라디오 버튼을 URL > Upload로 변경하여 업로드합니다. 오른쪽에 있는 작은 파일 버튼을 클릭하여 파일을 업로드합니다:
 
    <img src="images/visualize_new_s3_data_source.png">
 
-1. 그런 다음 **Connect** 버튼을 누릅니다. 그러면 데이터가 SPICE 데이터베이스에 업로드됩니다. 다음과 같은 확인 메시지가 표시됩니다:
+1. 그런 다음 **Connect** 버튼을 누릅니다. 데이터가 SPICE 데이터베이스에 업로드되며 다음과 같은 확인 메시지가 표시됩니다:
 
    <img src="images/visualize_import_successfull.png">
 
@@ -944,7 +941,7 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
 
 #### Compare New Product to Old Product Sales
 
-1. 세로 막대 그래프를 보면 Exercise Pen이 가장 많이 판매된 품목임을 명확하게 알 수 있습니다. 하지만 신제품의 판매량은 이전 제품의 판매량과 어떻게 비교했을까요?
+1. 세로 막대 그래프를 보면 Exercise Pen이 가장 판매 매출이 높은 품목임을 명확하게 알 수 있습니다. 하지만 신제품의 판매량은 이전 제품의 판매량과 어떻게 비교했을까요?
 1. 그래프 위로 마우스를 이동하여 타원을 확인하고 클릭한 다음 **Duplicate visual**을 클릭합니다.
 
    <img src="images/duplicate_graph.png">
@@ -970,9 +967,10 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
 1. 지도에는 신상품과 기존상품을 포함한 모든 제품의 매출이 표시됩니다. 이를 변경하여 Zip Code(우편번호)별 New Product sales(새 제품 판매량)을 표시하는 그래프와 Old Product sales(기존 제품 판매량)을 표시하는 그래프 두 개를 만들겠습니다.
 1. 먼저 Filled Map 그래프 제목을 수정하기 위해 *Sum of Total_sales_sum by Zip* 텍스트를 클릭하여 `Total Sales by Zip for the Old Product`으로 변경합니다. 
 
-   <img src="images/quicksight-addfield.png">
+   <img src="images/quicksight-maptitle.png">
 
 1. Map 그래프를 선택한 상태에서 맨 오른쪽의 **Filters** 버튼을 누릅니다. 이제 맵에 Filters를 적용하여 Old Product sales (기존 제품 판매량)만 표시하겠습니다.
+
    <img src="images/createfilter.png">
 
 1. 왼쪽 메뉴에서 **Filter**를 선택하고 **ADD FILTER**을 누릅니다. 필드 목록이 포함된 메뉴가 나타납니다.
@@ -1287,7 +1285,7 @@ age column을 선택하고 Scale을 클릭한 다음 Min-max normalization를 �
 
 ### 5.6 Time series forecasting(Sagemaker canvas)
 
-이제 제품/우편별 판매금액 데이터로 Toy 신제품/기존제품의 2개월 판매량을 예측해보도록 하겠습니다.
+이제 제품/우편별 판매금액 데이터로 Toy 신제품/기존제품의 2개월 판매금액 예측해보도록 하겠습니다.
 
 1. 아래 sales-by-product-zip.cvs 파일을 클릭 후 상단 위 ... 클릭하여 다운로드 합니다.
 
@@ -1317,7 +1315,7 @@ age column을 선택하고 Scale을 클릭한 다음 Min-max normalization를 �
 
    <img src="images/createcanvas6.png">
 
-1. IAM role 생성이 완료되면 Submit 버튼을 클릭합니다.
+1. IAM role 생성이 완료되면 **Submit** 버튼을 클릭합니다.
 
      <img src="images/createcanvas7.png">
 
@@ -1364,8 +1362,11 @@ age column을 선택하고 Scale을 클릭한 다음 Min-max normalization를 �
 1. 아래와 같이 시계열 예측을 위한 설정 정보를 넣어줍니다.
 
     Item ID column 데이터 집합의 항목을 고유하게 식별하는 컬럼 : `Product_Id`
+
     Group column 예측을 그룹화하는 컬럼 : `Product_type`
+
     Time stamp column 타임스탬프가 포함된 컬럼 : `Txn_Date`
+
     Months 예측할 월 수 지정 : `2`
 
      <img src="images/createcanvas18.png">
@@ -1373,16 +1374,15 @@ age column을 선택하고 Scale을 클릭한 다음 Min-max normalization를 �
 1. 아래와 같이 컬럼에 대한 특정과 타입이 지정된 것을 확인하실 수 있습니다. **Quick build**를 클릭합니다.
     Quick build - 표준 빌드에 비해 훨씬 짧은 시간 내에 모델을 빌드하며, 잠재적 정확도를 속도와 바꿀 수 있습니다.
     Standard build - AutoML로 구동되는 최적화된 프로세스를 통해 최상의 모델을 빌드하며, 속도 대신 정확도를 극대화합니다.
-    원하는 옵션을 선택하실 수 있습니다. Quick build는 일반적으로 약 15~20분이 소요되며 Standard build은 약 4시간이 소요됩니다. 
-    여기서는 Quick build 옵션을 선택하고 모델 학습을 시작하겠습니다.
+    원하는 옵션을 선택하실 수 있습니다. 여기서는 Quick build 옵션을 선택하고 모델 학습을 시작하겠습니다.
 
      <img src="images/createcanvas19.png">
 
-1. build 수행 시간은 14-20분 정도 소요됩니다.
+1. Quick build는 일반적으로 약 15~20분이 소요되며, Standard build은 약 4시간이 소요됩니다. 
 
      <img src="images/createcanvas20.png">
 
-1. 데이터 분석 결과는 다음과 같습니다. 예측을 위해서는 **Predict** 버튼을 클립합니다.
+1. 데이터 분석 결과(모델 성능 평가 지표)는 다음과 같습니다. 예측을 위해서는 **Predict** 버튼을 클립합니다.
 
     평균 가중 사분위수 손실(wQL): P10, P50 및 P90 사분위수에서 정확도의 평균을 구하여 예측을 평가합니다. 값이 낮을수록 더 정확한 모델임을 나타냅니다.
 
