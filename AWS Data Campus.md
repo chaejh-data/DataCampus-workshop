@@ -1063,8 +1063,6 @@ feature-engineering를 위한 dataset 연결이 필요합니다.
    <img src="images/databrew-project-initiation.png">
 
    세션이 시작되면 각 데이터 컬럼에 대한 메트릭이 포함된 데이터 샘플이 표시되며, DataBrew recipe를 만들 준비가 완료됩니다.
-   
-   <img src="images/databrew-project-initiation.png">
 
    <img src="images/databrew-project-2.png">
 
@@ -1072,7 +1070,7 @@ feature-engineering를 위한 dataset 연결이 필요합니다.
 
 #### Handling data quality
 
-1. 먼저 앞서 수행한 Data Profile의 결과를 살펴봅니다. valid(유효성)이 100% 미만인 열이 세 개 있습니다.( workclass, occupation, and capital.loss.)Workclas과 occupation 컬럼은 데이터의 6%가 누락되었습니다.
+1. 먼저 앞서 수행한 Data Profile의 결과를 살펴봅니다. valid(유효성)이 100% 미만인 열이 세 개 있습니다.(workclass, occupation, and capital.loss.)Workclas과 occupation 컬럼은 데이터의 6%가 누락되었습니다.
 
    <img src="images/DataProfile-List.png">
 1. 데이터 품질을 보려면 해당 컬럼을 선택합니다. 이 경우 workclass를 살펴보겠습니다.:
@@ -1084,39 +1082,57 @@ feature-engineering를 위한 dataset 연결이 필요합니다.
 
 missing values(누락된 값을 처리하는 방법에는 여러 가지가 있습니다. 한 가지 방법은 DataBrew를 사용하여 빈 값이 있는 행을 제거하는 것입니다. 
 
-1. source 컬럼(workclass)을 선택하고 상단에 Missing 아이콘을 클릭한 다음
-1. Remove missing rows를 클릭합니다.
+1. source 컬럼(workclass)을 선택하고 상단에 **Missing 아이콘**을 클릭한 다음
+1. **Remove missing rows**를 클릭합니다.
+
    <img src="images/databrew-missing-rows-1.png">
-1. 오른쪽에서 source column으로 workclass를 확인하고, Miss value action으로 Delete rows with missing values(누락된 값 삭제)를 클릭합니다.
+
+1. 오른쪽에서 source column으로 *workclass*를 확인하고, Miss value action으로 **Delete rows with missing values**(누락된 값 삭제)를 클릭합니다.
+
    <img src="images/databrew-missing-rows-2.png">
-1. 오른쪽에서 아래로 스크롤하여 All rows 을 선택하고 Apply를 클릭합니다.
+
+1. 오른쪽에서 아래로 스크롤하여 **All rows** 을 선택하고 **Apply**를 클릭합니다.
+
    <img src="images/databrew-missing-rows-4.png">
 
 #### Fill in Missing Values (누락된 값 채우기)
 
 행을 삭제할 상황이 안 되거나 누락된 기능에 값을 제공하려는 경우 DataBrew를 사용하여 다양한 옵션으로 채울 수 있습니다. 여기서는 median value(중앙값)으로 채우겠습니다.
 
-1. source 컬럼(capital.loss)을 선택하고 상단에서 Missing 아이콘을 선택한 후 Fill with numeric aggregate(숫자 집계로 채우기)를 선택합니다.
+1. **source 컬럼(capital.loss)**을 선택하고 상단에서 **Missing 아이콘**을 선택한 후 **Fill with numeric aggregate**(숫자 집계로 채우기)를 선택합니다.
+
   <img src="images/databrew-missing-median-1.png">
-1. 오른쪽에서 source column으로 capital.loss을 확인하고, Fill with numeric aggregate(숫자 집계로 채우기)를 선택한 다음 Median(중앙값) numeric aggregate 숫자 집계를 선택합니다.
+
+1. 오른쪽에서 source column으로 **capital.loss**을 확인하고, **Fill with numeric aggregate**(숫자 집계로 채우기)를 선택한 다음 numeric aggregate으로 **Median**(중앙값)를 선택합니다.
+
   <img src="images/databrew-missing-median-2.5.png">
-1. 오른쪽에서 아래로 스크롤하여 All rows 을 선택하고 Apply를 클릭합니다.
+
+1. 오른쪽에서 아래로 스크롤하여 **All rows**을 선택하고 Apply를 클릭합니다.
+
    <img src="images/databrew-missing-median-4.png">
 
 #### Excluding Outliers(이상값 제외)
 
-매우 정확하지 않은 값을 포함하는 데이터의 경우 이상값을 찾아 dataset에서 제거할 수 있습니다. 이상값이 있는 열을 선택합니다.
+매우 정확하지 않은 값을 포함하는 데이터의 경우 이상값을 찾아 dataset에서 제거할 수 있습니다. 이상값이 있는 컬을 선택합니다.
 
 1. Data Profile 을 살펴보고 Column statistics(컬럼 통계)를 클릭한 다음 capital.loss 컬럼을 클릭합니다.
 1. 오른쪽에서  Data insights까지 아래로 스크롤합니다.
+
    <img src="images/databrew-outlier-profile.png">
-그러면 두 개의 이상값이 있으며 그 수가 충분히 적으므로 이 행을 안심하고 제거할 수 있음을 알 수 있습니다.
-1. source 컬럼(capital.loss)을 선택하고, Outliers 아이콘을 클릭하고 Remove outliers를 클릭합니다.
+    
+    그러면 두 개의 이상값이 있으며, 그 수가 충분히 적으므로 이 행을 안심하고 제거할 수 있음을 알 수 있습니다.
+
+1. **source 컬럼(capital.loss)**을 선택하고, **Outliers 아이콘**을 클릭하고 **Remove outliers**를 클릭합니다.
+
    <img src="images/databrew-outliers-1.png">
-1. 오른쪽에서 source column으로 capital.loss을 확인하고, Z-score outliers을 선택하고, Standard deviation threshold에 3을 입력합니다.   
-1. 아래로 스크롤하여 Remove outliers를 클릭합니다. Remove outliers에서 All outliers을 선택합니다.
+
+1. 오른쪽에서 source column으로 capital.loss을 확인하고, **Z-score outliers**을 선택하고, **Standard deviation threshold**에 `3`을 입력합니다.   
+1. 아래로 스크롤하여 **Remove outliers**를 클릭합니다. **Remove outliers**에서 **All outliers**을 선택합니다.
+
    <img src="images/databrew-outliers-3.png">
-1. 그런 다음 Delete rows를 클릭하고 Apply을 클릭합니다.
+
+1. 그 다음 **Delete rows**를 클릭하고 **Apply**을 클릭합니다.
+
    <img src="images/databrew-outliers-4.png">
 
 ### 5.4 Scaling data
@@ -1125,22 +1141,37 @@ missing values(누락된 값을 처리하는 방법에는 여러 가지가 있�
 
 연속형 숫자 변수를 범주형(Category)형태의 변수로 변환하려면 binning를 사용하는 것이 일반적인 방법입니다.
 
-1. Binning를 적용할 source 컬럼(education.num)을 선택하고, Scale 아이콘을 클릭한 다음 Binning을 선택합니다.
+1. Binning를 적용할 source 컬럼(education.num)을 선택하고, Scale 아이콘을 클릭한 다음 Bin data values을 선택합니다.
+
    <img src="images/databrew-binning-1.png">
+
 1. 아래에서 데이터 분포에 대한 요약을 확인할 수 있습니다.   
+
    <img src="images/databrew-binning-2.png">
-1. Fixed range를 선택하여 고정 값의 bins을 생성합니다.
+
+1. **Fixed range**를 선택하여 고정 값의 bins을 생성합니다.
+
    <img src="images/databrew-binning-3.png">
+
 1. Add another bin를 클릭하여 구간차원 값을 하나 더 추가합니다.
+
    <img src="images/databrew-binning-4.png">
+
 1. Bin names을 아래 스크린샷에 정의된 값으로 변경합니다.
 1. Bin 범위 값을 재분배하려면 auto distribution range를 클릭합니다.
+
    <img src="images/databrew-binning-5.png">
+
 1. 값이 어떻게 재분배되었는지 확인합니다.
+
    <img src="images/databrew-binning-6.png">
+
 1. destination column 이름을 education_num_bin으로 입력하고 Apply을 클릭합니다.
+
    <img src="images/databrew-binning-7.png">
+
 1. binned values으로 구분된 값으로 새 컬럼을 볼 수 있습니다.
+
    <img src="images/databrew-binning-8.png">
 
 #### Log Transformation
