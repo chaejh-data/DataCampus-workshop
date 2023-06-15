@@ -1301,7 +1301,7 @@ age column을 선택하고 Scale을 클릭한 다음 Min-max normalization를 �
 
 1. 생성합니다.
 
-<a href="images/sales-by-product-zip.csv"> cvs파일
+<a href="data/sales-by-product-zip.csv"> cvs파일
 
 
 data/sales-by-product-zip.csv
