@@ -755,7 +755,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/athena-setcrawler2.png">
 
-1. step 2 : Data Source로 S3를 선택하고 S3 path로는 Total_sales 데이터가 들어가 있는 폴더를 선택하기 위해 *glue-databrew-immersionday-xxx/shared/Total-Sales_xxx* 폴더를 선택합니다. 이외 설정은 그대로 유지하고 **Add on S3 data source**를 클릭합니다.
+1. step 2 : Data Source로 S3를 선택하고 S3 path로는 Total_sales 데이터를 활용하기 위해 *glue-databrew-immersionday-xxx/shared/Total-Sales_xxx* 폴더를 선택합니다. 이외 설정은 그대로 유지하고 **Add on S3 data source**를 클릭합니다.
      <img src="images/athena-setcrawler2A.png">
 
 1. step 2 : 설정한 Data sources(S3)를 확인하고 **Next**버튼을 클릭합니다.
@@ -794,7 +794,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
    
      <img src="images/athena-runcrawler1.png">
 
-1. Run이 완료되면 왼쪽 메뉴에서 **Data Catalog > Databases > Tables**를 선택합니다. 그 다음으로 생성된 table를 선택합니다.
+1. Run이 완료되면(Crawler successfully starting The following crawler is now starting: "Total_sales" - 상단 알람 확) 왼쪽 메뉴에서 **Data Catalog > Databases > Tables**를 선택합니다. 그 다음으로 생성된 table를 선택합니다.
 
      <img src="images/athena-runcrawler2.png">
 
@@ -810,12 +810,29 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/athena-s3A.png">
 
-1. Run이 완료되면 왼쪽 메뉴에서 **Databases > Tables**를 선택합니다. 그 다음으로 생성된 table를 선택합니다.
+1. **Manage**를 버튼 선택합니다.
 
-     <img src="images/athena-runcrawler2.png">
+     <img src="images/athena-s3B.png">
 
-Crawler successfully starting
-The following crawler is now starting: "Total_sales"
+1. Browse S3를 선택하고 쿼리 결과를 저장할 S3 폴더(*glue-databrew-immersionday-xxx/shared*)를 선택합니다. 그 다음으로 **Save**버튼을 클릭합니다.
+
+     <img src="images/athena-s3C.png">
+
+1. 다시 Editor 메뉴로 돌아가면, 이전에 생성했던 Database - sales, Table - total_sales_xxx이 Data로 들어가 있는 것을 확인해볼 수 있습니다. Table 내용을 확인해보기 위해서 **total_sales_xxx 오른쪽에 있는 ... 클릭하고 Preview Table**를 선택합니다.
+
+     <img src="images/athena-s3D.png">
+
+1. 출력된 테이블 내용을 확인합니다.
+
+     <img src="images/athena-s3E.png">
+
+1. Toys의 신상품-11/기존상품-22의 판매금액을 비교하기 위한 SQL 쿼리를 수행합니다.
+
+    ```
+    SELECT product_id, sum(total_sales_sum) toysales FROM "sales"."total_sales_14jun2023_1686764963864" where product_type='Toys' GROUP BY product_id; 
+    ```
+    
+    <img src="images/athena-s3F.png">
 
 ### 5.4 Visualize In QuickSight
 
