@@ -739,18 +739,80 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
 ### 4.4 Analyze data with Athena
 
-1.  AWS 콘솔 상단 검색 창에서 **Glue**로 검색하여, S3 서비스로 이동합니다.
+1.  AWS 콘솔 상단 검색 창에서 **Glue**로 검색하여, Glue 서비스로 이동합니다.
 
      <img src="images/athena-glue.png">
 
-1. 왼쪽 메뉴에서 **Crawlers** 메뉴를 클릭합니다.
+1. 왼쪽 메뉴에서 **Crawlers** 메뉴를 클릭합니다. 그 다음 Create crawler 버튼을 눌러눕니다.
 
-     <img src="images/athena-crwlers-main.png">
+     <img src="images/athena-crwalers-main.png">
 
 1. step 1 : set crawler properties에서 crawler 이름으로 `totalsales`로 입력합니다.
 
-     <img src="images/athena-crwlers-main.png">
+     <img src="images/athena-setcrawler1.png">
 
+1. step 2 : 연결할 Data Source(S3)를 설정하기 위해 **Add a data source**를 클릭합니다.
+
+     <img src="images/athena-setcrawler2.png">
+
+1. step 2 : Data Source로 S3를 선택하고 S3 path로는 Total_sales 데이터가 들어가 있는 폴더를 선택하기 위해 *glue-databrew-immersionday-xxx/shared/Total-Sales_xxx* 폴더를 선택합니다. 이외 설정은 그대로 유지하고 **Add on S3 data source**를 클릭합니다.
+     <img src="images/athena-setcrawler2A.png">
+
+1. step 2 : 설정한 Data sources(S3)를 확인하고 **Next**버튼을 클릭합니다.
+
+     <img src="images/athena-setcrawler2B.png">
+
+1. step 3 : IAM role에서 **Create new IAM role**를 클릭하여 S3와 연동을 위한 새로운 IAM role를 생성합니다.
+   
+     <img src="images/athena-setcrawler3.png">
+
+1. step 3 : IAM role 이름으로 맨 뒤에 `ID`를 입력합니다. 그 다음으로 **Create**버튼을 클릭합니다.
+  
+     <img src="images/athena-setcrawler3A.png">
+
+1. step 3 : 만들어진 **AWSGlueServiceRole-ID** IAM role를 선택하고, **Next**버튼을 클릭합니다.
+  
+     <img src="images/athena-setcrawler3B.png">
+
+1. step 4 : database 생성을 위해 **Add database**버튼을 클릭합니다.
+
+     <img src="images/athena-setcrawler4.png">
+
+1. step 4 : database 이름으로 `sales`를 입력합니다. 그 다음으로 **Create database**버큰을 클릭합니다.
+
+     <img src="images/athena-setcrawler4A.png">
+
+1. step 4 : 생성된 **sales** database를 확인하고, 이전 Glue 페이지로 돌아갑니다.
+
+     <img src="images/athena-setcrawler4B.png">
+
+1. step 5 : 설정한 crawler 설정들을 검토하고 **Create crawler**버튼을 클릭합니다.       
+
+     <img src="images/athena-setcrawler5.png">
+
+1. **Run crawler**를 클릭하여 생성한 totalsales crawler를 실행시킵니다.     
+   
+     <img src="images/athena-runcrawler1.png">
+
+1. Run이 완료되면 왼쪽 메뉴에서 **Data Catalog > Databases > Tables**를 선택합니다. 그 다음으로 생성된 table를 선택합니다.
+
+     <img src="images/athena-runcrawler2.png">
+
+1. 아래와 깉이 crawler를 통해 Datasoure(S3)에서 크롤링하여 자동으로 생성한 Data Catalog의 **Schema 정보**를 확인해보실 수 있습니다. 
+
+     <img src="images/athena-runcrawler3.png">
+     
+1. AWS 콘솔 상단 검색 창에서 **S3**로 검색하여, S3 서비스로 이동합니다.
+
+     <img src="images/athena-runcrawler2.png">
+
+1. S3 쿼리 출력 결과를 저장하기 위해 상단 메뉴에서 **Setting**를 선택합니다.
+
+     <img src="images/athena-s3A.png">
+
+1. Run이 완료되면 왼쪽 메뉴에서 **Databases > Tables**를 선택합니다. 그 다음으로 생성된 table를 선택합니다.
+
+     <img src="images/athena-runcrawler2.png">
 
 Crawler successfully starting
 The following crawler is now starting: "Total_sales"
