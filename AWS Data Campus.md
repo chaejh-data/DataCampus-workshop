@@ -737,7 +737,15 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 1. **Job Details**탭에서 관련 스케쥴을 확인할 수 있으며 스케쥴에 따라 Job이 진행됩니다.
 
 
-### 4.4 
+### 4.4 Analyze data with Athena
+
+1.  AWS 콘솔 상단 검색 창에서 **Glue**로 검색하여, S3 서비스로 이동합니다.
+     <img src="images/athena-glue.png">
+
+1. 왼쪽 메뉴에서 **Crawlers** 메뉴를 클릭합니다.
+     <img src="images/athena-crwlers-main.png">
+1. 
+
 
 Crawler successfully starting
 The following crawler is now starting: "Total_sales"
