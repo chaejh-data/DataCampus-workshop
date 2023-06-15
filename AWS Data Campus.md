@@ -1049,22 +1049,22 @@ feature-engineering를 위한 dataset 연결이 필요합니다.
 
    <img src="images/databrew-create-project-1.png">
 
-1. Project name를 immserionday-feature-engineering으로 입력합니다.
+1. Project name를 `immserionday-feature-engineering`으로 입력합니다.
 
    <img src="images/db-imm-project-1.png">
 
-1. My dataset을 클릭한 다음 dataset name을 선택하여 이전에 생성한 dataset을 선택합니다.
+1. My dataset을 클릭한 다음 dataset name을 선택하여 이전에 생성한 dataset(databrew-immersion-day-feature-engineering-census-adult)을 선택합니다.
 
    <img src="images/db-imm-project-2.png">
 
 1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
-1. 오른쪽 하단에 **Create project**을 선택합니다.
-    DataBrew가 새 세션을 시작합니다.
+1. 오른쪽 하단에 **Create project**을 선택합니다. DataBrew가 새 세션을 시작합니다.
 
    <img src="images/databrew-project-initiation.png">
 
-    세션이 시작되면 각 데이터 컬럼에 대한 메트릭이 포함된 데이터 샘플이 표시되며, DataBrew recipe를 만들 준비가 완료됩니다.
-    databrew-project-initiation
+   세션이 시작되면 각 데이터 컬럼에 대한 메트릭이 포함된 데이터 샘플이 표시되며, DataBrew recipe를 만들 준비가 완료됩니다.
+   
+   <img src="images/databrew-project-initiation.png">
 
    <img src="images/databrew-project-2.png">
 
