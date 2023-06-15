@@ -1,4 +1,4 @@
-# 데이터 실습 워크샵
+# AWS Data Campus
 
 ## 1. Introduction 
 <!-- 15분 -->
@@ -737,7 +737,12 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 1. **Job Details**탭에서 관련 스케쥴을 확인할 수 있으며 스케쥴에 따라 Job이 진행됩니다.
 
 
-### 4.4 Visualize In QuickSight
+### 4.4 
+
+Crawler successfully starting
+The following crawler is now starting: "Total_sales"
+
+### 5.4 Visualize In QuickSight
 
 이 섹션에서는 데이터를 탐색하여 어떤 제품이 어느 지역에서 가장 많이 판매되는지 알아보겠습니다. 데이터를 탐색하기 위해 Amazon QuickSight를 사용할 것입니다. Amazon QuickSight는 클라우드용으로 구축된 확장 가능한 서버리스 임베디드형 비즈니스 인텔리전스(BI) 서비스입니다. QuickSight를 사용하면 머신 러닝 기반 인사이트가 포함된 대화형 BI 대시보드를 쉽게 만들고 게시할 수 있습니다. QuickSight 대시보드는 모든 기기에서 액세스할 수 있으며, 애플리케이션, 포털 및 웹사이트에 원활하게 임베드할 수 있습니다.
 
@@ -921,6 +926,12 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
 
     그래프에서 Collar를 선택하면 대부분의 지역에서 기존 제품이 신제품보다 더 많이 팔린다는 것을 명확하게 알 수 있습니다. 신제품이 전혀 판매되지 않는 지역도 있습니다.
 
+
+
+
+
+
+
 ## 5. Feature Engineering
 
 ### 5.1 Connect a new dataset
@@ -1012,7 +1023,6 @@ missing values(누락된 값을 처리하는 방법에는 여러 가지가 있�
    <img src="images/databrew-outliers-3.png">
 1. 그런 다음 Delete rows를 클릭하고 Apply을 클릭합니다.
    <img src="images/databrew-outliers-4.png">
-
 
 ### 5.4 Scaling data
 
