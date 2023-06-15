@@ -1373,7 +1373,7 @@ age column을 선택하고 Scale을 클릭한 다음 Min-max normalization를 �
 1. 아래와 같이 컬럼에 대한 특정과 타입이 지정된 것을 확인하실 수 있습니다. **Quick build**를 클릭합니다.
     Quick build - 표준 빌드에 비해 훨씬 짧은 시간 내에 모델을 빌드하며, 잠재적 정확도를 속도와 바꿀 수 있습니다.
     Standard build - AutoML로 구동되는 최적화된 프로세스를 통해 최상의 모델을 빌드하며, 속도 대신 정확도를 극대화합니다.
-    원하는 옵션을 선택하실 수 있습니다. Quick build는 일반적으로 약 15~20분이 소요되며 Standard buil은 약 4시간이 소요됩니다. 
+    원하는 옵션을 선택하실 수 있습니다. Quick build는 일반적으로 약 15~20분이 소요되며 Standard build은 약 4시간이 소요됩니다. 
     여기서는 Quick build 옵션을 선택하고 모델 학습을 시작하겠습니다.
 
      <img src="images/createcanvas19.png">
@@ -1396,7 +1396,7 @@ age column을 선택하고 Scale을 클릭한 다음 Min-max normalization를 �
 
      <img src="images/createcanvas21.png">
 
-1.  항목을 클릭하고 항목 드롭다운 목록에서 항목을 선택합니다. 여기서 **item:11, Product_Type:Toys**를 선택하면, Canvas가 해당 항목에 대한 예측을 생성하여 평균 예측(즉, 타임스탬프에 대한 해당 항목의 수요)을 표시합니다. Canvas는 상한, 하한 및 예상 예측에 대한 결과를 모두 제공합니다. 일반적으로 단일 예측 지점보다는 경계가 있는 것이 좋으므로 사용 사례에 가장 적합한 것을 선택할 수 있도록 하한을 사용하여 자원 낭비를 줄이거나 상한을 따라 고객 수요를 충족하도록 선택할 수 있습니다.
+1.  item을 클릭하고 드롭다운 목록에서 **item:11, Product_Type:Toys**를 선택합니다. Canvas는 해당 항목에 대한 예측을 생성하여 평균 예측(즉, 타임스탬프에 대한 해당 항목의 수요)을 표시합니다. **Canvas는 상한, 하한 및 예상 예측**에 대한 결과를 모두 제공합니다. 일반적으로 단일 예측 지점보다는 경계가 있는 것이 좋으므로 사용 사례에 가장 적합한 것을 선택할 수 있도록 하한을 사용하여 자원 낭비를 줄이거나 상한을 따라 고객 수요를 충족하도록 선택할 수 있습니다.
 생성된 예측의 경우 다운로드 드롭다운 메뉴 버튼을 클릭하여 예측 차트를 이미지로 다운로드하거나 예측 예측 값을 CSV 파일로 다운로드할 수 있습니다.
 
      <img src="images/createcanvas22.png">
@@ -1405,11 +1405,11 @@ age column을 선택하고 Scale을 클릭한 다음 Min-max normalization를 �
 
      <img src="images/createcanvas23.png">
 
-1. All items에 대해서 Start Predictions 버튼을 클릭하면 아래와 같이 예측 생성이 시작됩니다.
+1. All items에 대해서 **Start Predictions** 버튼을 클릭하면 아래와 같이 예측 생성이 시작됩니다.
 
      <img src="images/createcanvas24.png">
 
-1. 상태가 준비됨으로 표시되면 이제 세 개의 세로 점을 클릭하고 Preview를 클릭합니다.
+1. 상태가 준비됨으로 표시되면 이제 세 개의 세로 점을 클릭하고 **Preview**를 클릭합니다.
 
      <img src="images/createcanvas25.png">
 
