@@ -1032,34 +1032,40 @@ feature-engineering를 위한 dataset 연결이 필요합니다.
 
    <img src="images/connecting-to-dataset-1.png">
 
-1. DataSet 이름은 `atabrew-immersion-day-feature-engineering-census-adult`로 입력하고, S3 소스를 입력하고, 파일 유형으로 *CSV*를 선택하고, 구분 기호로 **Comma(쉼표)**를 선택하고, **Treat first row as a header**(첫 번째 행을 헤더로 처리)를 선택합니다.
+1. DataSet 이름은 `databrew-immersion-day-feature-engineering-census-adult`로 입력하고, S3 소스 (*glue-databrew-immersionday-xxx/feature-engineering/census-adult.csv*)선택, 파일 유형으로 *CSV*를 구분 기호로 **Comma**(쉼표)를 선택, **Treat first row as a header**(첫 번째 행을 헤더로 처리)를 선택합니다.
 1. Create dataset 버튼을 클릭합니다.
 
    <img src="images/connecting-to-dataset-2.png">
    <img src="images/connecting-to-dataset-3.png">
 
-1. dataset 연결되면 메인 화면의 Dataset dashboard에 dataset 이름이 표시됩니다.
+1. dataset 연결되면 메인 화면의 Dataset dashboard에 dataset 이름(databrew-immersion-day-feature-engineering-census-adult)이 표시됩니다.
 
    <img src="images/connecting-to-dataset-4.png">
-
-1. 최근에 만든 데이터 세트에서 **data profile job** 을 실행합니다. 지침은 모듈 5.2 데이터 프로파일 작업을 참조하세요. data profile 결과를 사용하여 Feature Engineering에 도움을 받을 수 있습니다
-
 
 ### 5.2 Create a project
 
 1. 새 프로젝트를 만들기 위해 왼쪽 메뉴에서 **PROJECTS**를 클릭하고
 1. 오른쪽에서 Create project 버튼을 클릭합니다.
-   <img src="images/cdatabrew-create-project-1.png">
+
+   <img src="images/databrew-create-project-1.png">
+
 1. Project name를 immserionday-feature-engineering으로 입력합니다.
+
    <img src="images/db-imm-project-1.png">
-1. My dataset을 클릭한 다음 dataset name을 선택하여 이전에 생성한 데이터 집합을 선택합니다.
+
+1. My dataset을 클릭한 다음 dataset name을 선택하여 이전에 생성한 dataset을 선택합니다.
+
    <img src="images/db-imm-project-2.png">
+
 1. **Permissions** 섹션의 **Role name**를 드롭다운하여 *AWSGlueDataBrewServiceRole-ID* 역할을 선택합니다.
 1. 오른쪽 하단에 **Create project**을 선택합니다.
-DataBrew가 새 세션을 시작합니다.
+    DataBrew가 새 세션을 시작합니다.
+
    <img src="images/databrew-project-initiation.png">
-세션이 시작되면 각 데이터 컬럼에 대한 메트릭이 포함된 데이터 샘플이 표시되며, DataBrew recipe를 만들 준비가 완료됩니다.
-databrew-project-initiation
+
+    세션이 시작되면 각 데이터 컬럼에 대한 메트릭이 포함된 데이터 샘플이 표시되며, DataBrew recipe를 만들 준비가 완료됩니다.
+    databrew-project-initiation
+
    <img src="images/databrew-project-2.png">
 
 ### 5.3 Handling data quality
