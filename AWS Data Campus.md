@@ -1153,11 +1153,11 @@ missing values(누락된 값을 처리하는 방법에는 여러 가지가 있�
 
    <img src="images/databrew-binning-3.png">
 
-1. Add another bin를 클릭하여 구간차원 값을 하나 더 추가합니다.
+1. **Add another bin**를 클릭하여 구간차원 값을 하나 더 추가합니다.
 
    <img src="images/databrew-binning-4.png">
 
-1. Bin names을 아래 스크린샷에 정의된 값으로 변경합니다.
+1. Bin 이름(some, elementary, medium, high)을 아래 스크린샷에 정의된 값으로 변경합니다.
 1. Bin 범위 값을 재분배하려면 auto distribution range를 클릭합니다.
 
    <img src="images/databrew-binning-5.png">
@@ -1166,7 +1166,7 @@ missing values(누락된 값을 처리하는 방법에는 여러 가지가 있�
 
    <img src="images/databrew-binning-6.png">
 
-1. destination column 이름을 education_num_bin으로 입력하고 Apply을 클릭합니다.
+1. destination column 이름을 `education_num_bin`으로 입력하고 Apply을 클릭합니다.
 
    <img src="images/databrew-binning-7.png">
 
@@ -1179,16 +1179,24 @@ missing values(누락된 값을 처리하는 방법에는 여러 가지가 있�
 Log Transformation(로그 변환)은 왜곡된 데이터 분포를 정상적으로 만드는 데 자주 사용됩니다. 
 
 1. 로그를 변환할 source 컬럼(age)을 선택합니다.
-1. 그런 다음 Create 아이을 클릭하고 Based on a function를 선택합니다.
+1. 그런 다음 **Create 아이콘**을 클릭하고 Based on a function를 선택합니다.
+
    <img src="images/databrew-log-transform-1.png">
+
 1. 오른쪽에서 아래 값으로 채워줍니다.
-select function : LOG
-Values using : Source column
-Base(로그 기준) : 10
+    select function : LOG
+    Values using : Source column
+    Source column : age
+    Base(로그 기준) : 10
+
    <img src="images/databrew-log-transform-3.png">
-1. 아래로 스크롤하여 Destination column에 age_log를 입력해주고, Apply transform 대상으로 All rows에 변환을 선택한 후 Apply 클릭합니다.
+
+1. 아래로 스크롤하여 Destination column으 `age_log`를 입력해주고, Apply transform 대상으로 **All rows**에 변환을 선택한 후 Apply 클릭합니다.
+
    <img src="images/databrew-log-transform-4.png">
+
 1. 새 컬럼에서 결과를 검토합니다.
+
    <img src="images/databrew-log-transform-5.png">
 
 #### One-Hot-Encoding
@@ -1196,30 +1204,48 @@ Base(로그 기준) : 10
 머신러닝 알고리즘은 입력 변수가 숫자이어야 하는 label data에는 직접적으로 작동할 수 없는 경우가 많습니다. 
 One-Hot-Encoding은 서로 연관성이 없는 범주형 데이터를 숫자 데이터로 변환하는 기술입니다.    
 
-1. 인코딩할 source 컬럼(education)를 선택하고 encode 아이콘을 클릭한 후 One-hot encode 열을 선택합니다.
+1. 인코딩할 source 컬럼(education)를 선택하고, **ENCODE 아이콘**을 클릭한 후 **One-hot encode column**을 선택합니다.
+
    <img src="images/databrew-one-hot-1.png">
+
 1. 아래로 스크롤하여 All rows을 선택하고 Apply을 클릭합니다.
+
    <img src="images/databrew-one-hot-2.png">
+
 1. DataBrew는 dataset의 label을 기반으로 필요한 컬럼을 생성하고 1과 0으로 적절하게 인코딩합니다.
+
    <img src="images/databrew-one-hot-2.png">
 
 #### Categorical Mapping
 
 불연속형 값의 범주형 매핑을 순서가 없는 값 또는 순서가 있는 숫자 집합으로 만들려면 다음과 같이 하세요:
 
-1. 변환할 source 컬럼(workclass) 클릭한 다음 Mapping 아이콘을 클릭하고 Categorical mapping을 선택합니다.
+1. 변환할 source 컬럼(workclass) 클릭한 다음 **Mapping 아이콘**을 클릭하고 **Categorical mapping**을 선택합니다.
+
    <img src="images/databrew-catmapping-1.png">
-1. source column으로 workclass 확인하고, Mapping options으로 map all values 을 선택한 다음 Map values to numeric values을 체크합니다.
+
+1. source column으로 workclass 확인하고, **Mapping options**으로 **map all values**을 선택한 다음 **Map values to numeric values**을 체크합니다.
+
    <img src="images/databrew-catmapping-2.png">
+
 1. 불연속형 카테고리를 적절한 숫자 값에 매핑합니다.
+
    <img src="images/databrew-catmapping-3.png">
-1. Destination Colum에 workclass_mapped를 입력하고 All rows을 적용한 다음 Apply을 클릭합니다.
+
+1. Other values로 Delete all rows with other values를 선택하고, Destination Colum에 `workclass_mapped`를 입력하고 **All rows**을 적용한 다음 Apply을 클릭합니다.
+
    <img src="images/databrew-catmapping-4.png">
+
 1. 결과를 확인합니다. 매핑된 값은 두 자리 수이며 소수점이 있습니다.
+
    <img src="images/databrew-catmapping-5.png">
+
 1. 컬럼 이름 옆의 #을 클릭하고 integer를 선택하여 변경할 수 있습니다.
+
    <img src="images/databrew-catmapping-6.png">
+
 1. 이제 매핑된 integer 값으로 형식이 지정됩니다.
+
    <img src="images/databrew-catmapping-7.png">
 
 ### 5.5 Normalization
@@ -1232,21 +1258,31 @@ age column을 선택하고 Scale을 클릭한 다음 Min-max normalization를 �
 
 #### Min-Max Normalization
 
-1. *age column*을 선택하고 **Scale**을 클릭한 다음 **Min-max normalization**를 선택합니다.
+1. source 컬럼(*age*) 클릭한 다음 **Scale 아이콘** 클릭합니다. 다음 **Min-max normalization**를 선택합니다.
+
    <img src="images/databrew-normalized-min-max-1.png">
+
 1. 아래로 스크롤하여 **Destination column**을 `age_normalized_mean_max`로 입력하고 **All rows**을 클릭한 다음 **Apply**을 클릭합니다.
+
    <img src="images/databrew-normalized-min-max-2.png">
+
 1. 샘플 데이터를 확인하여 **Min-Max 정규화**된 데이터가 포함된 새 컬럼을 확인합니다.
+
    <img src="images/databrew-normalized-min-max-3.png">
 
 #### Z-점수 정규화
 
-1. *age column*을 선택하고 **Scale**을 클릭한 다음
+1. 다시 source 컬럼(*age*) 클릭한 다음 **Scale 아이**을 클릭한 다음
 1. **Z-score normalization**를 선택합니다.
+
   <img src="images/databrew-z-score-1.png">
+
 1. 아래로 스크롤하여 **Destination column**을 `age_normalized_z_score`로 입력하고 **All rows**을 클릭한 다음 **Apply**을 클릭합니다.
+
   <img src="images/databrew-z-score-2.png">
+
 1. 샘플 데이터를 확인하여 **z-score 정규화**된 데이터가 포함된 새 컬럼을 확인합니다.
+
   <img src="images/databrew-z-score-3.png">
 
 
