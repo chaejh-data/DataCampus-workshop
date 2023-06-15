@@ -740,11 +740,16 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 ### 4.4 Analyze data with Athena
 
 1.  AWS 콘솔 상단 검색 창에서 **Glue**로 검색하여, S3 서비스로 이동합니다.
+
      <img src="images/athena-glue.png">
 
 1. 왼쪽 메뉴에서 **Crawlers** 메뉴를 클릭합니다.
+
      <img src="images/athena-crwlers-main.png">
-1. 
+
+1. step 1 : set crawler properties에서 crawler 이름으로 `totalsales`로 입력합니다.
+
+     <img src="images/athena-crwlers-main.png">
 
 
 Crawler successfully starting
