@@ -1287,6 +1287,12 @@ age column을 선택하고 Scale을 클릭한 다음 Min-max normalization를 �
 
 ### 5.6 Time series forecasting(Sagemaker canvas)
 
+이제 제품/우편별 판매금액 데이터로 Toy 신제품/기존제품의 2개월 판매량을 예측해보도록 하겠습니다.
+
+1. 아래 sales-by-product-zip.cvs 파일을 클릭 후 상단 위 ... 클릭하여 다운로드 합니다.
+
+    <a href="data/sales-by-product-zip.csv"> sales-by-product-zip.csv
+
 1. AWS 콘솔 상단 검색 창에서 **Amazon SageMaker**로 검색하여, Amazon SageMaker 서비스로 이동합니다. 
 
    <img src="images/createcanvas1.png">
@@ -1311,34 +1317,106 @@ age column을 선택하고 Scale을 클릭한 다음 Min-max normalization를 �
 
    <img src="images/createcanvas6.png">
 
+1. IAM role 생성이 완료되면 Submit 버튼을 클릭합니다.
 
-1. sales-by-product-zip cvs 파일을 다운로드 합니다.
+     <img src="images/createcanvas7.png">
 
-<a href="data/sales-by-product-zip.csv"> cvs파일 > 상단 위 ... 클릭하여 다운로드
+1. 왼쪽 메뉴에서 **Canvas**를 클릭하여 생성한 user profile로 **open Canvas**를 클릭합니다. 
 
+     <img src="images/createcanvas8.png">
 
+1. SageMaker Studio에 처음 액세스할 때 페이지가 로드되는 데 3~5분 정도 걸릴 수 있습니다.
 
+     <img src="images/createcanvas9.png">
 
+1. 다음과 같은 새 웹 페이지로 리디렉션됩니다
 
+     <img src="images/createcanvas10.png">
 
+1. 왼쪽 메뉴에서 **DataSets**를 클릭합니다. 그 다음으로 **Create 클릭 > Tabular 선택**합니다.
 
+     <img src="images/createcanvas11.png">
 
+1. **Dataset** 이름으로 `sales`를 입력합니다. 그 다음으로 **Create** 버튼을 클릭합니다.
 
+     <img src="images/createcanvas12.png">
 
+1. 앞서 다운받았던 *sales-by-product-zip.csv* 파일을 Drag and Drop 또는 Select file from your computer 형식으로 업로드합니다.
 
+     <img src="images/createcanvas13.png">
 
+1. preview를 통해 데이터를 검토하고 **Create dataset**버튼을 클릭합니다.
 
+     <img src="images/createcanvas14.png">
 
+1. 생성된 Dataset(sales)를 선택하고 **Create a model**를 클릭합니다.
 
+     <img src="images/createcanvas15.png">
 
+1. **Model** 이름으로 `sales`를 입력합니다. Problem type은 시계열 예측을 위해 **Predictive analysis**를 선택합니다. 그 다음으로 **Create** 버튼을 클릭합니다.
 
+     <img src="images/createcanvas16.png">
 
+1. 맨 왼쪽부터 Target column 즉, 예측하고자 하는 컬럼 이름인 **Total_Sales_sum** 넣어줍니다.
 
+     <img src="images/createcanvas17.png">
 
+1. 아래와 같이 시계열 예측을 위한 설정 정보를 넣어줍니다.
 
+    Item ID column 데이터 집합의 항목을 고유하게 식별하는 컬럼 : `Product_Id`
+    Group column 예측을 그룹화하는 컬럼 : `Product_type`
+    Time stamp column 타임스탬프가 포함된 컬럼 : `Txn_Date`
+    Months 예측할 월 수 지정 : `2`
 
+     <img src="images/createcanvas18.png">
 
+1. 아래와 같이 컬럼에 대한 특정과 타입이 지정된 것을 확인하실 수 있습니다. **Quick build**를 클릭합니다.
+    Quick build - 표준 빌드에 비해 훨씬 짧은 시간 내에 모델을 빌드하며, 잠재적 정확도를 속도와 바꿀 수 있습니다.
+    Standard build - AutoML로 구동되는 최적화된 프로세스를 통해 최상의 모델을 빌드하며, 속도 대신 정확도를 극대화합니다.
+    원하는 옵션을 선택하실 수 있습니다. Quick build는 일반적으로 약 15~20분이 소요되며 Standard buil은 약 4시간이 소요됩니다. 
+    여기서는 Quick build 옵션을 선택하고 모델 학습을 시작하겠습니다.
 
+     <img src="images/createcanvas19.png">
+
+1. build 수행 시간은 14-20분 정도 소요됩니다.
+
+     <img src="images/createcanvas20.png">
+
+1. 데이터 분석 결과는 다음과 같습니다. 예측을 위해서는 **Predict** 버튼을 클립합니다.
+
+    평균 가중 사분위수 손실(wQL): P10, P50 및 P90 사분위수에서 정확도의 평균을 구하여 예측을 평가합니다. 값이 낮을수록 더 정확한 모델임을 나타냅니다.
+
+    가중 절대 오차(WAPE): 절대 오차의 합을 절대 목표의 합으로 정규화한 값으로, 예측된 값과 관측된 값의 전체 편차를 측정합니다. 값이 낮을수록 더 정확한 모델을 의미하며, WAPE = 0은 오류가 없는 모델을 의미합니다.
+
+    평균 제곱근 오차(RMSE): 평균 제곱 오차의 제곱근입니다. RMSE가 낮을수록 더 정확한 모델을 나타내며, RMSE = 0은 오류가 없는 모델을 의미합니다.
+
+    평균 절대 백분율 오차(MAPE): 모든 시점에 대한 평균 오차(평균 예측 값과 실제 값의 백분율 차이)를 백분율로 나타낸 값입니다. 값이 낮을수록 더 정확한 모델을 의미하며, MAPE = 0은 오류가 없는 모델을 의미합니다.
+
+    평균 절대 스케일 오차(MASE): 예측의 평균 절대 오차를 단순 기준선 예측 방법의 평균 절대 오차로 정규화한 값입니다. 값이 낮을수록 더 정확한 모델임을 나타내며, MASE < 1은 기준선보다 더 나은 것으로 추정되고 MASE > 1은 기준선보다 더 낮은 것으로 추정됩니다.
+
+     <img src="images/createcanvas21.png">
+
+1.  항목을 클릭하고 항목 드롭다운 목록에서 항목을 선택합니다. 여기서 **item:11, Product_Type:Toys**를 선택하면, Canvas가 해당 항목에 대한 예측을 생성하여 평균 예측(즉, 타임스탬프에 대한 해당 항목의 수요)을 표시합니다. Canvas는 상한, 하한 및 예상 예측에 대한 결과를 모두 제공합니다. 일반적으로 단일 예측 지점보다는 경계가 있는 것이 좋으므로 사용 사례에 가장 적합한 것을 선택할 수 있도록 하한을 사용하여 자원 낭비를 줄이거나 상한을 따라 고객 수요를 충족하도록 선택할 수 있습니다.
+생성된 예측의 경우 다운로드 드롭다운 메뉴 버튼을 클릭하여 예측 차트를 이미지로 다운로드하거나 예측 예측 값을 CSV 파일로 다운로드할 수 있습니다.
+
+     <img src="images/createcanvas22.png">
+
+1. 여기서 **item:22, Product_Type:Toys**를 선택하여 기존제품과 신제품의 예측을 비교해볼 수 있습니다.
+
+     <img src="images/createcanvas23.png">
+
+1. All items에 대해서 Start Predictions 버튼을 클릭하면 아래와 같이 예측 생성이 시작됩니다.
+
+     <img src="images/createcanvas24.png">
+
+1. 상태가 준비됨으로 표시되면 이제 세 개의 세로 점을 클릭하고 Preview를 클릭합니다.
+
+     <img src="images/createcanvas25.png">
+
+1. 그러면 예측 결과가 Preview 페이지에 열립니다. 이제 CSV 다운로드를 클릭하여 이 결과를 로컬로 다운로드 받을 수 있습니다.
+     <img src="images/createcanvas25.png">
+
+1. 축하합니다! LAB5까지 모두 완료했습니다.
 
 
 
