@@ -1,4 +1,4 @@
-Txn_Date,Product_Id,"Product Type",Zip,Total_Sales_sum
+Txn_Date,Product_Id,Product_Type,Zip,Total_Sales_sum
 2021-01,6,Gates,30007,350.0
 2021-01,3,Beds,30050,330.0
 2021-01,9,Bowls,30023,10.0
