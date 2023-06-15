@@ -590,7 +590,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
      <img src="images/total_sales_15.png">
 
-1. 상단 메뉴에서 **column 아이콘**을 선택하여 **Product Type > Product_Type**으로 컬럼이름 변경합니다.
+1. 상단 메뉴에서 **column 아이콘**을 선택하여 **Product Type > Product_Type**으로 컬럼 이름을 변경합니다.
 
      <img src="images/total_rename_producttype.png">
 
@@ -749,7 +749,7 @@ DataBrew는 recipe를 만들 때 설정한 지침을 실행하여, 데이터를 
 
 1. 왼쪽 메뉴에서 **Crawlers** 메뉴를 클릭합니다. 그 다음 Create crawler 버튼을 눌러눕니다.
 
-     <img src="images/athena-crwalers-main.png">
+     <img src="images/athena-crawlers-main.png">
 
 1. step 1 : set crawler properties에서 crawler 이름으로 `totalsales`로 입력합니다.
 
@@ -957,7 +957,6 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
 
    <img src="images/salesbyproduct.png">
 
-
 #### Sales per Location
 
 1. 지도 그래프를 추가하여 위치별 매출을 좀 더 자세하게 분석해 보겠습니다. 화면 오른쪽 상단에서 다음과 같이 화면 왼쪽에 있는 **ADD**를 클릭하고 **Add calculated field**를 선택합니다:
@@ -1021,12 +1020,6 @@ ifelse({Product_Id}<=11,'Old Product','New Product')
    <img src="images/target_zip.png">
 
     그래프에서 Collar를 선택하면 대부분의 지역에서 기존 제품이 신제품보다 더 많이 팔린다는 것을 명확하게 알 수 있습니다. 신제품이 전혀 판매되지 않는 지역도 있습니다.
-
-
-
-
-
-
 
 ## 5. Feature Engineering
 
