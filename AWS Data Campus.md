@@ -1,9 +1,9 @@
 # AWS Data Campus
 
-## 1. Introduction 
+## Introduction 
 <!-- 15분 -->
 
-### 1.1 시작하기 전
+### 0.1 시작하기 전
 <!-- 5분 -->
 이 핸즈온랩에 여러분들은 가상 시나리오를 통해 아래 과정들을 간단하게 살펴볼 예정입니다. 
 1) 데이터 분석을 위한 데이터 클렌징과 정규화 작업(Lab 2~3)
@@ -27,7 +27,24 @@
 
 <img src="images/dataflow.png">
 
-### 1.2 이벤트 계정으로 AWS 콘솔 접속 하기
+### 0. 워크샵 전 준비 사항
+
+:::alert{header="Important" type="warning"}
+실습을 시작하기 전, **AWS 계정으로 시작** 혹은 **AWS EventEngine으로 시작** 두 가지 지침서 중 하나를 선택해서 AWS 서비스를 사용할 계정을 준비합니다.
+:::
+
+::children
+AWS 계정으로 시작
+AWS EventEngine으로 시작
+
+준비가 완료되면 다음 페이지부터 실습을 진행하면 됩니다.
+
+또한, 실습을 하는 동안, 검증된 호환성을 위하여 **Mozilla Firefox** 또는 **Google Chrome Browser** 사용을 권장합니다.
+    ![]("images/web-browsers.svg")
+
+### 0.1 AWS 계정으로 시작
+
+### 0.2 AWS Event Engine으로 시작
 <!-- 10분 -->
 1. AWS Wokshop Portal에 로그인하여 실습을 진행하실 경우 Team Hash 값이 필요합니다. 여기를 클릭 한 후, 이벤트 주최자로부터 받은 12자리 Participant Hash 값을 입력하면 오른쪽 하단 버튼이 **Accept Terms & Login**으로 변경됩니다. 다음 단계로 넘어가기 위해 해당 버튼을 클릭합니다.
 
@@ -53,7 +70,6 @@
 
     <img src="images/5EventEngineConsoleLogin.png">
 
-위의 단계를 모두 수행했다면 이제 실습을 시작할 수 있습니다.
 
 ### 1.3 S3버킷 생성하기(CloudFormation)
 <!--  5분 -->
@@ -80,6 +96,7 @@
 1. *glue-databrew-immersionday* 버킷에는 다음과 같은 구조를 가지고 있습니다.
 
     <img src="images/s3-bucket.png">
+
 
 ## 2. Profiling and Data Quality
 <!-- 30분 -->
